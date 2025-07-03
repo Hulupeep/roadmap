@@ -33,18 +33,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -30px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #0A85FF;
-            border: 4px solid #9ACDFF;
-        }
     </style>
 </head>
 <body class="bg-[#111827] text-gray-200">
@@ -58,7 +46,7 @@
 
         <main>
             <section id="architecture" class="my-16">
-                <h2 class="text-3xl font-bold text-center text-white mb-2">Goal: An engineering roadmap to a testable AGI-like platform. </h2>
+                <h2 class="text-3xl font-bold text-center text-white mb-2">Goal: An engineering roadmap to a testable AGI-like platform.</h2>
                 <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">The ecosystem is built on a powerful three-layer stack. However, inherent architectural tensions between legacy compatibility and modern demands create a clear mandate for evolution.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -143,34 +131,131 @@
             </section>
 
             <section id="roadmap" class="my-20">
-                <h2 class="text-3xl font-bold text-center text-white mb-2">A Strategic Roadmap to Agentic AGI</h2>
-                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">To maximize impact and manage risk, the initiatives are sequenced into a five-step plan. Foundational security and core refactors come first, creating a stable base for layering on advanced learning capabilities.</p>
-                <div class="relative pl-8 border-l-2 border-dashed border-gray-600">
-                    <div class="mb-12 relative timeline-item">
-                        <span class="absolute -left-[45px] top-1/2 -translate-y-1/2 text-2xl font-black text-gray-600">1</span>
-                        <h3 class="text-xl font-bold text-[#9ACDFF]">Fortify the Foundation</h3>
-                        <p class="text-gray-400">Lock down security and tracing first. Frontier AI research without robust guardrails is a governance nightmare. <span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded">U-1</span> <span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded">U-2</span></p>
+                <h2 class="text-3xl font-bold text-center text-white mb-2">Proposed Development Roadmap</h2>
+                <p class="text-center text-gray-400 max-w-2xl mx-auto mb-12">To maximize impact and manage risk, the initiatives are sequenced into a five-phase plan. Foundational security and core refactors come first, creating a stable base for layering on advanced learning capabilities.</p>
+                
+                <div class="space-y-8">
+                    <!-- Phase 1 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4"><span class="text-gray-500">Phase 1:</span> Fortify the Foundation</h3>
+                        <div class="space-y-3">
+                            <div class="bg-sky-800/50 p-4 rounded-lg border border-sky-700">
+                                <p class="font-bold"><span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded mr-2">U-1</span>Advanced Tracing & Visualization</p>
+                                <p class="text-sm text-gray-300 mt-1">Implement OpenTelemetry to debug and visualize swarm behavior. <em class="text-sky-300/80">Why? To make debugging complex, multi-agent interactions possible.</em></p>
+                            </div>
+                            <div class="bg-sky-800/50 p-4 rounded-lg border border-sky-700">
+                                <p class="font-bold"><span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded mr-2">U-2</span>Role-Based Security Sandboxing</p>
+                                <p class="text-sm text-gray-300 mt-1">Introduce granular, mandatory permissions for all agent actions. <em class="text-sky-300/80">Why? To prevent agents from causing accidental or malicious damage to the system.</em></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-12 relative timeline-item">
-                         <span class="absolute -left-[45px] top-1/2 -translate-y-1/2 text-2xl font-black text-gray-600">2</span>
-                        <h3 class="text-xl font-bold text-[#9ACDFF]">Modernize the Core</h3>
-                        <p class="text-gray-400">Ship the graph-based `NetworkBuilder` and minimal Transformer primitives. This unblocks all downstream model-level innovation. <span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded">U-5</span> <span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded">N-4</span></p>
+                    <!-- Phase 2 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4"><span class="text-gray-500">Phase 2:</span> Modernize the Core</h3>
+                        <div class="space-y-3">
+                            <div class="bg-sky-800/50 p-4 rounded-lg border border-sky-700">
+                                <p class="font-bold"><span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded mr-2">U-5</span>Ergonomic NetworkBuilder</p>
+                                <p class="text-sm text-gray-300 mt-1">Refactor the core builder to support graph-based, non-linear network topologies. <em class="text-sky-300/80">Why? To unlock the ability to build modern, non-linear network architectures.</em></p>
+                            </div>
+                            <div class="bg-indigo-800/50 p-4 rounded-lg border border-indigo-700">
+                                <p class="font-bold"><span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded mr-2">N-4</span>Transformer Primitives</p>
+                                <p class="text-sm text-gray-300 mt-1">Add foundational support for Transformer architecture building blocks. <em class="text-indigo-300/80">Why? To modernize the core library and enable building/training state-of-the-art models.</em></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-12 relative timeline-item">
-                         <span class="absolute -left-[45px] top-1/2 -translate-y-1/2 text-2xl font-black text-gray-600">3</span>
-                        <h3 class="text-xl font-bold text-[#9ACDFF]">Enable Adaptive Learning</h3>
-                        <p class="text-gray-400">Layer the EvoMAC loop and RL pattern-selector on existing SPARC modes. This will yield measurable gains on benchmarks. <span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded">N-1</span> <span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded">N-3</span></p>
+                    <!-- Phase 3 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4"><span class="text-gray-500">Phase 3:</span> Enable Adaptive Learning</h3>
+                        <div class="space-y-3">
+                             <div class="bg-indigo-800/50 p-4 rounded-lg border border-indigo-700">
+                                <p class="font-bold"><span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded mr-2">N-1</span>Self-Evolving Collaboration</p>
+                                <p class="text-sm text-gray-300 mt-1">Implement "textual backpropagation" for adaptive swarm strategies. <em class="text-indigo-300/80">Why? To create a system that learns from its mistakes and adapts its strategy automatically.</em></p>
+                            </div>
+                             <div class="bg-indigo-800/50 p-4 rounded-lg border border-indigo-700">
+                                <p class="font-bold"><span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded mr-2">N-3</span>RL-driven Cognitive Patterns</p>
+                                <p class="text-sm text-gray-300 mt-1">Allow agents to learn the optimal cognitive pattern for a given task. <em class="text-indigo-300/80">Why? To allow the swarm to intelligently select the best "thinking style" for any given task.</em></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-12 relative timeline-item">
-                         <span class="absolute -left-[45px] top-1/2 -translate-y-1/2 text-2xl font-black text-gray-600">4</span>
-                        <h3 class="text-xl font-bold text-[#9ACDFF]">Explore New Paradigms</h3>
-                        <p class="text-gray-400">Introduce the Swarm-PSO trainer on smaller forecasting networks to evaluate its performance against traditional baselines. <span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded">N-2</span></p>
+                    <!-- Phase 4 -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4"><span class="text-gray-500">Phase 4:</span> Explore New Paradigms</h3>
+                        <div class="space-y-3">
+                             <div class="bg-indigo-800/50 p-4 rounded-lg border border-indigo-700">
+                                <p class="font-bold"><span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded mr-2">N-2</span>Model Swarms Trainer</p>
+                                <p class="text-sm text-gray-300 mt-1">Introduce gradient-free model training using Particle Swarm Optimization. <em class="text-indigo-300/80">Why? To explore powerful, gradient-free ways of optimizing neural networks.</em></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="relative timeline-item">
-                         <span class="absolute -left-[45px] top-1/2 -translate-y-1/2 text-2xl font-black text-gray-600">5</span>
-                        <h3 class="text-xl font-bold text-[#9ACDFF]">Achieve Production Readiness</h3>
-                        <p class="text-gray-400">Finish the QAT+ONNX pipeline to demo deployment on edge devices, a key step toward autonomous physical agents. <span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded">N-5</span></p>
+                    <!-- Phase 5 -->
+                     <div>
+                        <h3 class="text-2xl font-bold text-white mb-4"><span class="text-gray-500">Phase 5:</span> Achieve Production Readiness</h3>
+                        <div class="space-y-3">
+                             <div class="bg-indigo-800/50 p-4 rounded-lg border border-indigo-700">
+                                <p class="font-bold"><span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded mr-2">N-5</span>QAT + ONNX Pipeline</p>
+                                <p class="text-sm text-gray-300 mt-1">Build an end-to-end pipeline for deploying highly accurate, quantized models. <em class="text-indigo-300/80">Why? To enable deployment of accurate, high-performance models on edge devices.</em></p>
+                            </div>
+                             <div class="bg-sky-800/50 p-4 rounded-lg border border-sky-700">
+                                <p class="font-bold"><span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded mr-2">U-3</span>Fault Tolerance Protocol</p>
+                                <p class="text-sm text-gray-300 mt-1">Implement HA and guaranteed task execution for production reliability. <em class="text-sky-300/80">Why? To ensure the system is reliable enough for long-running, critical production tasks.</em></p>
+                            </div>
+                             <div class="bg-sky-800/50 p-4 rounded-lg border border-sky-700">
+                                <p class="font-bold"><span class="font-mono text-xs bg-gray-700 text-gray-300 p-1 rounded mr-2">U-4</span>Unified Benchmark Suite</p>
+                                <p class="text-sm text-gray-300 mt-1">Create a public suite to track performance and correctness. <em class="text-sky-300/80">Why? To guarantee performance and correctness and prevent regressions over time.</em></p>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </section>
+
+            <section id="measuring-progress" class="my-20">
+                <h2 class="text-3xl font-bold text-center text-white mb-2">Measuring Progress: Standard Tests for AGI-like Capabilities</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-12">Once the learning swarm is wired up, this three-tier test sequence provides a concrete, automatable, and community-recognized way to measure progress towards AGI-like behavior.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Tier 1 -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col">
+                        <div class="text-center mb-4">
+                            <div class="text-5xl">💻</div>
+                            <h3 class="text-xl font-bold text-white mt-2">Tier 1: Narrow Competence</h3>
+                        </div>
+                        <div class="text-sm space-y-3 flex-grow">
+                            <p><strong class="text-lightBlue-300">Goal:</strong> Show the stack can autonomously fix real-world code.</p>
+                            <p><strong class="text-lightBlue-300">Benchmark:</strong> SWE-bench Lite & Verified.</p>
+                            <p><strong class="text-lightBlue-300">Success:</strong> ≥ 35% pass-rate on hidden tests.</p>
+                            <p><strong class="text-lightBlue-300">Why it matters:</strong> Replicates what human developers do every day; easy to explain.</p>
+                        </div>
+                    </div>
+                    <!-- Tier 2 -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col">
+                        <div class="text-center mb-4">
+                            <div class="text-5xl">🧠</div>
+                            <h3 class="text-xl font-bold text-white mt-2">Tier 2: Generalization</h3>
+                        </div>
+                        <div class="text-sm space-y-3 flex-grow">
+                            <p><strong class="text-lightBlue-300">Goal:</strong> Handle tasks with no prior code context.</p>
+                            <p><strong class="text-lightBlue-300">Benchmark:</strong> ARC-AGI Public Set.</p>
+                            <p><strong class="text-lightBlue-300">Success:</strong> ≥ 40% score, placing on the public leaderboard.</p>
+                            <p><strong class="text-lightBlue-300">Why it matters:</strong> Tests abstract reasoning, clearing the "not just coding" hurdle.</p>
+                        </div>
+                    </div>
+                    <!-- Tier 3 -->
+                    <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col">
+                        <div class="text-center mb-4">
+                            <div class="text-5xl">📈</div>
+                            <h3 class="text-xl font-bold text-white mt-2">Tier 3: Self-Improvement</h3>
+                        </div>
+                        <div class="text-sm space-y-3 flex-grow">
+                            <p><strong class="text-lightBlue-300">Goal:</strong> Prove adaptive learning across episodes.</p>
+                            <p><strong class="text-lightBlue-300">Benchmark:</strong> "SWE-Gauntlet" custom harness.</p>
+                            <p><strong class="text-lightBlue-300">Success:</strong> ≥ +25% avg. improvement from round 1 to round 3.</p>
+                            <p><strong class="text-lightBlue-300">Why it matters:</strong> Demonstrates the core AGI-like behavior of learning how to learn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                     <a href="https://github.com/Hulupeep/roadmap/blob/main/agitests.md" target="_blank" class="inline-block bg-[#0A85FF] text-white font-bold py-3 px-8 rounded-lg hover:bg-[#006dd1] transition-colors shadow-lg">
+                        View Detailed Test Harness on GitHub
+                    </a>
                 </div>
             </section>
         </main>
@@ -400,685 +485,3 @@
     </script>
 </body>
 </html>
-```
-
-And here is the fully revised and hyperlinked strategic roadmap.
-
-
-# An Architectural Review and Strategic Development Roadmap for the ruv-FANN Ecosystem
-
-### Executive Summary
-
-This report presents a strategic development roadmap for the `ruv-FANN` ecosystem, with the central intent of evolving it from a powerful toolchain into a dynamic, self-improving AI system. The ultimate ambition is to create a research test-bed for exploring AGI-like capabilities, where the system can learn and adapt at every level of its architecture—from fundamental model weights to high-level collaborative strategies. The proposals outlined herein are designed to bridge the gap between the project's current state as a collection of capable but disconnected components and its potential to become a cohesive, self-optimizing AI team.
-
-* **Part I: Ecosystem Analysis** provides a critical review of the current three-layer architecture ([`ruv-FANN`]([https://github.com/ruvnet/ruv-FANN](https://github.com/ruvnet/ruv-FANN)), [`ruv-swarm`]([https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm](https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm)), [`claude-code-flow`]([https://github.com/ruvnet/claude-code-flow](https://github.com/ruvnet/claude-code-flow))). It identifies core architectural opportunities, such as balancing legacy FANN compatibility with the demands of modern machine learning. This section positions the project within the broader AI research landscape, drawing on academic work in self-evolving agent networks and swarm-based model optimization to highlight significant avenues for innovation.
-
-* **Part II: Novel Feature Proposals** details five ambitious, frontier-AI features ([N-1](#21-issue-proposal-n-1-self-evolving-swarm-collaboration-via-textual-backpropagation-in-claude-code-flow) to [N-5](#25-issue-proposal-n-5-end-to-end-quantization-aware-training-qat-and-onnx-export-pipeline)). These proposals are designed to inject learning and adaptation directly into the ecosystem's DNA. They include implementing self-evolving collaboration based on "textual backpropagation," using swarm intelligence to train the neural networks themselves, enabling agents to dynamically switch cognitive patterns with reinforcement learning, modernizing the core library with Transformer primitives, and building a production-ready pipeline for quantized models.
-
-* **Part III: Developer and User Experience Improvements** outlines five foundational enhancements ([U-1](#31-issue-proposal-u-1-advanced-swarm-debugging-tracing-and-visualization-toolkit) to [U-5](#35-issue-proposal-u-5-ergonomic-refactoring-of-networkbuilder-for-custom-layers-and-sparse-topologies)) focused on fortifying the ecosystem's core. These user-centric proposals address key opportunities in security, observability, and robustness. They include creating an advanced debugging and tracing toolkit, implementing granular security sandboxing for agents, introducing a fault-tolerance protocol for high reliability, establishing a comprehensive benchmark suite, and refactoring the network builder for greater flexibility.
-
-* **Part IV: Strategic Roadmap and AGI Potential** synthesizes all ten proposals into a coherent, prioritized action plan. It frames the development effort as a deliberate strategy to build a system that learns and self-optimizes across every layer. This section explicitly connects the proposed work to the long-term goal of creating an early, bounded glimpse of agentic AGI—a system that can adapt its own code, collaboration strategies, and model parameters without human intervention.
-
-## Part I: Ecosystem Analysis: Architecture, Landscape, and Opportunities
-
-### 1.1. The Three-Layer Architecture: A Critical Review
-
-The `ruv-FANN` ecosystem is structured as a three-layer platform, with each layer building upon the capabilities of the one below it. This modular design provides a clear separation of concerns, from low-level neural network computations to high-level multi-agent orchestration. A critical examination of each layer's design goals, current state, and inherent architectural opportunities is essential to identify strategic paths for growth and improvement.
-
-#### `ruv-FANN` (The Foundation)
-
-At its core, [`ruv-FANN`]([https://github.com/ruvnet/ruv-FANN](https://github.com/ruvnet/ruv-FANN)) is positioned as a "complete rewrite of the legendary Fast Artificial Neural Network (FANN) library in pure Rust". This foundational layer carries a dual mandate that defines its primary architectural opportunity. On one hand, it strives for high-fidelity API compatibility with the original FANN, offering a "drop-in replacement for existing FANN workflows". This commitment is evident in its support for 18 FANN-compatible activation functions, Cascade Correlation Training, and a compatibility table mapping original FANN functions to their `ruv-FANN` equivalents. This focus on compatibility provides a clear migration path for users of the C/C++ library, leveraging decades of FANN's "proven neural network algorithms and architectures".
-
-On the other hand, `ruv-FANN` aims to deliver the benefits of a modern Rust library: memory safety, performance, and superior developer experience. The project emphasizes "Zero unsafe code", a critical advantage over C-based libraries prone to memory leaks and segmentation faults. It is designed to be "blazing-fast" and "memory-safe," leveraging idiomatic Rust APIs, comprehensive error handling, and generic support for float types like `f32` and `f64`. The roadmap further signals an ambition to transcend FANN's original scope by incorporating modern machine learning features. Planned enhancements include advanced training techniques like early stopping and cross-validation, support for advanced network topologies like shortcut connections for residual-style networks, and production-oriented features such as SIMD acceleration and [ONNX](https://onnx.ai/) format support.
-
-This duality creates a strategic choice. The architectural patterns that make for a perfect FANN clone are not necessarily the ones best suited for implementing contemporary models like Transformers. The current `NetworkBuilder` API, with its linear stacking of layers, is a prime example of this: it is simple and familiar for FANN users but becomes a bottleneck when attempting to define the complex, non-sequential graphs required for modern architectures. The future success of `ruv-FANN` depends on its ability to embrace this opportunity, perhaps by isolating FANN-compatible features from a more flexible, extensible core designed for modern ML research and production.
-
-#### `ruv-swarm` (The Abstraction Layer)
-
-The middle layer, [`ruv-swarm`]([https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm](https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm)), provides the "foundational orchestration crate that powers the RUV Swarm ecosystem". Its purpose is to offer a set of core traits and abstractions for building distributed AI agent systems. The central abstraction is the `Agent` trait, which defines the basic contract for any participant in the swarm, requiring an asynchronous `process` method and functions to declare its identity and capabilities.
-
-A key innovation within `ruv-swarm-core` is the concept of "Cognitive Patterns." The framework defines seven distinct patterns for agent problem-solving: Convergent, Divergent, Lateral, Systems, Critical, Abstract, and Concrete. This provides a vocabulary for creating swarms with cognitive diversity, a concept supported by research into complementary collaboration in UAV swarms. The documentation states that agents can "switch cognitive patterns based on task requirements," hinting at a dynamic and adaptive system.
-
-Furthermore, `ruv-swarm` defines several network topologies, including fully connected Mesh, coordinator-worker Hierarchical, Ring, and Star configurations. This flexibility allows developers to choose the communication structure best suited for their problem, from high-fault-tolerance systems to those with more efficient, predictable communication patterns. The library is also designed with modern deployment targets in mind, offering `no_std` compatibility for embedded environments and WASM-readiness for browser and edge deployments.
-
-While `ruv-swarm` provides a powerful and flexible set of abstractions, its implementation within the broader ecosystem reveals a potential architectural opportunity. The philosophy of "[Intelligent Swarming](https://unanimous.ai/intelligent-swarming/)," emphasizes self-organization and decentralized collaboration, where knowledge workers operate autonomously without a higher-order authority. However, the primary application of `ruv-swarm`, [`claude-code-flow`]([https://github.com/ruvnet/claude-code-flow](https://github.com/ruvnet/claude-code-flow)), appears to rely on a more centralized orchestration model. This gap between the decentralized potential of the abstraction layer and the centralized reality of the application layer represents a significant area for future development.
-
-#### `claude-code-flow` (The Application Layer)
-
-The top layer of the ecosystem is [`claude-code-flow`]([https://github.com/ruvnet/claude-code-flow](https://github.com/ruvnet/claude-code-flow)), an orchestration platform designed to "transform your development workflow" by coordinating multiple AI agents for software engineering tasks. It serves as the primary, user-facing application that leverages the `ruv-swarm` and `ruv-FANN` libraries. Its architecture consists of several key components: an Orchestrator for task distribution, an Agent Pool of specialized AI agents, a shared Memory Bank for persistent knowledge, and an MCP (Model Context Protocol) Server for tool integration.
-
-`claude-code-flow` implements a sophisticated task management system through its SPARC (Swarm, Plan, Act, Refine, Coordinate) framework, which offers 17 specialized modes for different development roles like "Architect," "Coder," and "TDD". The system is designed for parallel execution, capable of running numerous Claude Code agents concurrently to build, test, and deploy applications. Communication between agents is primarily facilitated through the shared Memory Bank, with commands like `memory store` and `memory query` allowing agents to persist and retrieve information.
-
-However, analysis of the system and user feedback reveals several critical areas for improvement. The inter-agent communication protocol, while functional, could be enhanced with explicit mechanisms for handling concurrent writes or notifying agents of state changes to improve efficiency and data consistency. The task management logic, while described as having "Intelligent task distribution and load balancing," could benefit from more detailed documentation on the specific algorithms used and more robust error handling for failed agent tasks.
-
-Most critically, the platform's default configuration presents a significant security consideration. It grants agents full tool permissions with wildcards, a practice that should be reviewed to align with the principle of least privilege. User reports also highlight practical issues, such as agents getting stuck in loops, command conflicts, and platform-specific bugs, indicating that the developer experience and system robustness are key areas for fortification.
-
-### 1.2. Positioning in the AI Landscape: From Intelligent Swarming to Self-Evolving Networks
-
-The `ruv-FANN` ecosystem does not exist in a vacuum. Its design principles and future potential are best understood by positioning it within the broader landscape of AI research and practice, from established concepts like intelligent swarming to cutting-edge academic research on self-evolving agent networks.
-
-#### Alignment with "Intelligent Swarming"
-
-The project's philosophy aligns with the principles of "[Intelligent Swarming](https://unanimous.ai/intelligent-swarming/)," a management and collaboration model that contrasts with traditional, hierarchical structures. This model emphasizes connecting "people to people with a high degree of relevance" to solve novel issues efficiently. It favors self-organized collaboration over top-down commands, allowing knowledge workers to autonomously ask for and offer help. This paradigm is mirrored in swarm robotics, where multiple simple robots work together to achieve complex tasks in search and rescue (SAR) missions, demonstrating scalability, robustness, and adaptability. The `ruv-swarm` crate, with its diverse cognitive patterns and flexible topologies, provides the theoretical toolkit for implementing such systems.
-
-However, the current flagship implementation, `claude-code-flow`, appears to lean more towards a centralized or hierarchical model. The presence of a central "Orchestrator" and a "Task Scheduler" suggests a top-down approach to task management, which can be a bottleneck or a single point of failure. While this structure offers clear command and efficient resource management, it does not fully realize the decentralized, self-organizing potential described in the intelligent swarming literature. This presents an opportunity to evolve the orchestration layer to better reflect the foundational principles of the swarm abstraction layer.
-
-#### Opportunity from Academic Research
-
-Two areas of recent academic research offer powerful vectors for novel improvements, suggesting a path for the ecosystem to evolve beyond its current state into a truly learning-centric platform.
-
-First, research into **Self-Evolving Collaboration Networks** presents a paradigm for making agent collaboration adaptive. The paper on [**EvoMAC** ("Self-Evolving Multi-Agent Collaboration Networks for Software Development")](https://arxiv.org/abs/2402.08212) introduces a system where specialized agents (e.g., a coding team and a testing team) collaborate on software development tasks. The key innovation is "textual backpropagation": when the testing team finds a bug, the feedback is used to automatically update the natural language instructions (the "prompt") given to the coding team. This creates a feedback loop that allows the collaboration network itself to learn and improve, moving beyond static, human-designed workflows. This directly addresses a common failure mode in agent systems where they get stuck in repetitive error loops.
-
-Second, research on **Swarm-based Model Optimization** offers a new way to think about training the neural networks themselves. The "[**Model Swarms**](https://arxiv.org/abs/2402.13329)" paper proposes using Particle Swarm Optimization (PSO), a swarm intelligence algorithm, to adapt and optimize the weights of Large Language Models. In this framework, each "particle" in the swarm is an entire set of model weights. The swarm collaboratively explores the vast weight space, guided by a utility function, to find optimal model configurations without relying on traditional gradient-based training. This tuning-free approach is particularly effective in low-data regimes and does not require strong assumptions about the models being composed.
-
-The convergence of these research streams points toward a profound opportunity for the `ruv-FANN` ecosystem. The project is currently conceived as a stack of three distinct components: a neural network library (`ruv-FANN`), an agent framework (`ruv-swarm`), and an orchestrator (`claude-code-flow`). The academic literature suggests a much deeper integration is possible. The principles of swarm intelligence can be applied not just at the agent collaboration level, but at every layer of the stack. EvoMAC demonstrates how the high-level orchestrator can become a learning system. "Model Swarms" demonstrates how the low-level neural network library can itself be optimized by a swarm.
-
-This reframes the project's ultimate potential. It is not merely a toolchain for building agentic applications; it can become a holistic, self-optimizing AI development platform where learning and adaptation occur from the fundamental model weights all the way up to the strategic collaboration between agents. This vision provides a powerful and coherent direction for the novel feature proposals that follow.
-
-### 1.3. Synthesis of Improvement Vectors and Proposed Initiatives
-
-Synthesizing the architectural review and landscape analysis reveals clear vectors for improvement. These fall into two broad categories: novel features that push the ecosystem toward the frontier of AI research, and foundational user-focused improvements that fortify its core robustness, security, and developer experience. The key opportunities identified—balancing FANN compatibility with modernity, and evolving orchestration beyond centralized models—along with practical pain points noted in user feedback and issue trackers, directly inform the proposed development initiatives.
-
-The following table provides a high-level summary of ten proposed initiatives, structured as GitHub issues, that are designed to address these opportunities and challenges. These proposals form a strategic roadmap for the next stage of the ecosystem's development, balancing ambitious innovation with pragmatic enhancement.
-
-| Issue ID & Title | Category | Target Component(s) | Complexity | Primary Value Proposition |
-| :--- | :--- | :--- | :--- | :--- |
-| [N-1](https://github.com/ruvnet/claude-code-flow/issues/101): Self-Evolving Swarm Collaboration | Novel | `claude-code-flow`, `ruv-swarm` | High | Enables adaptive, self-improving agent collaboration, moving beyond static workflows. |
-| [N-2](https://github.com/ruvnet/ruv-FANN/issues/201): Implementing 'Model Swarms' | Novel | `ruv-FANN` | High | Introduces a new paradigm for gradient-free model training and optimization. |
-| [N-3](https://github.com/ruvnet/ruv-swarm/issues/301): Dynamic Cognitive Pattern Switching | Novel | `ruv-swarm` | Medium | Increases swarm adaptability and leverages cognitive diversity intelligently. |
-| [N-4](https://github.com/ruvnet/ruv-FANN/issues/202): Foundational Primitives for Transformers | Novel | `ruv-FANN` | High | Modernizes the core library beyond FANN's limitations to support state-of-the-art models. |
-| [N-5](https://github.com/ruvnet/ruv-FANN/issues/203): End-to-End QAT & ONNX Pipeline | Novel | `ruv-FANN` | Medium | Unlocks production-readiness for edge and resource-constrained devices. |
-| [U-1](https://github.com/ruvnet/claude-code-flow/issues/102): Advanced Swarm Tracing & Visualization | User | `claude-code-flow`, `ruv-swarm` | High | Drastically improves observability and developer productivity for complex systems. |
-| [U-2](https://github.com/ruvnet/claude-code-flow/issues/103): Granular, Role-Based Security Sandboxing | User | `claude-code-flow` | Medium | Mitigates critical security risks from unattended agent execution. |
-| [U-3](https://github.com/ruvnet/ruv-swarm/issues/302): Pluggable Fault Tolerance Protocol | User | `ruv-swarm`, `claude-code-flow` | High | Introduces enterprise-grade fault tolerance and robustness for critical tasks. |
-| [U-4](https://github.com/ruvnet/ruv-bench/issues/1): A Comprehensive `ruv-bench` Suite | User | Ecosystem-wide | High | Establishes a baseline for performance, correctness, and regression testing. |
-| [U-5](https://github.com/ruvnet/ruv-FANN/issues/204): Ergonomic Refactoring of `NetworkBuilder` | User | `ruv-FANN` | Medium | Improves usability and extensibility for advanced users and researchers. |
-
----
-
-## Part II: Novel Feature Proposals: Advancing the Frontier
-
-This section details five ambitious, forward-thinking features designed to advance the ecosystem's capabilities beyond its current scope. Each proposal is structured as a comprehensive brief, suitable for translation into a GitHub issue, and is grounded in the strategic analysis and academic research presented in Part I.
-
-### 2.1. Issue Proposal (N-1): Self-Evolving Swarm Collaboration via Textual Backpropagation in `claude-code-flow`
-
-**Title:** [`feat(claude-code-flow): Implement Self-Evolving Swarm Collaboration via Textual Backpropagation`]([https://github.com/ruvnet/claude-code-flow/issues/101](https://github.com/ruvnet/claude-code-flow/issues/101))
-
-**Labels:** `enhancement`, `novel-feature`, `claude-code-flow`, `ruv-swarm`, `ai-collaboration`
-
-**Background:**
-
-The current `claude-code-flow` system orchestrates agent collaboration using largely static workflows defined by the SPARC framework and its 17 modes. While powerful for structured tasks, this approach is not adaptive. When agents encounter novel errors or complex problems, they can fall into unproductive loops, a weakness noted in user feedback. The system lacks a mechanism to learn from its mistakes at the collaboration level.
-
-Recent academic research, particularly the [EvoMAC paper](https://arxiv.org/abs/2402.08212), demonstrates a "self-evolving" paradigm for multi-agent collaboration. This approach uses feedback from testing and verification agents to automatically refine the prompts and instructions given to coding agents. This process, termed "textual backpropagation," creates a learning loop that allows the entire collaboration strategy to evolve and improve over time, enhancing robustness and problem-solving capability. Integrating this paradigm would represent a major leap forward for `claude-code-flow`, transforming it from a static orchestrator into a dynamic, learning system.
-
-**Proposed Solution:**
-
-This feature requires enhancements to both `ruv-swarm` and `claude-code-flow`.
-
-1.  **New Topology and Agent Roles in `ruv-swarm`:**
-    * Introduce a new topology type in `ruv-swarm-core`, `TopologyType::Evolving`, designed to support this feedback loop.
-    * Define three new canonical agent roles within the swarm's cognitive architecture, complementing the existing patterns:
-        * `Proposer`: An agent responsible for generating a solution (e.g., writing code). This role would likely use a `Divergent` or `Concrete` cognitive pattern.
-        * `Verifier`: An agent responsible for evaluating the `Proposer`'s output. This could involve running unit tests, performing static analysis, or checking against formal specifications. This role would use a `Critical` cognitive pattern.
-        * `Evolver`: A meta-agent responsible for updating the `Proposer`'s instructions based on feedback from the `Verifier`. This role uses a `Systems` or `Lateral` pattern.
-
-2.  **Implementation of the Evolving Workflow in `claude-code-flow`:**
-    * The orchestrator will manage the interaction cycle between these three agent roles.
-    * **Step 1 (Propose):** The `Proposer` agent is given an initial task and prompt (e.g., "Implement a function that sorts a list"). It generates the code.
-    * **Step 2 (Verify):** The `Verifier` agent receives the generated code. It executes its verification logic (e.g., runs a pre-defined test suite). If the tests fail, it generates a structured feedback report. This report should be a machine-readable format like JSON, containing the error type, failing test case, stack trace, and a natural language summary of the failure.
-        ```json
-        {
-          "status": "fail",
-          "error_type": "AssertionError",
-          "location": "test_sorting.py:line 23",
-          "summary": "The function failed to correctly sort a list with duplicate elements.",
-          "details": "Input: [3, 1, 4, 1, 5, 9], Expected: [1, 1, 3, 4, 5, 9], Got: [1, 3, 4, 5, 9]"
-        }
-        ```
-    * **Step 3 (Evolve):** The `Evolver` agent is invoked. Its input is a meta-prompt containing both the `Proposer`'s original instructions and the `Verifier`'s structured feedback. The `Evolver`'s core instruction is to act as an expert programmer refining instructions for a junior developer.
-        * **Meta-Prompt Example:**
-            ```
-            You are an expert prompt engineer refining instructions for a coding AI.
-            The original instruction was:
-            ---
-            {{original_prompt}}
-            ---
-            The AI produced code that resulted in the following failure:
-            ---
-            {{verifier_feedback_json}}
-            ---
-            Your task is to rewrite the original instruction to be more precise, adding constraints or examples that will prevent this specific failure in the next attempt. Do not solve the problem yourself, only improve the instructions.
-            ```
-    * **Step 4 (Repeat):** The `Evolver` outputs a new, improved prompt. This prompt is then fed back to the `Proposer` agent, and the cycle repeats. The system can track the history of prompts, creating a "lineage" of instructions that documents the learning process.
-
-**Impact:**
-
-* **Adaptive Problem Solving:** Transforms `claude-code-flow` from a system that executes static plans to one that dynamically adapts its strategy, making it more resilient to novel problems.
-* **Increased Robustness:** Directly addresses the issue of agents getting stuck in repetitive failure loops by forcing the instructional context to change in response to errors.
-* **Automated Prompt Engineering:** Automates a key part of working with LLM agents—the refinement of prompts. The swarm learns to create better prompts for itself.
-* **Alignment with SOTA Research:** Positions the ecosystem at the forefront of research in multi-agent systems for software engineering, aligning with work on agentic workflows and collaborative problem-solving.
-
-### 2.2. Issue Proposal (N-2): Implementing 'Model Swarms' for Hyper-Network Training and Adaptation in `ruv-FANN`
-
-**Title:** [`feat(ruv-fann): Implement 'Model Swarms' trainer based on Particle Swarm Optimization`]([https://github.com/ruvnet/ruv-FANN/issues/201](https://github.com/ruvnet/ruv-FANN/issues/201))
-
-**Labels:** `enhancement`, `novel-feature`, `ruv-fann`, `training`, `optimization`
-
-**Background:**
-
-The training algorithms in `ruv-FANN` are based on classic, gradient-based methods inherited from FANN, such as Backpropagation, RPROP, and Quickprop. While effective, these methods can be susceptible to local minima and require differentiable model architectures. The roadmap mentions "Advanced learning rate adaptation," which improves upon these methods but remains within the same paradigm.
-
-A revolutionary alternative is presented in the "[Model Swarms](https://arxiv.org/abs/2402.13329)" research paper, which proposes using Particle Swarm Optimization (PSO) to directly optimize the weights of neural networks. In this framework, an entire neural network's weight matrix is treated as a single "particle." A swarm of these particles collaboratively searches the high-dimensional weight space for an optimal solution, guided by a simple utility function (e.g., validation accuracy). This gradient-free approach is robust, requires minimal tuning, and can explore the solution space more effectively than traditional methods in certain problem domains.
-
-**Proposed Solution:**
-
-This feature involves creating a new, experimental training module within `ruv-FANN`.
-
-1.  **New `SwarmTrainer` Module:**
-    * Create a new module, `ruv_fann::training::swarm`, to house the implementation.
-    * Define a `SwarmTrainer` struct that will manage the optimization process. It will be configured with swarm parameters like population size, inertia weight, and cognitive/social coefficients.
-
-2.  **Core PSO Logic:**
-    * The `SwarmTrainer` will maintain a population (a `Vec`) of `Network` instances. Each `Network` is a "particle."
-    * For each particle, the trainer must also store its current "velocity" (a data structure with the same shape as the network's weights), its "personal best" position (a copy of the weights that achieved the best score so far), and its personal best score.
-    * The trainer will also track the "global best" position and score found by any particle in the swarm.
-    * The core training loop will iterate through a number of epochs. In each epoch, it will:
-        a.  Evaluate each particle in the swarm by running it against a validation dataset and calculating a utility score (e.g., inverse of Mean Squared Error).
-        b.  Update the personal best for each particle and the global best for the swarm if a new best score is found.
-        c.  Update the velocity of each particle according to the PSO velocity update equation:
-            $$\vec{v}_{i}(t+1) = w \vec{v}_{i}(t) + c_1 r_1 (\vec{p}_{i} - \vec{x}_{i}(t)) + c_2 r_2 (\vec{g} - \vec{x}_{i}(t))$$
-            Where:
-            * $\vec{v}_{i}(t)$ is the velocity of particle $i$ at time $t$.
-            * $w$ is the inertia weight.
-            * $c_1, c_2$ are cognitive and social acceleration coefficients.
-            * $r_1, r_2$ are random numbers in $$.
-            * $\vec{x}_{i}(t)$ is the current position (weights) of particle $i$.
-            * $\vec{p}_{i}$ is the personal best position of particle $i$.
-            * $\vec{g}$ is the global best position of the swarm.
-        d.  Update the position (weights) of each particle:
-            $$\vec{x}_{i}(t+1) = \vec{x}_{i}(t) + \vec{v}_{i}(t+1)$$
-
-3.  **API Design:**
-    * The `SwarmTrainer` should be accessible via a builder pattern, similar to `NetworkBuilder`.
-    ```rust
-    use ruv_fann::training::swarm::SwarmTrainer;
-
-    let trainer = SwarmTrainer::new(&training_data)
-       .population_size(50)
-       .inertia(0.8)
-       .cognitive_coeff(1.5)
-       .social_coeff(1.5)
-       .max_epochs(1000)
-       .build()?;
-
-    let best_network = trainer.train(&initial_network_topology)?;
-    ```
-
-**Impact:**
-
-* **Paradigm Shift for `ruv-FANN`:** Moves `ruv-FANN` beyond being a mere FANN rewrite into a modern research platform for bio-inspired and gradient-free optimization techniques.
-* **Robust Optimization:** Provides a powerful tool for solving problems where gradient information is unavailable or unreliable, and for escaping local minima that can trap traditional trainers.
-* **Hyperparameter and Architecture Search:** The PSO framework can be extended to not only optimize weights but also network architecture parameters, providing a unified mechanism for hyper-network optimization.
-* **Innovation:** This feature is highly novel and would distinguish `ruv-FANN` from many other traditional neural network libraries, attracting researchers and advanced practitioners.
-
-### 2.3. Issue Proposal (N-3): Dynamic Cognitive Pattern Switching in `ruv-swarm` using Reinforcement Learning
-
-**Title:** [`feat(ruv-swarm): Implement dynamic cognitive pattern switching via a lightweight RL policy`]([https://github.com/ruvnet/ruv-swarm/issues/301](https://github.com/ruvnet/ruv-swarm/issues/301))
-
-**Labels:** `enhancement`, `novel-feature`, `ruv-swarm`, `ai-collaboration`, `reinforcement-learning`
-
-**Background:**
-
-The `ruv-swarm-core` crate introduces a compelling feature: seven distinct cognitive patterns (e.g., Convergent, Divergent, Lateral) that can define an agent's problem-solving approach. The documentation notes that "Agents can switch cognitive patterns based on task requirements," but the mechanism for this switching is undefined. In the current implementation, this choice is likely static or manually programmed by the developer for different phases of a task. This leaves a significant amount of the system's potential adaptability on the table. A truly intelligent swarm should not just possess diversity; it should learn how to leverage that diversity effectively.
-
-**Proposed Solution:**
-
-This proposal suggests implementing a mechanism for agents to autonomously learn the optimal cognitive pattern to apply at each step of a task, using a lightweight Reinforcement Learning (RL) policy.
-
-1.  **Define the RL Environment:**
-    * **State Space:** The state representation needs to capture the context of the task. This could be a vector or struct containing features like:
-        * Task type (e.g., `CodeGeneration`, `Debugging`, `Brainstorming`).
-        * Task progress (e.g., a percentage from 0 to 100).
-        * Number of recent successes vs. failures.
-        * Current solution complexity (e.g., lines of code, number of modules).
-    * **Action Space:** The set of seven available cognitive patterns defined in `ruv-swarm-core`.
-    * **Reward Signal:** The reward function is critical for guiding the learning process. It should provide positive feedback for actions that lead to progress. Examples:
-        * **Code Generation:** +1 for code that compiles, +5 for code that passes a unit test, -1 for a compilation error.
-        * **Brainstorming:** +1 for each novel idea generated (using the `Divergent` pattern).
-        * **Refinement:** +1 for reducing code complexity while maintaining functionality (using the `Convergent` pattern).
-
-2.  **Implement a Lightweight RL Policy Agent:**
-    * Each agent in the swarm, or a central coordinator in a hierarchical topology, will contain a small policy model.
-    * This policy model could be a simple Q-table for discrete state spaces or, more powerfully, a small `ruv-FANN` network trained to act as a Q-function approximator. Using `ruv-FANN` for this creates a powerful, self-referential loop where the ecosystem's own tools are used to enhance its capabilities.
-    * The RL agent would follow a standard update rule (e.g., Q-learning):
-        $$Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \max_{a'} Q(s', a') - Q(s, a)]$$
-        Where:
-        * $Q(s, a)$ is the quality of taking action $a$ in state $s$.
-        * $\alpha$ is the learning rate.
-        * $r$ is the reward received.
-        * $\gamma$ is the discount factor.
-        * $s'$ is the new state.
-
-3.  **Integrate into the Agent Lifecycle:**
-    * Before an agent executes its `process` method, it first consults its RL policy.
-    * It provides the current task state to the policy, which returns the optimal cognitive pattern (action) to use (e.g., using an epsilon-greedy strategy to balance exploration and exploitation).
-    * The agent then executes its task using the chosen pattern.
-    * After execution, the environment provides a reward, and the agent updates its RL policy with the `(state, action, reward, next_state)` tuple.
-
-**Impact:**
-
-* **True Adaptability:** Fulfills the promise of the cognitive patterns feature by making the swarm truly adaptive. The system learns the most effective "mode of thinking" for different phases of a complex problem, rather than relying on a developer's hardcoded assumptions.
-* **Improved Efficiency:** By selecting the right cognitive tool for the job, the swarm can solve problems more efficiently, avoiding unproductive exploration during refinement phases or premature convergence during brainstorming phases.
-* **Emergent Specialization:** Over time, different agents in a heterogeneous swarm might develop distinct policies, leading to emergent role specialization based on learned expertise in applying certain cognitive patterns.
-* **Alignment with Swarm Control Research:** This approach is directly inspired by research on adaptive swarm control in complex and dynamic environments, where agents must learn to adjust their behavior based on environmental feedback.
-
-### 2.4. Issue Proposal (N-4): Foundational Primitives for Transformer Architectures in `ruv-FANN`
-
-**Title:** [`feat(ruv-fann): Implement foundational primitives for Transformer architectures`]([https://github.com/ruvnet/ruv-FANN/issues/202](https://github.com/ruvnet/ruv-FANN/issues/202))
-
-**Labels:** `enhancement`, `novel-feature`, `ruv-fann`, `architecture`, `breaking-change`
-
-**Background:**
-
-The `ruv-FANN` library is fundamentally based on the architecture of FANN, which is centered on standard feed-forward neural networks composed of simple layers. While the roadmap includes "shortcut connections" for residual-style networks, this is insufficient to support the dominant architecture in modern AI: the Transformer.
-
-The entire `ruv-FANN` ecosystem is built around orchestrating powerful Transformer-based LLMs like Claude. The higher-level `neuro-divergent` crate, built on `ruv-FANN`, aims to tackle advanced forecasting, a domain where Transformers are also state-of-the-art. There is a significant architectural and conceptual gap: the foundational ML library of the ecosystem cannot natively build, inspect, or train the very models that the higher-level components are designed to manage. This bottleneck prevents `ruv-FANN` from being a truly unified and capable platform for AI research and development, relegating it to a legacy component within its own stack.
-
-**Proposed Solution:**
-
-This proposal advocates for a major extension of `ruv-FANN` to include the core building blocks of the Transformer architecture. This would likely require a new, optional module (e.g., `ruv_fann::experimental::transformers`) to avoid breaking strict FANN compatibility.
-
-1.  **Modularize the Network Representation:**
-    * The current `Network` struct, which likely holds a simple `Vec<Layer>`, must be refactored to support a more general computational graph structure. This is a prerequisite for any non-sequential architecture. (This work overlaps with and is synergistic with proposal [U-5](#35-issue-proposal-u-5-ergonomic-refactoring-of-networkbuilder-for-custom-layers-and-sparse-topologies)).
-
-2.  **Implement Core Transformer Primitives:**
-    * **`ScaledDotProductAttention`:** This is the heart of the attention mechanism. It needs to be implemented as a core operation.
-    * **`MultiHeadAttention` Layer:** A new layer type that encapsulates multiple `ScaledDotProductAttention` heads, including the linear projections for queries, keys, values, and the final output.
-    * **`LayerNorm` Layer:** A new normalization layer that implements Layer Normalization, which is critical for stabilizing the training of deep Transformers.
-    * **`PositionalEncoding`:** A mechanism to inject positional information into the input embeddings, as standard attention is permutation-invariant. This could be implemented as a non-trainable layer or a preprocessing step.
-    * **`FeedForward` Block:** A standard two-layer feed-forward network with a ReLU or GELU activation, used within each Transformer block.
-
-3.  **Update Training Algorithms:**
-    * The backpropagation algorithm must be extended to correctly calculate gradients through these new, complex primitives, particularly the `MultiHeadAttention` and `LayerNorm` layers. This is a non-trivial undertaking requiring careful implementation of the chain rule for matrix operations.
-
-4.  **Provide a Transformer `Block` Builder:**
-    * To improve ergonomics, provide a helper function or builder that assembles a standard Transformer encoder or decoder block from these primitives (Multi-Head Attention -> Add & Norm -> Feed Forward -> Add & Norm).
-
-**Impact:**
-
-* **Modernizes `ruv-FANN`:** This is the single most important step to ensure the long-term relevance and utility of `ruv-FANN`. It bridges the gap between the library's capabilities and the needs of the modern AI landscape.
-* **Unlocks New Capabilities:** Enables users to build, train, and fine-tune smaller Transformer models directly within the Rust ecosystem using `ruv-FANN`. This is invaluable for research, education, and creating specialized models.
-* **Enables Ecosystem Synergy:** Allows the `neuro-divergent` library to implement state-of-the-art time series models. It also enables research into agentic systems where the agents themselves might be small, specialized Transformer models trained with `ruv-FANN`.
-* **Attracts Modern ML Developers:** A Rust-native, memory-safe library with Transformer support would be highly attractive to the broader ML community, drawing in new users and contributors.
-
-### 2.5. Issue Proposal (N-5): End-to-End Quantization-Aware Training (QAT) and ONNX Export Pipeline
-
-**Title:** [`feat(ruv-fann): Implement end-to-end Quantization-Aware Training and ONNX export`]([https://github.com/ruvnet/ruv-FANN/issues/203](https://github.com/ruvnet/ruv-FANN/issues/203))
-
-**Labels:** `enhancement`, `novel-feature`, `ruv-fann`, `performance`, `production`
-
-**Background:**
-
-The `ruv-FANN` roadmap for v0.4.0 ("Production Ready") correctly identifies "Model quantization and compression" and "[ONNX](https://onnx.ai/) format support" as key features. These are critical for deploying models in production, especially on resource-constrained environments like IoT devices and edge computers, which are stated use cases for the library.
-
-However, treating these as separate features misses a crucial opportunity for optimization. Post-Training Quantization (PTQ) is simple but often leads to a significant drop in model accuracy. Quantization-Aware Training (QAT), where the model learns to adapt to the precision loss during the training process, produces far more accurate quantized models. To be truly "production ready," `ruv-FANN` should offer a seamless, end-to-end pipeline that takes a user from a model definition to a highly accurate, quantized ONNX file ready for deployment.
-
-**Proposed Solution:**
-
-This proposal outlines a unified workflow for QAT and ONNX export.
-
-1.  **Implement "Fake Quantization" Primitives:**
-    * Create `Quantize` and `Dequantize` operations or a single `FakeQuant` layer that can be inserted into the network graph.
-    * During the **forward pass**, this layer simulates the effect of quantization: it takes a full-precision `f32` tensor, scales and rounds it to a lower-precision integer representation (e.g., `i8`), and then de-quantizes it back to `f32`. This introduces the quantization error into the computation.
-    * During the **backward pass**, this layer should act as an identity function, allowing the full-precision gradients to pass through unchanged. This is known as the "Straight-Through Estimator" technique.
-    * The layer must also learn the optimal quantization parameters (scale and zero-point) for the tensor distribution passing through it.
-
-2.  **Integrate QAT into the Training Loop:**
-    * Provide a helper function, `prepare_for_qat(&mut network)`, that automatically inserts these `FakeQuant` layers at appropriate points in the network (e.g., after convolutional or dense layers).
-    * The user first trains the model for a few epochs in full precision, then calls `prepare_for_qat`, and finally fine-tunes the model for a few more epochs. During this fine-tuning phase, the model's weights adapt to the presence of the simulated quantization, minimizing the accuracy loss.
-
-3.  **Develop an Intelligent ONNX Exporter:**
-    * Create a new `onnx_format` module for exporting networks.
-    * The exporter must be able to translate the `ruv-FANN` network graph into a valid ONNX graph.
-    * Crucially, when exporting a QAT-trained model, the exporter should not export the `FakeQuant` layers. Instead, it should export standard ONNX operators (e.g., `MatMul`, `Conv`) as `QLinearMatMul` and `QLinearConv`, embedding the learned scale and zero-point parameters directly into the graph as constants.
-    * The output should be a standard, quantized ONNX model that can be directly consumed by runtimes like ONNX Runtime, TensorRT, or [`Tract`]([https://github.com/sonos/tract](https://github.com/sonos/tract)).
-
-4.  **Provide a Comprehensive Example:**
-    * The documentation must include a complete, end-to-end example demonstrating the full workflow:
-        1.  Build a `ruv-FANN` network.
-        2.  Train it normally for initial convergence.
-        3.  Apply QAT for fine-tuning.
-        4.  Export the final, quantized model to an `.onnx` file.
-        5.  Show how to load and run the `.onnx` file with a Rust-based ONNX runtime like `Tract` to verify the output.
-
-**Impact:**
-
-* **True Production Readiness:** Elevates the project from having "production features" on a checklist to providing a robust, state-of-the-art pipeline for deploying high-performance models.
-* **Best-in-Class Accuracy for Edge Devices:** QAT ensures that users can achieve the smallest possible model size with the least amount of accuracy degradation, making `ruv-FANN` a highly competitive choice for embedded AI.
-* **Improved Developer Experience:** A unified, well-documented pipeline is far more valuable to developers than a set of disconnected tools for quantization and exporting. It lowers the barrier to production deployment significantly.
-* **Unlocks Key Use Cases:** Makes `ruv-FANN` a viable and attractive option for IoT, robotics, and other edge computing applications, a key target audience identified by the project.
-
----
-
-## Part III: Developer and User Experience Improvements: Fortifying the Core
-
-This section details five practical, user-focused improvements designed to enhance the ecosystem's robustness, security, and developer experience. These proposals directly address pain points, risks, and architectural gaps identified during the analysis.
-
-### 3.1. Issue Proposal (U-1): Advanced Swarm Debugging, Tracing, and Visualization Toolkit
-
-**Title:** [`feat(ecosystem): Implement an advanced swarm debugging, tracing, and visualization toolkit`]([https://github.com/ruvnet/claude-code-flow/issues/102](https://github.com/ruvnet/claude-code-flow/issues/102))
-
-**Labels:** `improvement`, `user-experience`, `observability`, `claude-code-flow`, `ruv-swarm`
-
-**Background:**
-
-Multi-agent systems are inherently complex and concurrent, making them notoriously difficult to debug and understand. A developer's ability to reason about system behavior degrades rapidly as the number of interacting agents increases. The `claude-code-flow` system is designed to manage potentially hundreds of concurrent agents, and the [`SWARM_COLLABORATION_GUIDE.md`]([https://github.com/ruvnet/ruv-FANN/blob/main/ruv-swarm/SWARM_COLLABORATION_GUIDE.md](https://github.com/ruvnet/ruv-FANN/blob/main/ruv-swarm/SWARM_COLLABORATION_GUIDE.md)) implies complex, dynamic interactions. However, the ecosystem currently relies on standard structured logging as its primary observability mechanism. This is insufficient for diagnosing emergent bugs, performance bottlenecks, or complex collaborative failures. Without a dedicated observability toolkit, developers are effectively "flying blind," which severely hampers productivity and the ability to build reliable, large-scale swarms.
-
-**Proposed Solution:**
-
-This proposal advocates for a multi-layered solution to introduce comprehensive observability into the ecosystem, centered around distributed tracing.
-
-1.  **Instrumentation with OpenTelemetry:**
-    * Integrate the [`opentelemetry`]([https://opentelemetry.io/](https://opentelemetry.io/)) crate into `ruv-swarm-core` and `claude-code-flow`.
-    * **`ruv-swarm-core` Instrumentation:** Emit structured trace "spans" for key events in the agent and swarm lifecycle. Each span should be annotated with relevant attributes.
-        * `swarm.create`: Span covering the creation of a new swarm. Attributes: `topology`, `agent_count`.
-        * `agent.process`: Span for each call to an agent's `process` method. Attributes: `agent.id`, `agent.cognitive_pattern`.
-        * `task.assign`: Span for when a task is assigned to an agent. Attributes: `task.id`, `agent.id`.
-        * `memory.access`: Spans for reads/writes to the shared memory bank. Attributes: `operation` (`read`/`write`), `key`.
-    * **`claude-code-flow` Instrumentation:** Propagate the trace context across all operations.
-        * When the orchestrator assigns a task, it should inject the current trace context into the task metadata.
-        * When an agent uses an MCP tool, the MCP call should carry the trace context, allowing the tool's execution to appear as a child span of the agent's main processing span.
-
-2.  **Trace Context Propagation:**
-    * Ensure that a single trace ID follows a task across its entire lifecycle, from initial creation by the orchestrator, through processing by multiple agents, to calls to external tools and back. This creates a complete, end-to-end view of a single logical operation.
-
-3.  **Development of a Visualization Tool:**
-    * While standard tools like Jaeger or Zipkin can render the traces, a custom visualization front-end would provide immense value by understanding the specific semantics of the swarm.
-    * This tool, `ruv-viz`, could be a simple web application that consumes the exported trace data and renders it in a more intuitive way:
-        * **Swarm Graph View:** A dynamic graph showing agents as nodes and recent communication or task handoffs as edges. The color or size of nodes could represent their current state or cognitive pattern.
-        * **Gantt Chart View:** A timeline showing the execution of different agents in parallel, making it easy to spot bottlenecks or periods of inactivity.
-        * **Task Flow View:** A directed acyclic graph (DAG) showing the flow of a single complex task through multiple agents and their sub-tasks.
-
-**Impact:**
-
-* **Drastically Reduced Debugging Time:** Provides developers with the tools needed to quickly understand "why" a swarm behaved in a certain way, pinpointing the source of errors or performance issues.
-* **System Behavior Insight:** Moves beyond simple logging to provide a deep understanding of the swarm's emergent dynamics, helping developers optimize collaboration strategies and resource allocation.
-* **Enhanced Reliability:** Makes it easier to identify and fix race conditions, deadlocks, and other complex concurrency bugs that are common in multi-agent systems.
-* **Foundation for Advanced Tooling:** The structured trace data can be used for more than just debugging; it can feed into performance analysis, cost tracking, and automated system health monitoring.
-
-### 3.2. Issue Proposal (U-2): Granular, Role-Based Security Sandboxing for `claude-code-flow` Agents
-
-**Title:** [`fix(claude-code-flow): Implement granular, role-based security sandboxing for agents`]([https://github.com/ruvnet/claude-code-flow/issues/103](https://github.com/ruvnet/claude-code-flow/issues/103))
-
-**Labels:** `security`, `bug`, `user-experience`, `claude-code-flow`
-
-**Background:**
-
-The `claude-code-flow` orchestrator is a powerful tool that grants AI agents the ability to interact directly with the local system, including executing shell commands and modifying the filesystem. The current default configuration, as generated by the `init` command, grants agents overly permissive tool permissions via wildcards (`*`). This configuration, while convenient for initial setup, represents a significant security consideration. It exposes the host system to potential risk from either a buggy agent or a maliciously crafted prompt that induces an agent to perform destructive actions. For `claude-code-flow` to be safely used in any production, team, or security-conscious environment, a robust and mandatory security sandbox is a requirement.
-
-**Proposed Solution:**
-
-This proposal outlines the implementation of a comprehensive, configuration-driven security sandbox within the `claude-code-flow` orchestrator. The principle of least privilege should be the default.
-
-1.  **Configuration-Driven Permissions:**
-    * Extend the swarm configuration file (e.g., `claude-swarm.yml`) to include a mandatory `permissions` block for each agent definition or role.
-    * The default configuration generated by `init` should be highly restrictive, forcing the user to explicitly grant permissions.
-
-2.  **Granular Permission Controls:**
-    * The `permissions` block should support several types of fine-grained controls:
-        * **Filesystem Access:**
-            * `allow_read`: A list of glob patterns for allowed read paths (e.g., `["src/**/*.rs", "Cargo.toml"]`).
-            * `allow_write`: A list of glob patterns for allowed write paths (e.g., `["dist/*"]`).
-            * `deny_read`/`deny_write`: Explicit deny lists that override allows. Default should deny all access outside the project's working directory.
-        * **Network Access:**
-            * `allow_network`: An allowlist of domains or IP addresses (with ports) that the agent is permitted to contact (e.g., `["api.github.com:443", "crates.io:443"]`). Default should be to deny all network access.
-        * **Tool Execution:**
-            * `allow_tools`: An explicit list of allowed shell commands and MCP tools (e.g., `["git", "cargo", "npm", "mcp__tester_agent__*"]`). Wildcards should be discouraged.
-        * **Resource Limits:**
-            * `max_cpu_time_seconds`: A per-task limit on CPU time.
-            * `max_memory_mb`: A per-task limit on memory usage.
-
-3.  **Enforcement in the Orchestrator:**
-    * The `claude-code-flow` orchestrator must act as the central enforcement point.
-    * Before executing any action on behalf of an agent (e.g., spawning a shell command, making a file I/O call), the orchestrator must check the action against the agent's defined permissions.
-    * If a permission check fails, the action must be blocked, and an error should be returned to the agent. This feedback is crucial, as it allows the agent to understand its constraints.
-
-4.  **Secure Defaults:**
-    * Refactor the `npx claude-flow init` command to generate a `claude-swarm.yml` with highly restrictive default permissions. For example, a "coder" agent might only have write access to the `src/` directory and be allowed to run `cargo`, while a "researcher" agent might have network access to specific APIs but no filesystem write access at all.
-
-**Impact:**
-
-* **Critical Security Hardening:** Mitigates a major security risk in the current platform, preventing agents from causing unintended or malicious damage to the host system.
-* **Enables Safe Collaboration:** Makes it possible for teams to use `claude-code-flow` on shared development servers without exposing the entire system to risk from a single user's agents.
-* **Builds User Trust:** Demonstrates a commitment to security best practices, making the platform more attractive for enterprise and professional use.
-* **Aligns with Agentic Security Principles:** Implements the kind of scoped, permissioned interactions that are considered best practice for agentic coding tools.
-
-### 3.3. Issue Proposal (U-3): A Pluggable, High-Robustness State Reconciliation and Fault Tolerance Protocol for `ruv-swarm`
-
-**Title:** [`feat(ruv-swarm): Implement a pluggable fault tolerance protocol for state reconciliation`]([https://github.com/ruvnet/ruv-swarm/issues/302](https://github.com/ruvnet/ruv-swarm/issues/302))
-
-**Labels:** `improvement`, `robustness`, `user-experience`, `ruv-swarm`, `claude-code-flow`
-
-**Background:**
-
-The `claude-code-flow` system includes features for session persistence and a shared memory bank, which are foundational for robustness. However, the current architecture lacks a clear, comprehensive strategy for handling in-flight failures. Critical questions remain unanswered: What happens if the central orchestrator process crashes mid-workflow? How are tasks that were being processed by a failed agent recovered? How is inconsistent state (e.g., a file written to disk before a crash, but the corresponding memory bank update was lost) reconciled? To be suitable for long-running, mission-critical tasks, the ecosystem needs to move beyond simple session persistence to a robust, enterprise-grade fault tolerance model.
-
-**Proposed Solution:**
-
-This proposal suggests designing and implementing a pluggable fault tolerance protocol, primarily at the `ruv-swarm` level, to provide these capabilities to any application built on it, including `claude-code-flow`.
-
-1.  **Pluggable `ResilienceManager` Trait:**
-    * In `ruv-swarm-core`, define a new `ResilienceManager` trait. This trait will abstract the mechanisms for achieving fault tolerance.
-    * The trait would define methods like:
-        ```rust
-        #[async_trait]
-        pub trait ResilienceManager: Send + Sync {
-            // Attempts to acquire a leadership lease for a given swarm ID.
-            async fn acquire_leadership(&self, swarm_id: &str, node_id: &str) -> Result<bool, Error>;
-
-            // Begins a transactional task for an agent.
-            async fn begin_task(&self, task_id: &str, agent_id: &str) -> Result<(), Error>;
-
-            // Marks a task as complete.
-            async fn complete_task(&self, task_id: &str) -> Result<(), Error>;
-
-            // Retrieves a list of orphaned tasks (tasks whose agent has timed out).
-            async fn get_orphaned_tasks(&self) -> Result<Vec<String>, Error>;
-        }
-        ```
-
-2.  **Leader Election for Orchestrators:**
-    * For hierarchical topologies, the `claude-code-flow` orchestrator can use the `acquire_leadership` method. Multiple orchestrator instances can be run, but only the one that successfully acquires the lease becomes the active leader. If the leader crashes, its lease will expire, and another instance can take over.
-
-3.  **Transactional Task Management:**
-    * The orchestrator must use the `begin_task` and `complete_task` methods to wrap agent task assignments. The `ResilienceManager` implementation would record the task as "in-progress."
-    * The orchestrator will periodically call `get_orphaned_tasks` to find tasks that were started but never completed (because the agent or its node crashed). These tasks can then be safely re-queued and assigned to a different, healthy agent.
-
-4.  **State Reconciliation Logic:**
-    * Upon startup, a new leader orchestrator must perform a reconciliation process. It would query the `ResilienceManager` for the state of all tasks and compare it against the state in the persistent memory bank and the environment (e.g., filesystem). This allows it to recover from partial failures and resume the workflow gracefully.
-
-5.  **Provide Multiple Implementations:**
-    * To maintain flexibility, provide at least two implementations of the `ResilienceManager`:
-        * `InMemoryResilience`: A simple, single-node implementation for local development that provides no real fault tolerance but satisfies the trait.
-        * `RedisResilience` or `EtcdResilience`: A production-grade implementation that uses a distributed store like Redis or etcd to manage distributed locks for leadership and transactional state for tasks.
-
-**Impact:**
-
-* **Massively Improved Reliability:** Transforms the ecosystem into a platform capable of running long-duration, business-critical workflows where automated recovery from failure is essential.
-* **High Availability:** The leader election mechanism enables high-availability deployments of the `claude-code-flow` orchestrator, eliminating it as a single point of failure.
-* **Guaranteed Task Execution:** The transactional task protocol ensures that no task is lost due to an agent or node crash, a key requirement for enterprise-grade systems.
-* **Architectural Maturity:** Addresses a major gap in the system's overall robustness, making the platform far more mature and suitable for production use.
-
-### 3.4. Issue Proposal (U-4): A Comprehensive `ruv-bench` Suite for Performance, Compatibility, and Swarm Heuristic Benchmarking
-
-**Title:** [`feat(ecosystem): Create a comprehensive 'ruv-bench' suite for ecosystem-wide validation`]([https://github.com/ruvnet/ruv-bench/issues/1](https://github.com/ruvnet/ruv-bench/issues/1))
-
-**Labels:** `improvement`, `testing`, `performance`, `user-experience`, `ecosystem`
-
-**Background:**
-
-While the `ruv-FANN` project has testing guidelines and mentions benchmarks, it lacks a unified, public, and easily runnable benchmark suite. This makes it difficult for contributors to validate that their changes do not introduce performance regressions or break FANN compatibility. It also prevents users from easily comparing the performance of different configurations. The original `libfann` repository has a history of issues related to build failures and correctness on different platforms, underscoring the need for a rigorous, continuous, and automated validation process. A dedicated benchmark suite is a hallmark of a mature open-source project, fostering trust and enabling data-driven development.
-
-**Proposed Solution:**
-
-This proposal calls for the creation of a new, top-level `ruv-bench` repository within the `ruvnet` organization. This suite would be integrated into the CI/CD pipeline and would serve as the gold standard for correctness, performance, and compatibility.
-
-1.  **`ruv-fann-bench` Module:**
-    * **Correctness and Compatibility:**
-        * Implement a test harness that runs standard machine learning datasets (e.g., Iris, MNIST, XOR) through both `ruv-FANN` and a compiled version of the original C FANN library.
-        * The harness will compare the final trained network outputs and Mean Squared Error (MSE) to ensure they are within a reasonable tolerance, thus verifying the "FANN Compatible" claim.
-    * **Performance:**
-        * Use a benchmarking framework like [`criterion.rs`]([https://crates.io/crates/criterion](https://crates.io/crates/criterion)) to measure training and inference speed.
-        * Benchmarks should cover various network sizes, float precisions (`f32` vs. `f64`), and feature flags (`std` vs. `parallel` using `rayon`). The results should be tracked over time to detect regressions.
-
-2.  **`ruv-swarm-bench` Module:**
-    * **Topology Overhead:**
-        * Measure the communication latency and task distribution overhead for each of the defined topologies (Mesh, Hierarchical, Ring, Star) under different agent counts and message loads. This will provide users with clear data on the performance trade-offs of each topology.
-    * **Cognitive Pattern Heuristics:**
-        * Design a set of abstract, representative problems (e.g., an optimization problem like the Traveling Salesperson Problem, an exploration problem like finding all solutions to a maze).
-        * Benchmark the performance (e.g., time to solution, quality of solution) of a swarm using each of the seven cognitive patterns on these problems. This provides empirical data on which patterns are best suited for which task types.
-
-3.  **`claude-code-flow-bench` Module:**
-    * **Software Engineering Tasks:**
-        * Develop a set of standardized, end-to-end software development tasks inspired by real-world scenarios and academic benchmarks like [`SWE-Bench`]([https://www.swebench.com/](https://www.swebench.com/)).
-        * Tasks could include: "Fix a specific bug in this small Rust project," "Add a new API endpoint to this web server," or "Refactor this module to improve performance."
-        * Measure key metrics: task completion rate (Pass@k), time to completion, and token cost for different swarm configurations and strategies (e.g., static SPARC modes vs. the proposed Evolving Swarm).
-
-4.  **CI Integration and Public Dashboard:**
-    * Integrate the entire `ruv-bench` suite into the project's CI/CD pipeline.
-    * Benchmark results should be automatically published to a public location (e.g., GitHub Pages) after every main branch commit, creating a living dashboard of the ecosystem's performance and correctness over time.
-
-**Impact:**
-
-* **Prevents Regressions:** Provides a critical safety net that ensures changes do not degrade performance or break correctness, building confidence for both developers and users.
-* **Drives Data-Driven Development:** Enables the team to make informed decisions about architectural changes and optimizations based on hard data rather than intuition.
-* **Builds Community Trust:** A transparent, public benchmark suite is a powerful signal of project maturity and quality, attracting serious contributors and adopters.
-* **Acts as Living Documentation:** The benchmark code itself serves as a set of complex, real-world examples of how to use the ecosystem's features effectively.
-
-### 3.5. Issue Proposal (U-5): Ergonomic Refactoring of `NetworkBuilder` for Custom Layers and Sparse Topologies
-
-**Title:** [`refactor(ruv-fann): Refactor NetworkBuilder for ergonomic definition of custom topologies`]([https://github.com/ruvnet/ruv-FANN/issues/204](https://github.com/ruvnet/ruv-FANN/issues/204))
-
-**Labels:** `improvement`, `refactor`, `user-experience`, `ruv-fann`
-
-**Background:**
-
-The current `NetworkBuilder` in `ruv-FANN` provides a simple, fluent API for creating standard feed-forward networks by stacking layers sequentially (e.g., `.input_layer()`, `.hidden_layer()`, `.output_layer()`). This design is excellent for beginners and for replicating basic FANN architectures. However, it is architecturally rigid and does not easily accommodate the project's own roadmap goals of supporting "Shortcut connections for residual-style networks" and "Sparse connection patterns". Forcing these non-sequential patterns into a linear builder would require awkward, special-cased methods that would make the API confusing and difficult to extend. A more flexible, graph-based approach is needed to unlock the builder's full potential for advanced users and researchers.
-
-**Proposed Solution:**
-
-This proposal suggests refactoring the `NetworkBuilder` to move from an implicit linear chain to an explicit graph definition model.
-
-1.  **Shift from Layer Stacking to Node and Edge Definition:**
-    * The builder's internal representation should change from a `Vec<Layer>` to a graph structure (e.g., using [`petgraph`]([https://crates.io/crates/petgraph](https://crates.io/crates/petgraph)) or a custom adjacency list).
-    * The public API would change from methods that add and implicitly connect layers to methods that add layers as "nodes" and then explicitly define the "edges" (connections) between them.
-
-2.  **New Ergonomic API Design:**
-    * The new API would allow users to define layers and then wire them together in any arbitrary topology.
-    ```rust
-    use ruv_fann::prelude::*;
-    use ruv_fann::layers::{InputLayer, DenseLayer};
-
-    let mut builder = NetworkBuilder::new();
-
-    // 1. Define layers as nodes in the graph, getting back a handle (NodeId).
-    let input_node = builder.add_layer(InputLayer::new(784));
-    let hidden1_node = builder.add_layer(
-        DenseLayer::new(128, ActivationFunction::ReLU)
-    );
-    let hidden2_node = builder.add_layer(
-        DenseLayer::new(128, ActivationFunction::ReLU)
-    );
-    // A layer that will combine two inputs for the residual connection.
-    let merge_node = builder.add_layer(MergeLayer::new(MergeOp::Add));
-    let output_node = builder.add_layer(
-        DenseLayer::new(10, ActivationFunction::Sigmoid)
-    );
-
-    // 2. Define the connections (edges) between nodes.
-    builder.connect(input_node, hidden1_node)?;
-    builder.connect(hidden1_node, hidden2_node)?;
-
-    // 3. Implement a shortcut/residual connection.
-    // The original input and the output of hidden2 are both fed into the merge layer.
-    builder.connect(input_node, merge_node)?;
-    builder.connect(hidden2_node, merge_node)?;
-
-    // The output of the merge layer is fed to the final layer.
-    builder.connect(merge_node, output_node)?;
-
-    // 4. Build the network. The builder will perform a topological sort
-    // to determine the correct execution order.
-    let network = builder.build()?;
-    ```
-
-3.  **Builder Intelligence:**
-    * The `build()` method would be responsible for validating the graph (e.g., checking for cycles, ensuring all nodes are connected) and performing a topological sort to create a flat execution plan for the forward and backward passes.
-    * This design cleanly separates the *definition* of the network topology from its *execution*.
-
-**Impact:**
-
-* **Enables Roadmap Features:** Directly unblocks the implementation of shortcut connections, sparse networks, and other custom architectures planned for the library. This refactoring is a prerequisite for that work.
-* **Future-Proofs the Library:** Provides a highly extensible foundation that can easily accommodate new, complex layer types and topologies (such as the proposed Transformer primitives in [N-4](#24-issue-proposal-n-4-foundational-primitives-for-transformer-architectures-in-ruv-fann)) without requiring further breaking changes to the builder API.
-* **Empowers Advanced Users:** Gives researchers and advanced practitioners a powerful and intuitive tool for experimenting with novel neural network architectures, making `ruv-FANN` a more capable research library.
-* **Improved Clarity:** For complex architectures, an explicit graph definition is far clearer and less error-prone than a series of special-cased methods on a linear builder. It makes the network's structure self-documenting in the code.
-
----
-
-## Part IV: Strategic Roadmap and AGI Potential
-
-### 4.1. The AGI Imperative: From LLM Wrapper to Learning System
-
-The proposed roadmap's ultimate goal is to evolve the platform toward AGI-like capabilities by creating a self-improving AI team—an early, bounded glimpse of Artificial General Intelligence. The proposals are designed to move the `ruv-FANN` → `ruv-Swarm` → `claude-code-flow` stack from a "clever agent demo" into a genuinely learning, self-optimizing system. Taken together, they nudge the project away from being a simple "LLM wrapper" and toward a frontier-AI research test-bed where every layer—from the model weights and swarm policy to the high-level orchestration logic—can evolve in-flight. This represents the most direct path from today’s often brittle agentic systems to something that looks and feels like early AGI: a system that adapts its own code, collaboration strategy, and even core model parameters without requiring manual resets or human intervention.
-
-### 4.2. Frontier-AI Framing
-
-The academic and research momentum is clearly shifting from single-LLM prompts to self-evolving multi-agent networks. Research like [EvoMAC](https://arxiv.org/abs/2402.08212) demonstrates that "textual backpropagation" feedback loops can allow agent graphs to outperform static configurations on complex software development tasks. Simultaneously, the "[Model Swarms](https://arxiv.org/abs/2402.13329)" concept shows how swarm intelligence principles can be applied directly to optimize the weights of LLM checkpoints, moving beyond traditional training paradigms. In parallel, the emergence of open protocols like MCP, designed to connect agent swarms to external tooling, provides a key ingredient for achieving true autonomous agency. The proposed roadmap is positioned to ride this frontier, integrating these cutting-edge concepts into a cohesive whole.
-
-### 4.3. Evaluation of Proposed Initiatives
-
-A grounded assessment of the feasibility, risk, and AGI-relevance for each cluster of proposed initiatives is presented below.
-
-#### Novel Proposals (N-Series) Evaluation
-
-| ID | What it Adds | Frontier/AGI Upside | Feasibility / Risk |
-|---|---|---|---|
-| [N-1](https://github.com/ruvnet/claude-code-flow/issues/101) | EvoMAC-style self-evolving collaboration | A feedback loop (Verifier ➜ Evolver ➜ Proposer) turns orchestration into a learning system. | Pushes the swarm from scripted to online-learning; aligns with demonstrated gains on benchmarks like rSDE-Bench. | Requires reliable, structured error signals; risk of oscillation or "prompt-bloat" loops. Starting with simple unit-test pass/fail feedback is a pragmatic first step. |
-| [N-2](https://github.com/ruvnet/ruv-FANN/issues/201) | 'Model Swarms' / PSO trainer | Implements gradient-free weight search via Particle Swarm Optimization (PSO), treating each neural network as a "particle". | Opens `ruv-FANN` to exotic low-data or non-differentiable tasks; the concept of "self-tuning" weights echoes core swarm-intelligence themes. | Memory-heavy, as every particle is a full model instance. Best suited for the small-to-medium networks aligned with the library's edge/embedded focus. |
-| [N-3](https://github.com/ruvnet/ruv-swarm/issues/301) | RL-driven cognitive pattern switching | Agents learn which "thinking style" (e.g., divergent, convergent) to deploy based on the current state, using multi-agent reinforcement learning (MARL) concepts. | Could yield emergent specialization and meta-strategy selection—a key property of general intelligence. | Needs compact state-encoding and fast reward signals. A simple Q-table or a tiny `ruv-FANN` network can serve as the initial policy model. |
-| [N-4](https://github.com/ruvnet/ruv-FANN/issues/202) | Transformer primitives in Rust | Allows the foundational `ruv-FANN` layer to natively build and fine-tune Transformer blocks, closing the gap between the stack's components and modern SOTA models. | Essential for enabling in-house foundation models or agent-on-device inference, moving beyond reliance on external APIs. | A large refactor (requiring a graph-based builder, see [U-5](#35-issue-proposal-u-5-ergonomic-refactoring-of-networkbuilder-for-custom-layers-and-sparse-topologies)) but aligned with other Rust DL efforts. Breaks FANN purity, making it best isolated under an experimental feature flag. |
-| [N-5](https://github.com/ruvnet/ruv-FANN/issues/203) | Quantization-Aware Training + ONNX | Creates a full edge-to-production pipeline. QAT is proven to retain higher accuracy where Post-Training Quantization (PTQ) often fails. | Critical for achieving ubiquitous agency on commodity hardware—an AGI needs to be able to run everywhere. | Rust ONNX exporters exist; implementing fake-quant layers and the straight-through estimator is a well-understood and straightforward process. |
-
-**Verdict on Novel Proposals:** The N-1, N-3, and N-4 proposals together form a powerful learning loop across orchestration, policy, and the model itself. N-2 and N-5 make the core library more versatile and deployable. All five are credible and impactful; the primary constraint is developer bandwidth and the need for rigorous benchmarking.
-
-#### User-Focused Proposals (U-Series) Evaluation
-
-| ID | Why it Matters | Readiness Gap | Note |
-|---|---|---|---|
-| [U-1](https://github.com/ruvnet/claude-code-flow/issues/102) | Advanced Tracing & Visualization | Without robust observability, debugging emergent multi-agent behavior is guesswork. [OpenTelemetry](https://opentelemetry.io/) and Jaeger are battle-tested standards for this purpose. | Instrumentation is required across both the Rust backend and any TypeScript front-ends. The return on investment is high, as the core tooling already exists. |
-| [U-2](https://github.com/ruvnet/claude-code-flow/issues/103) | Role-Based Security Sandboxing | Unattended, agent-driven code execution is a top-tier security risk. Per-agent Access Control Lists (ACLs) are mandatory for any enterprise or shared environment use. | Requires implementing a shell wrapper and filesystem proxy. This concept is proven and has been implemented in other agent frameworks. |
-| [U-3](https://github.com/ruvnet/ruv-swarm/issues/302) | Pluggable Fault Tolerance | Leader-election and task-redo protocols using tools like etcd or Redis mirror the high-availability playbooks used in modern cloud infrastructure. | The implementation complexity is high but is an unavoidable prerequisite for any serious production deployment. |
-| [U-4](https://github.com/ruvnet/ruv-bench/issues/1) | Unified Benchmark Suite | Provides a continuous performance and correctness guardrail, a standard feature in mature ML libraries. | This is relatively low-hanging fruit. Frameworks like [`criterion.rs`]([https://crates.io/crates/criterion](https://crates.io/crates/criterion)) and benchmark datasets like [`SWE-Bench`]([https://www.swebench.com/](https://www.swebench.com/)) are readily available. |
-| [U-5](https://github.com/ruvnet/ruv-FANN/issues/204) | Graph-Based `NetworkBuilder` Refactor | Enables the critical Transformer work ([N-4](#24-issue-proposal-n-4-foundational-primitives-for-transformer-architectures-in-ruv-fann)) and other non-sequential architectures like sparse/residual nets. Aligns `ruv-FANN` with modern Rust ML libraries like Burn and Candle. | This is a breaking change. It should be gated behind a `builder_v2` API to avoid alienating existing FANN users. |
-
-**Verdict on User-Focused Proposals:** These five initiatives transform the platform from a research playground into a robust, secure product surface. This fortification is a prerequisite before serious AGI experimentation can be conducted safely and reliably in the open.
-
-### 4.4. A Strategic Roadmap to Agentic AGI
-
-To maximize impact and manage risk, the following implementation order is recommended:
-
-1.  **Fortify the Foundation (U-1, U-2):** Frontier AI research without robust guardrails is a governance nightmare. Foundational security and observability must come first.
-2.  **Modernize the Core (U-5, N-4):** Ship the graph builder and a minimal Transformer block. This work unblocks all other downstream model-level innovation and modernizes the core library.
-3.  **Enable Adaptive Learning (N-1, N-3):** Layer the EvoMAC loop and RL pattern-selector on existing SPARC modes. This will likely yield measurable performance gains on benchmarks like SWE-Bench and demonstrate the power of an adaptive system.
-4.  **Explore New Paradigms (N-2):** Introduce the Swarm-PSO trainer on smaller forecasting networks. Evaluate its performance against traditional backpropagation baselines to validate its utility within the ecosystem.
-5.  **Achieve Production Readiness (N-5):** Finish the QAT+ONNX pipeline to demo edge deployment. This is a key step toward enabling future autonomous agents that can operate in physical, resource-constrained environments.
-
-### 4.5. Conclusion: The Path to a Self-Optimizing System
-
-The proposals are ambitious but form a coherent strategy. If executed, they will transform the ecosystem on every level:
-* **`ruv-FANN`** will evolve from a FANN clone into a modern Rust ML research engine.
-* **`ruv-swarm`** will gain the adaptive reflexes seen in cutting-edge multi-agent reinforcement learning research.
-* **`claude-code-flow`** will be lifted from a scripted task runner to a self-improving AI team—an early, bounded glimpse of AGI.
-
-Agencies that can learn at every layer—from prompt to policy to weight-space—are what many researchers cite as a necessary stepping-stone toward agentic AGI. This roadmap squarely targets that crux while grounding itself in tangible engineering wins like speed, robustness, and deployability. The primary adoption risk lies in engineering capacity and security. By nailing the sandboxing and tracing first, the project can create a safe foundation upon which to iterate. The frontier-AI upside—a continuously self-optimizing stack—justifies the effo
