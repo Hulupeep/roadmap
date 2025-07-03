@@ -1,8 +1,10 @@
 # **Roadmap proposal: Self-Improving Agentic Ecosystem**
 
 ### **The short and sweet:** 
+ If the ecosystem of ruvnet *could potentially be agi-like* \- then make the roadmap to align with that. **This doc proposes to create that agi roadmap** and begins with 5 novel and 5 user based epics to engineer towards agi-like capabilities. 
 
-### If the ecosystem of ruvnet *could potentially be agi-like* \- then make the roadmap to align with that. **This doc proposes to create that agi roadmap** and begins with 5 novel and 5 user based epics to engineer towards agi-like capabilities.
+## **yellow stickie:** 
+Straw-man draft. Stiched from ruvnet repos and latesst research. THe purpose here is to give a) a single clear roadmap b) a single clear ask c) with a single, purposeful and ambitious mission tying it together. 
 
 ## **Summary:** 
 
