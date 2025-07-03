@@ -631,7 +631,7 @@ let network \= builder.build()?;
 
 **Testing for AGI-Like**
 See these standard tests that we can start with as we progress through the roadmap. 
-
+[AGI-tests] (https://github.com/Hulupeep/roadmap/blob/main/agitests.md)
 
 **Hardware -go faster machine**
 
