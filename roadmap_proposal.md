@@ -1,16 +1,31 @@
 # **Roadmap proposal: Self-Improving Agentic Ecosystem**
 
-### **The short and sweet:** 
- If the ecosystem of ruvnet *could potentially be agi-like* \- then make the roadmap to align with that. **This doc proposes to create that agi roadmap** and begins with 5 novel and 5 user based epics to engineer towards agi-like capabilities. 
+### The short-and-sweet
 
-## **yellow stickie:** 
-Straw-man draft. Stiched from ruvnet repos and latesst research. THe purpose here is to give a) a single clear roadmap b) a single clear ask c) with a single, purposeful and ambitious mission tying it together. 
+Be bold: If **ruvnet ecosystem** feels like this is a route to AGI, thenlet’s align the roadmap to match.
+This document sketches that **AGI-class roadmap** through **10 epics**—
 
-## **Summary:** 
+* **5 frontier-tech epics** and - **5 user/ops epics**—that move the stack toward self-improving, agentic capability.
 
-###  
+---
 
-This is a proposal for a roadmap for the ruv net ecosystem, with the goal of transforming it into a dynamic, self-improving AI system. The outcome is a test-bed for exploring and expanding on AGI-like capabilities, where the system can learn and adapt at every level of its architecture—from fundamental model weights to high-level collaborative strategies. The proposals are to bridge the gap between current state as a collection of powerful but separated components and its potential to become a cohesive, self-optimizing AI team. As-is this is ambitious but plausible. With the [right hardware](https://github.com/Hulupeep/roadmap/blob/main/blackwell.md), the roadmap becomes decisive.
+### 🟨 Sticky note (read-me-first)
+
+> **Straw-man draft.**
+> Assembled from ruvnet repos plus the latest AGI & Blackwell research.
+> Its only job is to provide **one clear roadmap, one clear ask, and one ambitious mission** that we can debate, refine, or replace.
+
+---
+
+### Summary
+
+This proposal turns the current ruvnet ecosystem—a set of powerful but separate components—into a **cohesive, self-optimising AI team**:
+
+* **Dynamic learning at every layer**: from raw model weights to multi-agent collaboration strategies.
+* **Bridges today’s gaps** between isolated libraries and a fully integrated AGI test-bed.
+* **Ambitious yet plausible** on existing hardware—and **decisive** once Blackwell-class GPUs are in hand.
+
+In short, it’s a practical blueprint for transforming “AGI-ish”  into an engineering plan with a measurable destination, a concrete resource request, and a mission that rallies contributors. As-is this is ambitious but plausible. With the [right hardware](https://github.com/Hulupeep/roadmap/blob/main/blackwell.md), the roadmap becomes decisive.
 
 * **Part I: Ecosystem Tear down** review of the current three-layer architecture (`ruv-FANN`, `ruv-swarm`, `claude-code-flow`). Lists core architectural tensions, like the conflict between legacy FANN compatibility and the demands of modern machine learning. This section draws o on academic work in self-evolving agent networks and swarm-based model optimization to mark out significant opportunities for innovation.
 
