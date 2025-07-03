@@ -628,6 +628,16 @@ let network \= builder.build()?;
 * **Empowers Advanced Users:** Gives researchers and advanced practitioners a powerful and intuitive tool for experimenting with novel neural network architectures, making ruv-FANN a more capable research library.  
 * **Improved Clarity:** For complex architectures, an explicit graph definition is far clearer and less error-prone than a series of special-cased methods on a linear builder. It makes the network's structure self-documenting in the code.
 
+
+**Testing for AGI-Like**
+See these standard tests that we can start with as we progress through the roadmap. 
+
+
+**Hardware -go faster machine**
+
+THe right hardware will make this roadmap highly achievablel in a short time. See the [hardware acceration roadmap ](https://github.com/Hulupeep/roadmap/blob/main/blackwell.md)
+
+
 #### **Works cited**
 
 1. ruvnet/ruv-FANN: A blazing-fast, memory-safe neural network library for Rust that brings the power of FANN to the modern world. \- GitHub, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN](https://github.com/ruvnet/ruv-FANN)  
