@@ -57,7 +57,7 @@ Track correct answers / total; compute \$ cost via `claude-flow --report-cost`.
 * **Compute-plus-accuracy** reported, matching ARC & SWE-bench leaderboard rules (efficiency is now mandatory). ([arcprize.org][4])
 * **Self-evolution test** is directly inspired by EvoMAC’s textual back-prop pipeline (state-of-the-art for multi-agent coding).
 
-Run these three and you’ll have numbers that investors—and sceptical researchers—respect when you claim the platform is “AGI-leaning”.
+Run these three and you’ll have numbers that researchers—respect when you claim the platform is “AGI-leaning”.
 
 [1]: https://www.swebench.com/?utm_source=chatgpt.com "SWE-bench Leaderboard"
 [2]: https://arcprize.org/arc-agi?utm_source=chatgpt.com "What is ARC-AGI? - ARC Prize"
