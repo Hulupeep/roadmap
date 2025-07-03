@@ -19,11 +19,11 @@ This document sketches that **AGI-class roadmap** through **10 epics**—
 
 ### Summary
 
-This proposal turns the current ruvnet ecosystem—a set of powerful but separate components—into a **cohesive, self-optimising AI team**:
+This proposal turns the current ruvnet ecosystem - a set of powerful but separate components— - into a **cohesive, self-optimising AI team**:
 
 * **Dynamic learning at every layer**: from raw model weights to multi-agent collaboration strategies.
 * **Bridges today’s gaps** between isolated libraries and a fully integrated AGI test-bed.
-* **Ambitious yet plausible** on existing hardware—and **decisive** once Blackwell-class GPUs are in hand.
+* **Ambitious yet plausible** on existing hardware—and **decisive** if for example,high end GPUs like say Blackwell-class can be found.
 
 In short, it’s a practical blueprint for transforming “AGI-ish”  into an engineering plan with a measurable destination, a concrete resource request, and a mission that rallies contributors. As-is this is ambitious but plausible. With the [right hardware](https://github.com/Hulupeep/roadmap/blob/main/blackwell.md), the roadmap becomes decisive.
 
