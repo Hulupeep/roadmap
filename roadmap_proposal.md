@@ -104,7 +104,7 @@ The convergence of these research streams points toward a profound opportunity f
 
 This reframes the project's ultimate potential. It is not merely a toolchain for building agentic applications; it can become a holistic, self-optimizing AI development platform where learning and adaptation occur from the fundamental model weights all the way up to the strategic collaboration between agents. This vision provides a powerful and coherent direction for the novel feature proposals that follow.
 
-### **1.3. Synthesis of Improvement Vectors and Proposed Initiatives**
+### **1.3. The 5 and 5 - Eprics to push into the frontier, 5 to keep it operational**
 
 Synthesizing the architectural review and landscape analysis reveals clear vectors for improvement. These fall into two broad categories: novel features that push the ecosystem toward the frontier of AI research, and foundational user-focused improvements that fortify its core robustness, security, and developer experience. The key tensions identified—FANN compatibility versus modernity, and centralized orchestration versus decentralized swarming—along with practical pain points noted in user feedback and issue trackers, directly inform the proposed development initiatives.
 
