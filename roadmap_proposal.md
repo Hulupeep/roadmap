@@ -10,7 +10,7 @@
 > This isn't about coordination tools or neural networks. This is about **ephemeral intelligence** - where every task, every file, every function can temporarily think. Purpose-built cognition that exists just long enough to solve the problem, then gracefully disappears.
 >
 > **LLMs are the new Encarta CD-ROMs.** This roadmap outlines the Wikipedia moment for artificial intelligence.
-> ** STRAW-MAN DRAFT ***  Proposal is a stab at documenting long term vision roadmap for internal and external stakeholders.
+> ** STRAW-MAN DRAFT **  Proposal is a stab at documenting long term vision roadmap for internal and external stakeholders.
 
 ---
 
