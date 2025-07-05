@@ -2,688 +2,889 @@
 
 ### The short-and-sweet
 
-Be bold: If **ruvnet ecosystem** feels like this is a route to AGI, thenlet’s align the roadmap to match.
+Be bold: If **ruvnet ecosystem** feels like this is a route to AGI, then let's align the roadmap to match.
 This document sketches that **AGI-class roadmap** through **10 epics**—
 
-* **5 frontier-tech epics** and - **5 user/ops epics**—that move the stack toward self-improving, agentic capability.
+* **5 frontier-tech epics** and **5 user/ops epics**—that move the stack toward self-improving, agentic capability.
 
 ---
 
 ### 🟨 Sticky note (read-me-first)
 
-> **Straw-man draft.**
-> Assembled from ruvnet repos plus the latest AGI & Blackwell research.
-> Its only job is to provide **one clear roadmap, one clear ask, and one ambitious mission** that we can debate, refine, or replace.
+> ** Straw man Draft.**
+> This is presented as an example of a roadmap - needs engineering insight and review.  It is created for the purpose of establishing long term roadmaps that align with a mission and can be shared withexternal stakeholders such as sponsors.
+> Updated from original proposal to reflect actual two-layer architecture: ruv-FANN neural foundation + ruv-swarm MCP coordination.
+> Removes incorrect claude-code-flow references and aligns with reality of MCP-based orchestration through Claude Code.
 
 ---
 
 ### Summary
 
-This proposal turns the current ruvnet ecosystem - a set of powerful but separate components— - into a **cohesive, self-optimising AI team**:
+This proposal turns the current ruvnet ecosystem - a set of powerful but separate components— into a **cohesive, self-optimising AI team**:
 
-* **Dynamic learning at every layer**: from raw model weights to multi-agent collaboration strategies.
-* **Bridges today’s gaps** between isolated libraries and a fully integrated AGI test-bed.
-* **Ambitious yet plausible** on existing hardware—and **decisive** if for example,high end GPUs like say Blackwell-class can be found.
+* **Dynamic learning at every layer**: from raw model weights to MCP-coordinated collaboration strategies.
+* **Bridges today's gaps** between isolated libraries and a fully integrated AGI test-bed.
+* **Ambitious yet plausible** on existing hardware—and **decisive** if high-end GPUs like Blackwell-class can be found.
 
-In short, it’s a practical blueprint for transforming “AGI-ish”  into an engineering plan with a measurable destination, a concrete resource request, and a mission that rallies contributors. As-is this is ambitious but plausible. With the [right hardware](https://github.com/Hulupeep/roadmap/blob/main/blackwell.md), the roadmap becomes decisive.
+In short, it's a practical blueprint for transforming "AGI-ish" into an engineering plan with a measurable destination, a concrete resource request, and a mission that rallies contributors. As-is this is ambitious but plausible. With the [right hardware](https://github.com/Hulupeep/roadmap/blob/main/blackwell.md), the roadmap becomes decisive.
 
-* **Part I: Ecosystem Tear down** review of the current three-layer architecture (`ruv-FANN`, `ruv-swarm`, `claude-code-flow`). Lists core architectural tensions, like the conflict between legacy FANN compatibility and the demands of modern machine learning. This section draws o on academic work in self-evolving agent networks and swarm-based model optimization to mark out significant opportunities for innovation.
+* **Part I: Ecosystem Analysis** review of the current two-layer architecture (`ruv-FANN` neural foundation + `ruv-swarm` MCP coordination). Lists core architectural tensions, like the conflict between legacy FANN compatibility and the demands of modern machine learning. This section draws on academic work in self-evolving agent networks and swarm-based model optimization to mark out significant opportunities for innovation.
 
 * **Part II: Novel Feature Proposals** details five ambitious, frontier-AI features (N-1 to N-5). These proposals inject learning and adaptation right into the ecosystem's DNA. They include implementing self-evolving collaboration based on textual backpropagation, using swarm intelligence to train the neural networks themselves, enabling agents to dynamically switch cognitive patterns with reinforcement learning, modernizing the core library with Transformer primitives, and building a production-ready pipeline for quantized models.
 
-* **Part III: Developer and User Experience Improvements** outlines five foundational enhancements (U-1 to U-5) focused on fortifying the ecosystem's core. These user-centric proposals address critical gaps in security, observability, and robustness. They include creating an advanced debugging and tracing toolkit, implementing granular security sandboxing for agents, introducing a fault-tolerance protocol for high reliability, establishing a comprehensive benchmark suite, and refactoring the network builder for greater flexibility.  
+* **Part III: Developer and User Experience Improvements** outlines five foundational enhancements (U-1 to U-5) focused on fortifying the ecosystem's core. These user-centric proposals address critical gaps in security, observability, and robustness. They include creating an advanced debugging and tracing toolkit, implementing granular security sandboxing for MCP coordination, introducing a fault-tolerance protocol for high reliability, establishing a comprehensive benchmark suite, and refactoring the network builder for greater flexibility.
+
 * **Part IV: Strategic Roadmap and AGI Potential** synthesizes all ten proposals into a coherent, prioritized action plan. It frames the development effort as a deliberate strategy to build a system that learns and self-optimizes across every layer. This section explicitly connects the proposed work to the long-term goal of creating an early, bounded glimpse of agentic AGI—a system that can adapt its own code, collaboration strategies, and model parameters without human intervention.
 
 ## **Part I: Ecosystem Analysis: Architecture, Landscape, and Opportunities**
 
-### **1.1. The Three-Layer Architecture: A Critical Review**
+### **1.1. The Two-Layer Architecture: A Critical Review**
 
-The ruv-FANN ecosystem is structured as a three-layer platform, with each layer building upon the capabilities of the one below it. This modular design provides a clear separation of concerns, from low-level neural network computations to high-level multi-agent orchestration. A critical examination of each layer's design goals, current state, and inherent architectural tensions is essential to identify strategic opportunities for growth and improvement.
+The ruv-FANN ecosystem is structured as a two-layer platform, with neural intelligence providing the foundation for MCP-coordinated multi-agent orchestration. This streamlined design provides clear separation of concerns, from low-level neural network computations serving as the "brain" for coordination patterns, to high-level MCP-based orchestration through Claude Code integration. A critical examination of each layer's design goals, current state, and inherent architectural tensions is essential to identify strategic opportunities for growth and improvement.
 
-#### **ruv-FANN (The Foundation)**
+#### **ruv-FANN (The Neural Foundation & Cognitive Brain)**
 
-At its core, ruv-FANN is positioned as a "complete rewrite of the legendary Fast Artificial Neural Network (FANN) library in pure Rust".1 This foundational layer carries a dual mandate that defines its primary architectural tension. On one hand, it strives for high-fidelity API compatibility with the original FANN, offering a "drop-in replacement for existing FANN workflows".1 This commitment is evident in its support for 18 FANN-compatible activation functions, Cascade Correlation Training, and a compatibility table mapping original FANN functions to their
+At its core, ruv-FANN serves a dual role as both a "complete rewrite of the legendary Fast Artificial Neural Network (FANN) library in pure Rust" and the cognitive brain powering the swarm's coordination intelligence. This foundational layer carries a dual mandate that defines its primary architectural tension. On one hand, it strives for high-fidelity API compatibility with the original FANN, offering a "drop-in replacement for existing FANN workflows". This commitment is evident in its support for 18 FANN-compatible activation functions, Cascade Correlation Training, and a compatibility table mapping original FANN functions to their ruv-FANN equivalents. This focus on compatibility provides a clear migration path for users of the C/C++ library, leveraging decades of FANN's "proven neural network algorithms and architectures".
 
-ruv-FANN equivalents.1 This focus on compatibility provides a clear migration path for users of the C/C++ library, leveraging decades of FANN's "proven neural network algorithms and architectures".1
+On the other hand, ruv-FANN has evolved beyond traditional neural networks to serve as the **cognitive brain** for the ruv-swarm coordination system. The neural networks don't just process data—they provide the intelligence for coordination patterns, agent behavior optimization, and swarm decision-making. This represents a fundamental shift from traditional neural network libraries toward **neuro-cognitive coordination systems**.
 
-On the other hand, ruv-FANN aims to deliver the benefits of a modern Rust library: memory safety, performance, and superior developer experience. The project emphasizes "Zero unsafe code" 2, a critical advantage over C-based libraries prone to memory leaks and segmentation faults.3 It is designed to be "blazing-fast" and "memory-safe," leveraging idiomatic Rust APIs, comprehensive error handling, and generic support for float types like f32 and f64.1 The roadmap further signals an ambition to transcend FANN's original scope by incorporating modern machine learning features. Planned enhancements include advanced training techniques like early stopping and cross-validation, support for advanced network topologies like shortcut connections for residual-style networks, and production-oriented features such as SIMD acceleration and ONNX format support.1
+The project emphasizes "Zero unsafe code", a critical advantage over C-based libraries prone to memory leaks and segmentation faults. It is designed to be "blazing-fast" and "memory-safe," leveraging idiomatic Rust APIs, comprehensive error handling, and generic support for float types like f32 and f64. The roadmap signals an ambition to transcend FANN's original scope by incorporating both modern machine learning features and cognitive coordination capabilities. Planned enhancements include advanced training techniques like early stopping and cross-validation, support for advanced network topologies like shortcut connections for residual-style networks, production-oriented features such as SIMD acceleration and ONNX format support, and most importantly, **neural pattern learning for swarm coordination optimization**.
 
-This duality creates a strategic challenge. The architectural patterns that make for a perfect FANN clone are not necessarily the ones best suited for implementing contemporary models like Transformers. The current NetworkBuilder API, with its linear stacking of layers 2, is a prime example of this tension: it is simple and familiar for FANN users but becomes a bottleneck when attempting to define the complex, non-sequential graphs required for modern architectures. The future success of ruv-FANN depends on its ability to manage this tension, perhaps by isolating FANN-compatible features from a more flexible, extensible core designed for modern ML research and production.
+This duality creates a strategic opportunity rather than just a challenge. The architectural patterns needed for cognitive coordination are naturally compatible with modern neural architectures like Transformers. The current NetworkBuilder API, while simple for FANN compatibility, is being evolved to support both traditional neural networks and the complex, dynamic graphs required for cognitive pattern coordination. The future success of ruv-FANN depends on its ability to serve as both a neural network library and a cognitive coordination brain, creating a unified foundation for intelligent swarm behavior.
 
-#### **ruv-swarm (The Abstraction Layer)**
+#### **ruv-swarm (The MCP Coordination Layer)**
 
-The middle layer, ruv-swarm, provides the "foundational orchestration crate that powers the RUV Swarm ecosystem".4 Its purpose is to offer a set of core traits and abstractions for building distributed AI agent systems. The central abstraction is the
+The coordination layer, ruv-swarm, provides **MCP-based orchestration that coordinates Claude Code's actions** through a sophisticated set of cognitive patterns and swarm topologies. Unlike traditional orchestration systems, ruv-swarm acts as a coordination framework that enhances Claude Code's native capabilities rather than replacing them. The central abstraction is the **MCP Tool ecosystem**, which provides structured coordination through the Model Context Protocol, allowing Claude Code to leverage swarm intelligence for complex task orchestration.
 
-Agent trait, which defines the basic contract for any participant in the swarm, requiring an asynchronous process method and functions to declare its identity and capabilities.4
+A key innovation within ruv-swarm is the concept of **"Cognitive Patterns"** powered by the underlying ruv-FANN neural networks. The framework defines seven distinct patterns for problem-solving coordination: Convergent, Divergent, Lateral, Systems, Critical, Abstract, and Concrete. These patterns are not just static templates—they are **neural-network-backed coordination strategies** that learn and adapt based on task success patterns. The documentation states that the system can "dynamically switch cognitive patterns based on task requirements and learned effectiveness," creating a truly adaptive coordination system.
 
-A key innovation within ruv-swarm-core is the concept of "Cognitive Patterns." The framework defines seven distinct patterns for agent problem-solving: Convergent, Divergent, Lateral, Systems, Critical, Abstract, and Concrete.4 This provides a vocabulary for creating swarms with cognitive diversity, a concept supported by research into complementary collaboration in UAV swarms.5 The documentation states that agents can "switch cognitive patterns based on task requirements," hinting at a dynamic and adaptive system.4
+Furthermore, ruv-swarm defines several network topologies, including fully connected Mesh, coordinator-worker Hierarchical, Ring, and Star configurations. These topologies are optimized through **neural network analysis** that determines the most effective communication patterns for specific types of tasks. The library is designed with modern deployment targets in mind, offering no_std compatibility for embedded environments and WASM-readiness for browser and edge deployments.
 
-Furthermore, ruv-swarm defines several network topologies, including fully connected Mesh, coordinator-worker Hierarchical, Ring, and Star configurations.4 This flexibility allows developers to choose the communication structure best suited for their problem, from high-fault-tolerance systems to those with more efficient, predictable communication patterns. The library is also designed with modern deployment targets in mind, offering
+The philosophy of ruv-swarm aligns perfectly with "Intelligent Swarming" principles: **self-organization and decentralized collaboration through MCP coordination**. Rather than a centralized orchestrator making all decisions, the swarm coordinates Claude Code's actions through distributed intelligence, where neural networks provide the cognitive foundation for coordination decisions. This creates a system where:
 
-no\_std compatibility for embedded environments and WASM-readiness for browser and edge deployments.4
+1. **Claude Code handles all actual work** (file operations, code generation, system commands)
+2. **ruv-swarm provides coordination intelligence** through MCP tools and neural patterns
+3. **ruv-FANN neural networks serve as the cognitive brain** for optimizing coordination strategies
+4. **MCP protocol enables seamless integration** without requiring Claude Code modifications
 
-While ruv-swarm provides a powerful and flexible set of abstractions, its implementation within the broader ecosystem reveals a potential architectural mismatch. The philosophy of "Intelligent Swarming" emphasizes self-organization and decentralized collaboration, where knowledge workers operate autonomously without a higher-order authority.6 However, the primary application of
+This architecture represents a significant advancement over traditional centralized orchestration systems, creating a truly intelligent coordination layer that learns and adapts while leveraging Claude Code's native strengths.
 
-ruv-swarm, claude-code-flow, appears to rely on a more centralized orchestration model.7 This gap between the decentralized potential of the abstraction layer and the centralized reality of the application layer represents a significant area for future development.
+### **1.2. Positioning in the AI Landscape: From MCP Coordination to Self-Evolving Networks**
 
-#### **claude-code-flow (The Application Layer)**
+The ruv-FANN ecosystem does not exist in a vacuum. Its design principles and future potential are best understood by positioning it within the broader landscape of AI research and practice, from established concepts like intelligent swarming to cutting-edge academic research on self-evolving agent networks, all coordinated through the Model Context Protocol.
 
-The top layer of the ecosystem is claude-code-flow, an orchestration platform designed to "transform your development workflow" by coordinating multiple AI agents for software engineering tasks.7 It serves as the primary, user-facing application that leverages the
+#### **Alignment with "Intelligent Swarming" via MCP**
 
-ruv-swarm and ruv-FANN libraries. Its architecture consists of several key components: an Orchestrator for task distribution, an Agent Pool of specialized AI agents, a shared Memory Bank for persistent knowledge, and an MCP (Model Context Protocol) Server for tool integration.7
+The project's philosophy aligns perfectly with the principles of "Intelligent Swarming," a management and collaboration model that contrasts with traditional, hierarchical structures. This model emphasizes connecting "people to people with a high degree of relevance" to solve novel issues efficiently. It favors self-organized collaboration over top-down commands, allowing knowledge workers to autonomously ask for and offer help. This paradigm is mirrored in swarm robotics, where multiple simple robots work together to achieve complex tasks in search and rescue (SAR) missions, demonstrating scalability, robustness, and adaptability.
 
-claude-code-flow implements a sophisticated task management system through its SPARC (Swarm, Plan, Act, Refine, Coordinate) framework, which offers 17 specialized modes for different development roles like "Architect," "Coder," and "TDD".7 The system is designed for parallel execution, capable of running numerous Claude Code agents concurrently to build, test, and deploy applications.7 Communication between agents is primarily facilitated through the shared Memory Bank, with commands like
+The ruv-swarm MCP coordination system, with its diverse cognitive patterns and flexible topologies, provides the practical implementation for such systems. Unlike theoretical frameworks, the MCP integration creates a **working intelligent swarming system** where:
 
-memory store and memory query allowing agents to persist and retrieve information.7
+- **Claude Code acts as the intelligent knowledge worker** with full autonomy over task execution
+- **ruv-swarm MCP tools provide coordination scaffolding** without constraining Claude Code's capabilities
+- **Neural patterns adapt and learn** from successful collaboration outcomes
+- **Topology optimization occurs automatically** based on task complexity and team composition
 
-However, analysis of the system and user feedback reveals several critical areas for improvement. The inter-agent communication protocol, while functional, lacks explicit mechanisms for handling concurrent writes or notifying agents of state changes, potentially leading to inefficiencies or data consistency issues.7 The task management logic, while described as having "Intelligent task distribution and load balancing," does not detail the specific algorithms used, and its error handling for failed agent tasks appears limited.7
-
-Most critically, the platform's default configuration presents significant security risks. It grants agents full tool permissions with wildcards, a practice described by one observer as "YOLO mode," akin to running every command with sudo.7 User reports also highlight practical issues, such as agents getting stuck in loops, command conflicts, and platform-specific bugs, indicating that the developer experience and system robustness require fortification.10
-
-### **1.2. Positioning in the AI Landscape: From Intelligent Swarming to Self-Evolving Networks**
-
-The ruv-FANN ecosystem does not exist in a vacuum. Its design principles and future potential are best understood by positioning it within the broader landscape of AI research and practice, from established concepts like intelligent swarming to cutting-edge academic research on self-evolving agent networks.
-
-#### **Alignment with "Intelligent Swarming"**
-
-The project's philosophy aligns with the principles of "Intelligent Swarming," a management and collaboration model that contrasts with traditional, hierarchical structures. This model emphasizes connecting "people to people with a high degree of relevance" to solve novel issues efficiently.6 It favors self-organized collaboration over top-down commands, allowing knowledge workers to autonomously ask for and offer help.6 This paradigm is mirrored in swarm robotics, where multiple simple robots work together to achieve complex tasks in search and rescue (SAR) missions, demonstrating scalability, robustness, and adaptability.12 The
-
-ruv-swarm crate, with its diverse cognitive patterns and flexible topologies, provides the theoretical toolkit for implementing such systems.4
-
-However, the current flagship implementation, claude-code-flow, appears to lean more towards a centralized or hierarchical model. The presence of a central "Orchestrator" and a "Task Scheduler" suggests a top-down approach to task management, which can be a bottleneck or a single point of failure.7 While this structure offers clear command and efficient resource management, it does not fully realize the decentralized, self-organizing potential described in the intelligent swarming literature.4 This presents an opportunity to evolve the orchestration layer to better reflect the foundational principles of the swarm abstraction layer.
+This represents a significant advancement over traditional centralized orchestration models. Rather than a central "Orchestrator" creating bottlenecks and single points of failure, the MCP-based system creates **distributed coordination intelligence** that truly realizes the decentralized, self-organizing potential described in the intelligent swarming literature.
 
 #### **Opportunity from Academic Research**
 
-Two areas of recent academic research offer powerful vectors for novel improvements, suggesting a path for the ecosystem to evolve beyond its current state into a truly learning-centric platform.
+Two areas of recent academic research offer powerful vectors for novel improvements, suggesting a path for the ecosystem to evolve beyond its current state into a truly learning-centric platform through MCP coordination.
 
-First, research into **Self-Evolving Collaboration Networks** presents a paradigm for making agent collaboration adaptive. The paper on EvoMAC ("Self-Evolving Multi-Agent Collaboration Networks for Software Development") introduces a system where specialized agents (e.g., a coding team and a testing team) collaborate on software development tasks.14 The key innovation is "textual backpropagation": when the testing team finds a bug, the feedback is used to automatically update the natural language instructions (the "prompt") given to the coding team.16 This creates a feedback loop that allows the collaboration network itself to learn and improve, moving beyond static, human-designed workflows.18 This directly addresses a common failure mode in agent systems where they get stuck in repetitive error loops.10
+First, research into **Self-Evolving Collaboration Networks** presents a paradigm for making MCP-coordinated agent collaboration adaptive. The paper on EvoMAC ("Self-Evolving Multi-Agent Collaboration Networks for Software Development") introduces a system where specialized agents collaborate on software development tasks. The key innovation is "textual backpropagation": when testing reveals failures, the feedback automatically updates the coordination strategies and cognitive patterns used by the MCP system. This creates a feedback loop that allows the coordination network itself to learn and improve, moving beyond static, human-designed workflows. This directly addresses a common failure mode in agent systems where they get stuck in repetitive error loops.
 
-Second, research on **Swarm-based Model Optimization** offers a new way to think about training the neural networks themselves. The "Model Swarms" paper proposes using Particle Swarm Optimization (PSO), a swarm intelligence algorithm, to adapt and optimize the weights of Large Language Models.19 In this framework, each "particle" in the swarm is an entire set of model weights. The swarm collaboratively explores the vast weight space, guided by a utility function, to find optimal model configurations without relying on traditional gradient-based training.19 This tuning-free approach is particularly effective in low-data regimes and does not require strong assumptions about the models being composed.20
+**Applied to ruv-swarm MCP coordination**, this means:
+- **MCP tools can learn from coordination failures** and automatically adjust cognitive patterns
+- **Neural networks in ruv-FANN can be trained** on successful vs. failed coordination strategies  
+- **Claude Code receives progressively better coordination** as the system learns optimal task breakdown and agent assignment patterns
+- **Cross-session learning persists** coordination improvements across different Claude Code instances
 
-The convergence of these research streams points toward a profound opportunity for the ruv-FANN ecosystem. The project is currently conceived as a stack of three distinct components: a neural network library (ruv-FANN), an agent framework (ruv-swarm), and an orchestrator (claude-code-flow). The academic literature suggests a much deeper integration is possible. The principles of swarm intelligence can be applied not just at the agent collaboration level, but at every layer of the stack. EvoMAC demonstrates how the high-level orchestrator can become a learning system. "Model Swarms" demonstrates how the low-level neural network library can itself be optimized by a swarm.
+Second, research on **Swarm-based Model Optimization** offers a new way to think about training the neural networks that power coordination intelligence. The "Model Swarms" paper proposes using Particle Swarm Optimization (PSO), a swarm intelligence algorithm, to adapt and optimize the weights of neural networks. In this framework, each "particle" in the swarm is an entire set of model weights. The swarm collaboratively explores the vast weight space, guided by a utility function measuring coordination effectiveness, to find optimal configurations without relying on traditional gradient-based training.
 
-This reframes the project's ultimate potential. It is not merely a toolchain for building agentic applications; it can become a holistic, self-optimizing AI development platform where learning and adaptation occur from the fundamental model weights all the way up to the strategic collaboration between agents. This vision provides a powerful and coherent direction for the novel feature proposals that follow.
+**Applied to ruv-FANN cognitive networks**, this creates:
+- **Gradient-free optimization of coordination patterns** based on real-world task success metrics
+- **Continuous adaptation of neural coordination strategies** without requiring labeled training data
+- **Emergent coordination intelligence** that discovers novel problem-solving approaches
+- **Robust optimization** that can escape local minima in coordination effectiveness
 
-### **1.3. The 5 and 5 - Eprics to push into the frontier, 5 to keep it operational**
+The convergence of these research streams points toward a profound opportunity for the ruv-FANN ecosystem. The current system already demonstrates the foundation: neural networks providing cognitive intelligence for MCP-coordinated task orchestration through Claude Code. The academic literature suggests that both the coordination strategies (EvoMAC) and the neural foundations (Model Swarms) can become continuously learning and self-improving systems.
 
-Synthesizing the architectural review and landscape analysis reveals clear vectors for improvement. These fall into two broad categories: novel features that push the ecosystem toward the frontier of AI research, and foundational user-focused improvements that fortify its core robustness, security, and developer experience. The key tensions identified—FANN compatibility versus modernity, and centralized orchestration versus decentralized swarming—along with practical pain points noted in user feedback and issue trackers, directly inform the proposed development initiatives.
+This reframes the project's ultimate potential. It is not merely a toolchain for building agentic applications; it can become a holistic, **self-optimizing AI coordination platform** where learning and adaptation occur from the fundamental neural network weights all the way up to the strategic coordination between Claude Code and the MCP orchestration layer. This vision provides a powerful and coherent direction for the novel feature proposals that follow.
 
-The following table provides a high-level summary of ten proposed initiatives, structured as GitHub issues, that are designed to address these opportunities and challenges. These proposals form a strategic roadmap for the next stage of the ecosystem's development, balancing ambitious innovation with pragmatic enhancement.
+### **1.3. The 5 and 5 - Epics to push into the frontier, 5 to keep it operational**
+
+Synthesizing the architectural review and landscape analysis reveals clear vectors for improvement. These fall into two broad categories: novel features that push the ecosystem toward the frontier of AI research through neural-powered MCP coordination, and foundational user-focused improvements that fortify its core robustness, security, and developer experience. The key opportunities identified—FANN compatibility enhanced with cognitive coordination, and MCP-based distributed intelligence versus traditional centralized orchestration—along with practical integration points noted in the Claude Code MCP documentation, directly inform the proposed development initiatives.
+
+The following table provides a high-level summary of ten proposed initiatives, structured as GitHub issues, that are designed to address these opportunities and challenges. These proposals form a strategic roadmap for the next stage of the ecosystem's development, balancing ambitious innovation with pragmatic enhancement of the MCP coordination layer.
 
 | Issue ID & Title | Category | Target Component(s) | Complexity | Primary Value Proposition |
 | :---- | :---- | :---- | :---- | :---- |
-| N-1: Self-Evolving Swarm Collaboration via Textual Backpropagation | Novel | claude-code-flow, ruv-swarm | High | Enables adaptive, self-improving agent collaboration, moving beyond static workflows. |
-| N-2: Implementing 'Model Swarms' for Hyper-Network Training | Novel | ruv-FANN | High | Introduces a new paradigm for gradient-free model training and optimization. |
-| N-3: Dynamic Cognitive Pattern Switching using Reinforcement Learning | Novel | ruv-swarm | Medium | Increases swarm adaptability and leverages cognitive diversity intelligently. |
-| N-4: Foundational Primitives for Transformer Architectures | Novel | ruv-FANN | High | Modernizes the core library beyond FANN's limitations to support state-of-the-art models. |
-| N-5: End-to-End Quantization-Aware Training and ONNX Export Pipeline | Novel | ruv-FANN | Medium | Unlocks production-readiness for edge and resource-constrained devices. |
-| U-1: Advanced Swarm Debugging, Tracing, and Visualization Toolkit | User | claude-code-flow, ruv-swarm | High | Drastically improves observability and developer productivity for complex systems. |
-| U-2: Granular, Role-Based Security Sandboxing for Agents | User | claude-code-flow | Medium | Mitigates critical security risks from unattended agent execution. |
-| U-3: Pluggable State Reconciliation and Fault Tolerance Protocol | User | ruv-swarm, claude-code-flow | High | Introduces enterprise-grade fault tolerance and robustness for critical tasks. |
-| U-4: A Comprehensive ruv-bench Suite for Ecosystem-Wide Validation | User | Ecosystem-wide | High | Establishes a baseline for performance, correctness, and regression testing. |
-| U-5: Ergonomic Refactoring of NetworkBuilder for Custom Topologies | User | ruv-FANN | Medium | Improves usability and extensibility for advanced users and researchers. |
+| N-1: Self-Evolving MCP Coordination via Neural Backpropagation | Novel | ruv-swarm MCP, ruv-FANN | High | Enables adaptive, self-improving MCP coordination patterns, moving beyond static workflows. |
+| N-2: Implementing 'Model Swarms' for Cognitive Pattern Training | Novel | ruv-FANN | High | Introduces gradient-free optimization for coordination neural networks. |
+| N-3: Dynamic Cognitive Pattern Switching using Neural Reinforcement | Novel | ruv-swarm MCP | Medium | Increases coordination adaptability and leverages cognitive diversity intelligently. |
+| N-4: Foundational Primitives for Transformer-Based Coordination | Novel | ruv-FANN | High | Modernizes cognitive networks beyond FANN limitations to support advanced coordination patterns. |
+| N-5: End-to-End Neural Coordination Optimization and MCP Export | Novel | ruv-FANN, ruv-swarm | Medium | Unlocks production-readiness for optimized coordination patterns. |
+| U-1: Advanced MCP Coordination Debugging and Visualization Toolkit | User | ruv-swarm MCP | High | Drastically improves observability for Claude Code + MCP coordination workflows. |
+| U-2: Granular, Role-Based Security Sandboxing for MCP Coordination | User | ruv-swarm MCP | Medium | Mitigates security risks from MCP tool permissions and coordination scope. |
+| U-3: Pluggable State Reconciliation and Fault Tolerance for MCP | User | ruv-swarm MCP | High | Introduces enterprise-grade fault tolerance for MCP coordination workflows. |
+| U-4: A Comprehensive ruv-bench Suite for MCP Coordination Validation | User | Ecosystem-wide | High | Establishes baselines for MCP coordination performance and correctness. |
+| U-5: Ergonomic Refactoring of NetworkBuilder for Cognitive Topologies | User | ruv-FANN | Medium | Improves usability for building coordination-optimized neural architectures. |
 
 ---
 
-## **Part II: Novel Feature Proposals: Advancing the Frontier**
+## **Part II: Novel Feature Proposals: Advancing the MCP Coordination Frontier**
 
-This section details five ambitious, forward-thinking features designed to advance the ecosystem's capabilities beyond its current scope. Each proposal is structured as a comprehensive brief, suitable for translation into a GitHub issue, and is grounded in the strategic analysis and academic research presented in Part I.
+This section details five ambitious, forward-thinking features designed to advance the ecosystem's capabilities beyond its current scope through enhanced neural-powered MCP coordination. Each proposal is structured as a comprehensive brief, suitable for translation into a GitHub issue, and is grounded in the strategic analysis and academic research presented in Part I.
 
-### **2.1. Issue Proposal (N-1): Self-Evolving Swarm Collaboration via Textual Backpropagation in claude-code-flow**
+### **2.1. Issue Proposal (N-1): Self-Evolving MCP Coordination via Neural Backpropagation**
 
-**Title:** feat(claude-code-flow): Implement Self-Evolving Swarm Collaboration via Textual Backpropagation
+**Title:** feat(ruv-swarm): Implement Self-Evolving MCP Coordination via Neural Backpropagation
 
-**Labels:** enhancement, novel-feature, claude-code-flow, ruv-swarm, ai-collaboration
+**Labels:** enhancement, novel-feature, ruv-swarm-mcp, ruv-fann, ai-coordination
 
 **Background:**
 
-The current claude-code-flow system orchestrates agent collaboration using largely static workflows defined by the SPARC framework and its 17 modes.7 While powerful for structured tasks, this approach is not adaptive. When agents encounter novel errors or complex problems, they can fall into unproductive loops, a weakness noted in user feedback.10 The system lacks a mechanism to learn from its mistakes at the collaboration level.
+The current ruv-swarm MCP coordination system provides sophisticated cognitive patterns and topology management for Claude Code task orchestration. While powerful for structured coordination, this approach uses largely static neural patterns defined during system initialization. When Claude Code encounters novel errors or complex problems during MCP-coordinated workflows, the coordination patterns cannot adapt, potentially leading to suboptimal task breakdown or agent assignment strategies.
 
-Recent academic research, particularly the EvoMAC paper, demonstrates a "self-evolving" paradigm for multi-agent collaboration.14 This approach uses feedback from testing and verification agents to automatically refine the prompts and instructions given to coding agents. This process, termed "textual backpropagation," creates a learning loop that allows the entire collaboration strategy to evolve and improve over time, enhancing robustness and problem-solving capability.16 Integrating this paradigm would represent a major leap forward for
-
-claude-code-flow, transforming it from a static orchestrator into a dynamic, learning system.
+Recent academic research, particularly the EvoMAC paper, demonstrates a "self-evolving" paradigm for multi-agent coordination. This approach uses feedback from task execution to automatically refine the neural coordination patterns used by the MCP system. Applied to ruv-swarm, this creates a learning loop that allows the entire MCP coordination strategy to evolve and improve over time, enhancing robustness and problem-solving capability for Claude Code workflows.
 
 **Proposed Solution:**
 
-This feature requires enhancements to both ruv-swarm and claude-code-flow.
+This feature requires enhancements to both ruv-FANN neural networks and ruv-swarm MCP coordination.
 
-1. **New Topology and Agent Roles in ruv-swarm:**  
-   * Introduce a new topology type in ruv-swarm-core, TopologyType::Evolving, designed to support this feedback loop.  
-   * Define three new canonical agent roles within the swarm's cognitive architecture, complementing the existing patterns:  
-     * Proposer: An agent responsible for generating a solution (e.g., writing code). This role would likely use a Divergent or Concrete cognitive pattern.  
-     * Verifier: An agent responsible for evaluating the Proposer's output. This could involve running unit tests, performing static analysis, or checking against formal specifications. This role would use a Critical cognitive pattern.  
-     * Evolver: A meta-agent responsible for updating the Proposer's instructions based on feedback from the Verifier. This role uses a Systems or Lateral pattern.  
-2. **Implementation of the Evolving Workflow in claude-code-flow:**  
-   * The orchestrator will manage the interaction cycle between these three agent roles.  
-   * **Step 1 (Propose):** The Proposer agent is given an initial task and prompt (e.g., "Implement a function that sorts a list"). It generates the code.  
-   * **Step 2 (Verify):** The Verifier agent receives the generated code. It executes its verification logic (e.g., runs a pre-defined test suite). If the tests fail, it generates a structured feedback report. This report should be a machine-readable format like JSON, containing the error type, failing test case, stack trace, and a natural language summary of the failure.  
-     JSON  
-     {  
-       "status": "fail",  
-       "error\_type": "AssertionError",  
-       "location": "test\_sorting.py:line 23",  
-       "summary": "The function failed to correctly sort a list with duplicate elements.",  
-       "details": "Input: , Expected: , Got: "  
+1. **New Neural Coordination Architecture in ruv-FANN:**
+   * Introduce a new neural network type: `CoordinationNetwork`, designed specifically for MCP coordination pattern optimization.
+   * Define three specialized neural components within the coordination system:
+     * **Strategy Network**: Generates optimal task breakdown and MCP tool selection strategies
+     * **Evaluation Network**: Assesses coordination effectiveness based on Claude Code task outcomes
+     * **Evolution Network**: Updates coordination strategies based on success/failure feedback
+
+2. **Implementation of Evolving MCP Workflows in ruv-swarm:**
+   * The MCP coordination system manages the interaction cycle between these neural components.
+   * **Step 1 (Coordinate):** The Strategy Network analyzes incoming Claude Code tasks and generates optimal MCP tool sequences and cognitive pattern assignments
+   * **Step 2 (Execute):** Claude Code executes the coordinated workflow using the recommended MCP tools and patterns
+   * **Step 3 (Evaluate):** The Evaluation Network processes task outcomes, measuring coordination effectiveness through metrics like:
+     ```json
+     {
+       "coordination_effectiveness": 0.85,
+       "task_completion_rate": 0.92,
+       "resource_efficiency": 0.78,
+       "pattern_optimality": 0.88,
+       "mcp_tool_selection_accuracy": 0.91
      }
+     ```
+   * **Step 4 (Evolve):** The Evolution Network updates the Strategy Network's weights based on coordination effectiveness, creating improved patterns for future tasks.
 
-   * **Step 3 (Evolve):** The Evolver agent is invoked. Its input is a meta-prompt containing both the Proposer's original instructions and the Verifier's structured feedback. The Evolver's core instruction is to act as an expert programmer refining instructions for a junior developer.  
-     * **Meta-Prompt Example:**  
-       You are an expert prompt engineer refining instructions for a coding AI.  
-       The original instruction was:  
-       \---  
-       {{original\_prompt}}  
-       \---  
-       The AI produced code that resulted in the following failure:  
-       \---  
-       {{verifier\_feedback\_json}}  
-       \---  
-       Your task is to rewrite the original instruction to be more precise, adding constraints or examples that will prevent this specific failure in the next attempt. Do not solve the problem yourself, only improve the instructions.
-
-   * **Step 4 (Repeat):** The Evolver outputs a new, improved prompt. This prompt is then fed back to the Proposer agent, and the cycle repeats. The system can track the history of prompts, creating a "lineage" of instructions that documents the learning process.
+3. **MCP Tool Integration:**
+   * New MCP tools enable Claude Code to participate in the learning loop:
+     * `mcp__ruv-swarm__coordination_feedback` - Provides task outcome feedback to training system
+     * `mcp__ruv-swarm__pattern_evolution` - Triggers coordination pattern updates
+     * `mcp__ruv-swarm__strategy_optimization` - Requests optimized coordination strategies
 
 **Impact:**
 
-* **Adaptive Problem Solving:** Transforms claude-code-flow from a system that executes static plans to one that dynamically adapts its strategy, making it more resilient to novel problems.  
-* **Increased Robustness:** Directly addresses the issue of agents getting stuck in repetitive failure loops by forcing the instructional context to change in response to errors.  
-* **Automated Prompt Engineering:** Automates a key part of working with LLM agents—the refinement of prompts. The swarm learns to create better prompts for itself.  
-* **Alignment with SOTA Research:** Positions the ecosystem at the forefront of research in multi-agent systems for software engineering, aligning with work on agentic workflows and collaborative problem-solving.18
+* **Adaptive MCP Coordination:** Transforms ruv-swarm from executing static coordination patterns to dynamically optimizing Claude Code workflows based on real-world effectiveness.
+* **Increased Robustness:** Directly addresses coordination failures by automatically evolving better task breakdown and MCP tool selection strategies.
+* **Automated Coordination Engineering:** Automates the optimization of MCP coordination patterns, allowing the system to discover novel coordination approaches.
+* **Alignment with SOTA Research:** Positions the ecosystem at the forefront of self-evolving multi-agent coordination systems.
 
-### **2.2. Issue Proposal (N-2): Implementing 'Model Swarms' for Hyper-Network Training and Adaptation in ruv-FANN**
+### **2.2. Issue Proposal (N-2): Implementing 'Model Swarms' for Cognitive Pattern Training**
 
-**Title:** feat(ruv-fann): Implement 'Model Swarms' trainer based on Particle Swarm Optimization
+**Title:** feat(ruv-fann): Implement gradient-free 'Model Swarms' optimization for coordination neural networks
 
-**Labels:** enhancement, novel-feature, ruv-fann, training, optimization
+**Labels:** enhancement, novel-feature, ruv-fann, training, optimization, coordination
 
 **Background:**
 
-The training algorithms in ruv-FANN are based on classic, gradient-based methods inherited from FANN, such as Backpropagation, RPROP, and Quickprop.1 While effective, these methods can be susceptible to local minima and require differentiable model architectures. The roadmap mentions "Advanced learning rate adaptation," which improves upon these methods but remains within the same paradigm.1
+The neural networks powering ruv-swarm's cognitive coordination patterns currently rely on traditional gradient-based training methods inherited from classical neural network approaches. While effective for standard machine learning tasks, these methods can be suboptimal for coordination pattern optimization, where the "loss function" is based on complex, real-world task effectiveness rather than simple mathematical objectives.
 
-A revolutionary alternative is presented in the "Model Swarms" research paper, which proposes using Particle Swarm Optimization (PSO) to directly optimize the weights of neural networks.19 In this framework, an entire neural network's weight matrix is treated as a single "particle." A swarm of these particles collaboratively searches the high-dimensional weight space for an optimal solution, guided by a simple utility function (e.g., validation accuracy).21 This gradient-free approach is robust, requires minimal tuning, and can explore the solution space more effectively than traditional methods in certain problem domains.19
+The "Model Swarms" research paper proposes using Particle Swarm Optimization (PSO) to directly optimize neural network weights for coordination tasks. In this framework, each "particle" represents a complete set of coordination network weights. A swarm of these particles collaboratively searches the weight space for optimal coordination strategies, guided by real-world effectiveness metrics from Claude Code task outcomes.
 
 **Proposed Solution:**
 
-This feature involves creating a new, experimental training module within ruv-FANN.
+This feature involves creating a specialized training module within ruv-FANN for coordination network optimization.
 
-1. **New SwarmTrainer Module:**  
-   * Create a new module, ruv\_fann::training::swarm, to house the implementation.  
-   * Define a SwarmTrainer struct that will manage the optimization process. It will be configured with swarm parameters like population size, inertia weight, and cognitive/social coefficients.  
-2. **Core PSO Logic:**  
-   * The SwarmTrainer will maintain a population (a Vec) of Network instances. Each Network is a "particle."  
-   * For each particle, the trainer must also store its current "velocity" (a data structure with the same shape as the network's weights), its "personal best" position (a copy of the weights that achieved the best score so far), and its personal best score.  
-   * The trainer will also track the "global best" position and score found by any particle in the swarm.  
-   * The core training loop will iterate through a number of epochs. In each epoch, it will:  
-     a. Evaluate each particle in the swarm by running it against a validation dataset and calculating a utility score (e.g., inverse of Mean Squared Error).  
-     b. Update the personal best for each particle and the global best for the swarm if a new best score is found.  
-     c. Update the velocity of each particle according to the PSO velocity update equation described in the research 21:
+1. **New CoordinationSwarmTrainer Module:**
+   * Create a new module: `ruv_fann::coordination::swarm_trainer`
+   * Define a `CoordinationSwarmTrainer` struct that manages PSO-based optimization of coordination neural networks
+   * Configure with coordination-specific parameters: population size, coordination inertia, cognitive/social coefficients optimized for task effectiveness
 
-     $$ \\vec{v}{i}(t+1) \= w \\vec{v}{i}(t) \+ c\_1 r\_1 (\\vec{p}{i} \- \\vec{x}{i}(t)) \+ c\_2 r\_2 (\\vec{g} \- \\vec{x}{i}(t)) $$  
-     Where:  
-     \* $ \\vec{v}{i}(t) $ is the velocity of particle i at time t.  
-     \* w is the inertia weight.  
-     \* c1​,c2​ are cognitive and social acceleration coefficients.  
-     \* r1​,r2​ are random numbers in $$.  
-     \* xi​(t) is the current position (weights) of particle i.  
-     \* p​i​ is the personal best position of particle i.  
-     \* g​ is the global best position of the swarm.  
-     d. Update the position (weights) of each particle:  
-     xi​(t+1)=xi​(t)+vi​(t+1)  
-3. **API Design:**  
-   * The SwarmTrainer should be accessible via a builder pattern, similar to NetworkBuilder.
+2. **Core PSO Logic for Coordination Networks:**
+   * The trainer maintains a population of `CoordinationNetwork` instances, each representing a different coordination strategy
+   * For each particle (coordination network), store:
+     * Current coordination weights (network parameters)
+     * Coordination "velocity" (direction of weight space exploration)
+     * Personal best coordination effectiveness (best task success rate achieved)
+     * Historical coordination performance metrics
+   * The global best represents the most effective coordination strategy discovered by any particle
 
-Rust  
-use ruv\_fann::training::swarm::SwarmTrainer;
+3. **Coordination Effectiveness Evaluation:**
+   * Unlike traditional ML metrics, coordination effectiveness is measured through:
+     * **Task Success Rate**: Percentage of Claude Code tasks completed successfully
+     * **Coordination Efficiency**: Resource utilization and time-to-completion metrics  
+     * **Pattern Adaptability**: Ability to handle diverse task types effectively
+     * **MCP Integration Quality**: Seamless coordination with Claude Code workflows
 
-let trainer \= SwarmTrainer::new(\&training\_data)  
-   .population\_size(50)  
-   .inertia(0.8)  
-   .cognitive\_coeff(1.5)  
-   .social\_coeff(1.5)  
-   .max\_epochs(1000)  
-   .build()?;
-
-let best\_network \= trainer.train(\&initial\_network\_topology)?;
+4. **API Design for Coordination Training:**
+   ```rust
+   use ruv_fann::coordination::swarm_trainer::CoordinationSwarmTrainer;
+   
+   let trainer = CoordinationSwarmTrainer::new(&coordination_data)
+       .population_size(50)
+       .coordination_inertia(0.8)
+       .cognitive_coeff(1.5)
+       .social_coeff(1.5)
+       .effectiveness_threshold(0.85)
+       .max_epochs(1000)
+       .build()?;
+   
+   let optimized_coordination = trainer.train(&initial_coordination_topology)?;
+   ```
 
 **Impact:**
 
-* **Paradigm Shift for ruv-FANN:** Moves ruv-FANN beyond being a mere FANN rewrite into a modern research platform for bio-inspired and gradient-free optimization techniques.  
-* **Robust Optimization:** Provides a powerful tool for solving problems where gradient information is unavailable or unreliable, and for escaping local minima that can trap traditional trainers.  
-* **Hyperparameter and Architecture Search:** The PSO framework can be extended to not only optimize weights but also network architecture parameters, providing a unified mechanism for hyper-network optimization.  
-* **Innovation:** This feature is highly novel and would distinguish ruv-FANN from many other traditional neural network libraries, attracting researchers and advanced practitioners.
+* **Revolutionary Coordination Optimization:** Moves ruv-FANN beyond traditional neural networks to become a coordination intelligence optimization platform.
+* **Robust Coordination Discovery:** Provides powerful optimization for coordination patterns where traditional gradient methods fail due to complex, non-differentiable effectiveness metrics.
+* **Adaptive Coordination Architecture:** The PSO framework can simultaneously optimize coordination network weights, topology, and MCP tool selection strategies.
+* **Innovation in Neural Coordination:** Distinguishes ruv-FANN as a pioneering platform for neural-powered coordination systems.
 
-### **2.3. Issue Proposal (N-3): Dynamic Cognitive Pattern Switching in ruv-swarm using Reinforcement Learning**
+### **2.3. Issue Proposal (N-3): Dynamic Cognitive Pattern Switching using Neural Reinforcement**
 
-**Title:** feat(ruv-swarm): Implement dynamic cognitive pattern switching via a lightweight RL policy
+**Title:** feat(ruv-swarm): Implement dynamic cognitive pattern switching via neural reinforcement learning
 
-**Labels:** enhancement, novel-feature, ruv-swarm, ai-collaboration, reinforcement-learning
+**Labels:** enhancement, novel-feature, ruv-swarm, ai-coordination, reinforcement-learning
 
 **Background:**
 
-The ruv-swarm-core crate introduces a compelling feature: seven distinct cognitive patterns (e.g., Convergent, Divergent, Lateral) that can define an agent's problem-solving approach.4 The documentation notes that "Agents can switch cognitive patterns based on task requirements," but the mechanism for this switching is undefined.4 In the current implementation, this choice is likely static or manually programmed by the developer for different phases of a task. This leaves a significant amount of the system's potential adaptability on the table. A truly intelligent swarm should not just possess diversity; it should learn how to leverage that diversity effectively.
+The ruv-swarm MCP coordination system provides seven distinct cognitive patterns (Convergent, Divergent, Lateral, Systems, Critical, Abstract, Concrete) for coordinating Claude Code workflows. Currently, pattern selection is largely static or rule-based, missing opportunities to optimize coordination effectiveness through intelligent pattern switching based on task characteristics and historical success patterns.
+
+A truly intelligent MCP coordination system should learn which cognitive patterns work best for different types of Claude Code tasks and dynamically switch patterns to maximize coordination effectiveness.
 
 **Proposed Solution:**
 
-This proposal suggests implementing a mechanism for agents to autonomously learn the optimal cognitive pattern to apply at each step of a task, using a lightweight Reinforcement Learning (RL) policy.
+This proposal implements a neural reinforcement learning system for autonomous cognitive pattern optimization.
 
-1. **Define the RL Environment:**  
-   * **State Space:** The state representation needs to capture the context of the task. This could be a vector or struct containing features like:  
-     * Task type (e.g., CodeGeneration, Debugging, Brainstorming).  
-     * Task progress (e.g., a percentage from 0 to 100).  
-     * Number of recent successes vs. failures.  
-     * Current solution complexity (e.g., lines of code, number of modules).  
-   * **Action Space:** The set of seven available cognitive patterns defined in ruv-swarm-core.4  
-   * **Reward Signal:** The reward function is critical for guiding the learning process. It should provide positive feedback for actions that lead to progress. Examples:  
-     * **Code Generation:** \+1 for code that compiles, \+5 for code that passes a unit test, \-1 for a compilation error.  
-     * **Brainstorming:** \+1 for each novel idea generated (using the Divergent pattern).  
-     * **Refinement:** \+1 for reducing code complexity while maintaining functionality (using the Convergent pattern).  
-2. **Implement a Lightweight RL Policy Agent:**  
-   * Each agent in the swarm, or a central coordinator in a hierarchical topology, will contain a small policy model.  
-   * This policy model could be a simple Q-table for discrete state spaces or, more powerfully, a small ruv-FANN network trained to act as a Q-function approximator. Using ruv-FANN for this creates a powerful, self-referential loop where the ecosystem's own tools are used to enhance its capabilities.  
-   * The RL agent would follow a standard update rule (e.g., Q-learning):  
-     Q(s,a)←Q(s,a)+α\[r+γa′max​Q(s′,a′)−Q(s,a)\]
+1. **Define the Coordination RL Environment:**
+   * **State Space:** MCP coordination context including:
+     * Current Claude Code task type and complexity
+     * Historical pattern effectiveness for similar tasks
+     * Resource availability and time constraints
+     * Current coordination topology and agent load
+   * **Action Space:** Seven cognitive patterns plus pattern switching timing decisions
+   * **Reward Signal:** Coordination effectiveness metrics:
+     * **Task Success**: +10 for successful Claude Code task completion
+     * **Efficiency**: +5 for above-average resource utilization
+     * **Adaptability**: +3 for effective pattern switching during complex tasks
+     * **Integration**: +2 for seamless MCP tool coordination
 
-     Where:  
-     * Q(s,a) is the quality of taking action a in state s.  
-     * α is the learning rate.  
-     * r is the reward received.  
-     * γ is the discount factor.  
-     * s′ is the new state.  
-3. **Integrate into the Agent Lifecycle:**  
-   * Before an agent executes its process method, it first consults its RL policy.  
-   * It provides the current task state to the policy, which returns the optimal cognitive pattern (action) to use (e.g., using an epsilon-greedy strategy to balance exploration and exploitation).  
-   * The agent then executes its task using the chosen pattern.  
-   * After execution, the environment provides a reward, and the agent updates its RL policy with the (state, action, reward, next\_state) tuple.
+2. **Neural Coordination Policy Implementation:**
+   * Each MCP coordination instance contains a neural policy network (built with ruv-FANN)
+   * The policy network maps coordination states to optimal cognitive pattern selections
+   * Uses Q-learning update rule optimized for coordination effectiveness:
+     ```
+     Q(coordination_state, pattern) ← Q(coordination_state, pattern) + 
+         α[coordination_reward + γ max Q(next_state, next_pattern) - Q(coordination_state, pattern)]
+     ```
+
+3. **Integration with MCP Coordination Lifecycle:**
+   * **Pre-Coordination:** Policy network analyzes Claude Code task requirements and selects optimal cognitive pattern
+   * **During Coordination:** Monitors task progress and switches patterns when beneficial
+   * **Post-Coordination:** Updates policy based on coordination effectiveness and Claude Code task outcomes
+   * **Cross-Session Learning:** Persists learned patterns for improved future coordination
+
+4. **New MCP Tools for Pattern Optimization:**
+   * `mcp__ruv-swarm__pattern_select` - Requests optimal cognitive pattern for current task
+   * `mcp__ruv-swarm__pattern_switch` - Dynamically changes coordination pattern mid-task
+   * `mcp__ruv-swarm__pattern_effectiveness` - Reports pattern performance for learning
 
 **Impact:**
 
-* **True Adaptability:** Fulfills the promise of the cognitive patterns feature by making the swarm truly adaptive. The system learns the most effective "mode of thinking" for different phases of a complex problem, rather than relying on a developer's hardcoded assumptions.  
-* **Improved Efficiency:** By selecting the right cognitive tool for the job, the swarm can solve problems more efficiently, avoiding unproductive exploration during refinement phases or premature convergence during brainstorming phases.  
-* **Emergent Specialization:** Over time, different agents in a heterogeneous swarm might develop distinct policies, leading to emergent role specialization based on learned expertise in applying certain cognitive patterns.  
-* **Alignment with Swarm Control Research:** This approach is directly inspired by research on adaptive swarm control in complex and dynamic environments, where agents must learn to adjust their behavior based on environmental feedback.5
+* **True Coordination Adaptability:** Enables ruv-swarm to automatically discover optimal cognitive patterns for different Claude Code workflow types.
+* **Improved Coordination Efficiency:** Maximizes task success rates by selecting the most effective coordination approach for each situation.
+* **Emergent Coordination Intelligence:** Different coordination instances develop specialized pattern expertise, leading to more effective overall coordination.
+* **Alignment with Coordination Research:** Implements cutting-edge adaptive coordination control for MCP-based multi-agent systems.
 
-### **2.4. Issue Proposal (N-4): Foundational Primitives for Transformer Architectures in ruv-FANN**
+### **2.4. Issue Proposal (N-4): Foundational Primitives for Transformer-Based Coordination**
 
-**Title:** feat(ruv-fann): Implement foundational primitives for Transformer architectures
+**Title:** feat(ruv-fann): Implement Transformer primitives for advanced coordination neural networks
 
-**Labels:** enhancement, novel-feature, ruv-fann, architecture, breaking-change
+**Labels:** enhancement, novel-feature, ruv-fann, architecture, coordination
 
 **Background:**
 
-The ruv-FANN library is fundamentally based on the architecture of FANN, which is centered on standard feed-forward neural networks composed of simple layers.1 While the roadmap includes "shortcut connections" for residual-style networks 1, this is insufficient to support the dominant architecture in modern AI: the Transformer.
+The ruv-FANN library currently focuses on traditional feedforward neural networks inherited from the original FANN architecture. While these networks serve coordination purposes, they lack the sophisticated attention mechanisms and contextual understanding needed for advanced MCP coordination intelligence.
 
-The entire ruv-FANN ecosystem is built around orchestrating powerful Transformer-based LLMs like Claude.13 The higher-level
-
-neuro-divergent crate, built on ruv-FANN, aims to tackle advanced forecasting, a domain where Transformers are also state-of-the-art.25 There is a significant architectural and conceptual gap: the foundational ML library of the ecosystem cannot natively build, inspect, or train the very models that the higher-level components are designed to manage. This bottleneck prevents
-
-ruv-FANN from being a truly unified and capable platform for AI research and development, relegating it to a legacy component within its own stack.
+The coordination challenges faced by ruv-swarm—understanding complex task dependencies, managing dynamic agent interactions, and optimizing multi-step workflows—are precisely the problems that Transformer architectures excel at solving. Modern coordination systems require the ability to "attend" to relevant coordination context and understand complex dependency relationships.
 
 **Proposed Solution:**
 
-This proposal advocates for a major extension of ruv-FANN to include the core building blocks of the Transformer architecture. This would likely require a new, optional module (e.g., ruv\_fann::experimental::transformers) to avoid breaking strict FANN compatibility.
+This proposal extends ruv-FANN to include Transformer primitives specifically optimized for coordination intelligence.
 
-1. **Modularize the Network Representation:**  
-   * The current Network struct, which likely holds a simple Vec\<Layer\>, must be refactored to support a more general computational graph structure. This is a prerequisite for any non-sequential architecture. (This work overlaps with and is synergistic with proposal U-5).  
-2. **Implement Core Transformer Primitives:**  
-   * **ScaledDotProductAttention:** This is the heart of the attention mechanism. It needs to be implemented as a core operation.  
-   * **MultiHeadAttention Layer:** A new layer type that encapsulates multiple ScaledDotProductAttention heads, including the linear projections for queries, keys, values, and the final output.  
-   * **LayerNorm Layer:** A new normalization layer that implements Layer Normalization, which is critical for stabilizing the training of deep Transformers.  
-   * **PositionalEncoding:** A mechanism to inject positional information into the input embeddings, as standard attention is permutation-invariant. This could be implemented as a non-trainable layer or a preprocessing step.  
-   * **FeedForward Block:** A standard two-layer feed-forward network with a ReLU or GELU activation, used within each Transformer block.  
-3. **Update Training Algorithms:**  
-   * The backpropagation algorithm must be extended to correctly calculate gradients through these new, complex primitives, particularly the MultiHeadAttention and LayerNorm layers. This is a non-trivial undertaking requiring careful implementation of the chain rule for matrix operations.  
-4. **Provide a Transformer Block Builder:**  
-   * To improve ergonomics, provide a helper function or builder that assembles a standard Transformer encoder or decoder block from these primitives (Multi-Head Attention \-\> Add & Norm \-\> Feed Forward \-\> Add & Norm).
+1. **Modularize Network Representation for Coordination:**
+   * Refactor the `Network` struct to support coordination-optimized computational graphs
+   * Enable complex attention patterns needed for multi-agent coordination
+
+2. **Implement Coordination-Optimized Transformer Primitives:**
+   * **CoordinationAttention:** Attention mechanism optimized for task dependency understanding
+   * **MultiAgentAttention:** Multi-head attention for coordinating multiple Claude Code instances
+   * **CoordinationLayerNorm:** Normalization optimized for coordination signal stability
+   * **TaskPositionalEncoding:** Position encoding for understanding task sequence and dependencies
+   * **CoordinationFeedForward:** Feed-forward blocks optimized for coordination decision-making
+
+3. **Coordination-Specific Training Algorithms:**
+   * Extend backpropagation to handle coordination-specific attention patterns
+   * Implement gradient calculations optimized for coordination effectiveness rather than traditional loss functions
+
+4. **Coordination Transformer Builder:**
+   ```rust
+   use ruv_fann::coordination::transformer::CoordinationTransformerBuilder;
+   
+   let coordination_transformer = CoordinationTransformerBuilder::new()
+       .coordination_attention_heads(8)
+       .task_sequence_length(64)
+       .coordination_embedding_dim(512)
+       .agent_interaction_layers(6)
+       .mcp_tool_vocab_size(100)
+       .build()?;
+   ```
 
 **Impact:**
 
-* **Modernizes ruv-FANN:** This is the single most important step to ensure the long-term relevance and utility of ruv-FANN. It bridges the gap between the library's capabilities and the needs of the modern AI landscape.  
-* **Unlocks New Capabilities:** Enables users to build, train, and fine-tune smaller Transformer models directly within the Rust ecosystem using ruv-FANN. This is invaluable for research, education, and creating specialized models.  
-* **Enables Ecosystem Synergy:** Allows the neuro-divergent library to implement state-of-the-art time series models. It also enables research into agentic systems where the agents themselves might be small, specialized Transformer models trained with ruv-FANN.  
-* **Attracts Modern ML Developers:** A Rust-native, memory-safe library with Transformer support would be highly attractive to the broader ML community, drawing in new users and contributors.
+* **Revolutionary Coordination Intelligence:** Enables ruv-FANN to power sophisticated coordination neural networks capable of understanding complex task relationships and agent dependencies.
+* **Advanced MCP Coordination:** Unlocks sophisticated coordination patterns that can handle complex Claude Code workflows with deep task interdependencies.
+* **Ecosystem Synergy:** Creates powerful coordination capabilities that leverage state-of-the-art neural architectures for MCP orchestration.
+* **Future-Proof Coordination:** Positions ruv-FANN as a leading platform for advanced neural coordination systems.
 
-### **2.5. Issue Proposal (N-5): End-to-End Quantization-Aware Training (QAT) and ONNX Export Pipeline**
+### **2.5. Issue Proposal (N-5): End-to-End Neural Coordination Optimization and MCP Export**
 
-**Title:** feat(ruv-fann): Implement end-to-end Quantization-Aware Training and ONNX export
+**Title:** feat(ruv-fann): Implement end-to-end coordination optimization with MCP deployment pipeline
 
-**Labels:** enhancement, novel-feature, ruv-fann, performance, production
+**Labels:** enhancement, novel-feature, ruv-fann, coordination, production, mcp
 
 **Background:**
 
-The ruv-FANN roadmap for v0.4.0 ("Production Ready") correctly identifies "Model quantization and compression" and "ONNX format support" as key features.1 These are critical for deploying models in production, especially on resource-constrained environments like IoT devices and edge computers, which are stated use cases for the library.1
+The ruv-FANN roadmap identifies model optimization and export as key production features. However, for coordination neural networks, the optimization requirements differ significantly from traditional ML models. Coordination networks need to be optimized for real-time MCP coordination decisions, low-latency pattern switching, and efficient integration with Claude Code workflows.
 
-However, treating these as separate features misses a crucial opportunity for optimization. Post-Training Quantization (PTQ) is simple but often leads to a significant drop in model accuracy. Quantization-Aware Training (QAT), where the model learns to adapt to the precision loss during the training process, produces far more accurate quantized models. To be truly "production ready," ruv-FANN should offer a seamless, end-to-end pipeline that takes a user from a model definition to a highly accurate, quantized ONNX file ready for deployment.
+A production-ready coordination system needs an end-to-end pipeline from coordination network training to optimized MCP deployment, ensuring that neural coordination intelligence can operate efficiently in real-world Claude Code environments.
 
 **Proposed Solution:**
 
-This proposal outlines a unified workflow for QAT and ONNX export.
+This proposal outlines a unified workflow for coordination network optimization and MCP deployment.
 
-1. **Implement "Fake Quantization" Primitives:**  
-   * Create Quantize and Dequantize operations or a single FakeQuant layer that can be inserted into the network graph.  
-   * During the **forward pass**, this layer simulates the effect of quantization: it takes a full-precision f32 tensor, scales and rounds it to a lower-precision integer representation (e.g., i8), and then de-quantizes it back to f32. This introduces the quantization error into the computation.  
-   * During the **backward pass**, this layer should act as an identity function, allowing the full-precision gradients to pass through unchanged. This is known as the "Straight-Through Estimator" technique.  
-   * The layer must also learn the optimal quantization parameters (scale and zero-point) for the tensor distribution passing through it.  
-2. **Integrate QAT into the Training Loop:**  
-   * Provide a helper function, prepare\_for\_qat(\&mut network), that automatically inserts these FakeQuant layers at appropriate points in the network (e.g., after convolutional or dense layers).  
-   * The user first trains the model for a few epochs in full precision, then calls prepare\_for\_qat, and finally fine-tunes the model for a few more epochs. During this fine-tuning phase, the model's weights adapt to the presence of the simulated quantization, minimizing the accuracy loss.  
-3. **Develop an Intelligent ONNX Exporter:**  
-   * Create a new onnx\_format module for exporting networks.  
-   * The exporter must be able to translate the ruv-FANN network graph into a valid ONNX graph.  
-   * Crucially, when exporting a QAT-trained model, the exporter should not export the FakeQuant layers. Instead, it should export standard ONNX operators (e.g., MatMul, Conv) as QLinearMatMul and QLinearConv, embedding the learned scale and zero-point parameters directly into the graph as constants.  
-   * The output should be a standard, quantized ONNX model that can be directly consumed by runtimes like ONNX Runtime, TensorRT, or Tract.  
-4. **Provide a Comprehensive Example:**  
-   * The documentation must include a complete, end-to-end example demonstrating the full workflow:  
-     1. Build a ruv-FANN network.  
-     2. Train it normally for initial convergence.  
-     3. Apply QAT for fine-tuning.  
-     4. Export the final, quantized model to an .onnx file.  
-     5. Show how to load and run the .onnx file with a Rust-based ONNX runtime like Tract to verify the output.
+1. **Coordination-Aware Optimization:**
+   * Implement "Coordination-Aware Training" where networks learn to optimize for MCP coordination latency and effectiveness simultaneously
+   * During training, simulate MCP coordination scenarios and optimize for both coordination quality and response time
+   * Use coordination-specific quantization that preserves critical coordination decision boundaries
+
+2. **MCP Integration Pipeline:**
+   * Provide `prepare_for_mcp_coordination()` function that optimizes coordination networks for MCP tool integration
+   * Fine-tune coordination networks specifically for Claude Code workflow patterns
+   * Optimize for the specific coordination tasks: task decomposition, agent assignment, pattern selection
+
+3. **Intelligent MCP Exporter:**
+   * Create a new `mcp_coordination_export` module for deploying coordination networks
+   * Export optimized coordination networks as MCP-compatible coordination services
+   * Embed learned coordination parameters directly into MCP tool configurations
+   * Generate coordination-optimized MCP tools that can be directly integrated with Claude Code
+
+4. **Comprehensive Coordination Deployment Example:**
+   ```rust
+   // 1. Train coordination network
+   let coordination_net = CoordinationTransformerBuilder::new().build()?;
+   coordination_net.train_for_coordination(&coordination_scenarios)?;
+   
+   // 2. Optimize for MCP deployment
+   coordination_net.prepare_for_mcp_coordination()?;
+   
+   // 3. Export as MCP coordination service
+   let mcp_coordination_service = coordination_net.export_mcp_service()?;
+   mcp_coordination_service.deploy_to_claude_code()?;
+   
+   // 4. Verify coordination effectiveness
+   let effectiveness = mcp_coordination_service.validate_coordination_quality()?;
+   ```
 
 **Impact:**
 
-* **True Production Readiness:** Elevates the project from having "production features" on a checklist to providing a robust, state-of-the-art pipeline for deploying high-performance models.  
-* **Best-in-Class Accuracy for Edge Devices:** QAT ensures that users can achieve the smallest possible model size with the least amount of accuracy degradation, making ruv-FANN a highly competitive choice for embedded AI.  
-* **Improved Developer Experience:** A unified, well-documented pipeline is far more valuable to developers than a set of disconnected tools for quantization and exporting. It lowers the barrier to production deployment significantly.  
-* **Unlocks Key Use Cases:** Makes ruv-FANN a viable and attractive option for IoT, robotics, and other edge computing applications, a key target audience identified by the project.1
+* **True Production Coordination:** Elevates ruv-FANN from experimental coordination networks to production-ready MCP coordination services.
+* **Optimal Coordination Performance:** Ensures coordination networks achieve minimal latency while maximizing coordination effectiveness for Claude Code workflows.
+* **Seamless MCP Integration:** Provides a turnkey pipeline for deploying neural coordination intelligence as MCP tools that integrate seamlessly with Claude Code.
+* **Industry-Leading Coordination Platform:** Positions ruv-FANN as the premier platform for production neural coordination systems.
 
 ---
 
-## **Part III: Developer and User Experience Improvements: Fortifying the Core**
+## **Part III: Developer and User Experience Improvements: Fortifying the MCP Coordination Core**
 
-This section details five practical, user-focused improvements designed to enhance the ecosystem's robustness, security, and developer experience. These proposals directly address pain points, risks, and architectural gaps identified during the analysis.
+This section details five practical, user-focused improvements designed to enhance the ecosystem's robustness, security, and developer experience specifically for MCP-coordinated workflows. These proposals directly address pain points, risks, and architectural gaps identified during the analysis of the MCP coordination system.
 
-### **3.1. Issue Proposal (U-1): Advanced Swarm Debugging, Tracing, and Visualization Toolkit**
+### **3.1. Issue Proposal (U-1): Advanced MCP Coordination Debugging and Visualization Toolkit**
 
-**Title:** feat(ecosystem): Implement an advanced swarm debugging, tracing, and visualization toolkit
+**Title:** feat(ecosystem): Implement advanced MCP coordination debugging and visualization toolkit
 
-**Labels:** improvement, user-experience, observability, claude-code-flow, ruv-swarm
-
-**Background:**
-
-Multi-agent systems are inherently complex and concurrent, making them notoriously difficult to debug and understand. A developer's ability to reason about system behavior degrades rapidly as the number of interacting agents increases. The claude-code-flow system is designed to manage potentially hundreds of concurrent agents 8, and the
-
-SWARM\_COLLABORATION\_GUIDE implies complex, dynamic interactions \[from user query\]. However, the ecosystem currently relies on standard structured logging as its primary observability mechanism.1 This is insufficient for diagnosing emergent bugs, performance bottlenecks, or complex collaborative failures. Without a dedicated observability toolkit, developers are effectively "flying blind," which severely hampers productivity and the ability to build reliable, large-scale swarms.
-
-**Proposed Solution:**
-
-This proposal advocates for a multi-layered solution to introduce comprehensive observability into the ecosystem, centered around distributed tracing.
-
-1. **Instrumentation with OpenTelemetry:**  
-   * Integrate the opentelemetry crate into ruv-swarm-core and claude-code-flow.  
-   * **ruv-swarm-core Instrumentation:** Emit structured trace "spans" for key events in the agent and swarm lifecycle. Each span should be annotated with relevant attributes.  
-     * swarm.create: Span covering the creation of a new swarm. Attributes: topology, agent\_count.  
-     * agent.process: Span for each call to an agent's process method. Attributes: agent.id, agent.cognitive\_pattern.  
-     * task.assign: Span for when a task is assigned to an agent. Attributes: task.id, agent.id.  
-     * memory.access: Spans for reads/writes to the shared memory bank. Attributes: operation (read/write), key.  
-   * **claude-code-flow Instrumentation:** Propagate the trace context across all operations.  
-     * When the orchestrator assigns a task, it should inject the current trace context into the task metadata.  
-     * When an agent uses an MCP tool 26, the MCP call should carry the trace context, allowing the tool's execution to appear as a child span of the agent's main processing span.  
-2. **Trace Context Propagation:**  
-   * Ensure that a single trace ID follows a task across its entire lifecycle, from initial creation by the orchestrator, through processing by multiple agents, to calls to external tools and back. This creates a complete, end-to-end view of a single logical operation.  
-3. **Development of a Visualization Tool:**  
-   * While standard tools like Jaeger or Zipkin can render the traces, a custom visualization front-end would provide immense value by understanding the specific semantics of the swarm.  
-   * This tool, ruv-viz, could be a simple web application that consumes the exported trace data and renders it in a more intuitive way:  
-     * **Swarm Graph View:** A dynamic graph showing agents as nodes and recent communication or task handoffs as edges. The color or size of nodes could represent their current state or cognitive pattern.  
-     * **Gantt Chart View:** A timeline showing the execution of different agents in parallel, making it easy to spot bottlenecks or periods of inactivity.  
-     * **Task Flow View:** A directed acyclic graph (DAG) showing the flow of a single complex task through multiple agents and their sub-tasks.
-
-**Impact:**
-
-* **Drastically Reduced Debugging Time:** Provides developers with the tools needed to quickly understand "why" a swarm behaved in a certain way, pinpointing the source of errors or performance issues.  
-* **System Behavior Insight:** Moves beyond simple logging to provide a deep understanding of the swarm's emergent dynamics, helping developers optimize collaboration strategies and resource allocation.  
-* **Enhanced Reliability:** Makes it easier to identify and fix race conditions, deadlocks, and other complex concurrency bugs that are common in multi-agent systems.  
-* **Foundation for Advanced Tooling:** The structured trace data can be used for more than just debugging; it can feed into performance analysis, cost tracking, and automated system health monitoring.
-
-### **3.2. Issue Proposal (U-2): Granular, Role-Based Security Sandboxing for claude-code-flow Agents**
-
-**Title:** fix(claude-code-flow): Implement granular, role-based security sandboxing for agents
-
-**Labels:** security, bug, user-experience, claude-code-flow
+**Labels:** improvement, user-experience, observability, ruv-swarm-mcp, coordination
 
 **Background:**
 
-The claude-code-flow orchestrator is a powerful tool that grants AI agents the ability to interact directly with the local system, including executing shell commands and modifying the filesystem.28 The current default configuration, as generated by the
+MCP-coordinated multi-agent systems are inherently complex, involving coordination between Claude Code, ruv-swarm MCP tools, and neural coordination networks. Understanding coordination flows, diagnosing coordination failures, and optimizing coordination patterns requires sophisticated observability tools specifically designed for MCP workflows.
 
-init command, grants agents full, unrestricted tool permissions via wildcards (\*).7 This practice, described as "YOLO mode," is a critical security vulnerability.9 It exposes the host system to significant risk from either a buggy agent going haywire or a maliciously crafted prompt that induces an agent to perform destructive actions. For
-
-claude-code-flow to be safely used in any production, team, or security-conscious environment, a robust and mandatory security sandbox is not a feature, but a requirement.
+The current system relies on standard logging mechanisms, which are insufficient for understanding complex coordination patterns, neural decision-making processes, and MCP tool interaction flows. Without dedicated MCP coordination observability, developers cannot effectively optimize coordination strategies or diagnose coordination failures.
 
 **Proposed Solution:**
 
-This proposal outlines the implementation of a comprehensive, configuration-driven security sandbox within the claude-code-flow orchestrator. The principle of least privilege should be the default.
+This proposal advocates for a comprehensive MCP coordination observability platform.
 
-1. **Configuration-Driven Permissions:**  
-   * Extend the swarm configuration file (e.g., claude-swarm.yml 27) to include a mandatory  
-     permissions block for each agent definition or role.  
-   * The default configuration generated by init should be highly restrictive, forcing the user to explicitly grant permissions.  
-2. **Granular Permission Controls:**  
-   * The permissions block should support several types of fine-grained controls:  
-     * **Filesystem Access:**  
-       * allow\_read: A list of glob patterns for allowed read paths (e.g., \["src/\*\*/\*.rs", "Cargo.toml"\]).  
-       * allow\_write: A list of glob patterns for allowed write paths (e.g., \["dist/\*"\]).  
-       * deny\_read/deny\_write: Explicit deny lists that override allows. Default should deny all access outside the project's working directory.  
-     * **Network Access:**  
-       * allow\_network: An allowlist of domains or IP addresses (with ports) that the agent is permitted to contact (e.g., \["api.github.com:443", "crates.io:443"\]). Default should be to deny all network access.  
-     * **Tool Execution:**  
-       * allow\_tools: An explicit list of allowed shell commands and MCP tools (e.g., \["git", "cargo", "npm", "mcp\_\_tester\_agent\_\_\*"\]). Wildcards should be discouraged.  
-     * **Resource Limits:**  
-       * max\_cpu\_time\_seconds: A per-task limit on CPU time.  
-       * max\_memory\_mb: A per-task limit on memory usage.  
-3. **Enforcement in the Orchestrator:**  
-   * The claude-code-flow orchestrator must act as the central enforcement point.  
-   * Before executing any action on behalf of an agent (e.g., spawning a shell command, making a file I/O call), the orchestrator must check the action against the agent's defined permissions.  
-   * If a permission check fails, the action must be blocked, and an error should be returned to the agent. This feedback is crucial, as it allows the agent to understand its constraints.  
-4. **Secure Defaults:**  
-   * Refactor the npx claude-flow init command to generate a claude-swarm.yml with highly restrictive default permissions. For example, a "coder" agent might only have write access to the src/ directory and be allowed to run cargo, while a "researcher" agent might have network access to specific APIs but no filesystem write access at all.
+1. **MCP Coordination Instrumentation:**
+   * Integrate coordination-specific telemetry into ruv-swarm MCP tools
+   * **MCP Tool Tracing:** Track all MCP tool invocations, parameters, and outcomes
+   * **Coordination Pattern Tracing:** Monitor cognitive pattern selection and effectiveness
+   * **Neural Decision Tracing:** Capture neural network decision-making processes for coordination choices
+   * **Claude Code Integration Tracing:** Track coordination handoffs between MCP tools and Claude Code
+
+2. **Coordination Context Propagation:**
+   * Ensure coordination context flows through entire MCP coordination lifecycle
+   * Track coordination decisions from initial task analysis through Claude Code execution to outcome evaluation
+   * Create complete coordination traces that show how neural networks influence MCP tool selection and Claude Code workflows
+
+3. **MCP Coordination Visualization Platform:**
+   * Develop `ruv-coordination-viz`, a specialized visualization tool for MCP coordination workflows
+   * **Coordination Flow View:** Visual representation of MCP tool sequences and coordination decisions
+   * **Neural Decision Explorer:** Interactive visualization of how neural networks select coordination patterns
+   * **Coordination Effectiveness Dashboard:** Real-time metrics on coordination performance and optimization opportunities
+   * **Claude Code Integration Timeline:** Visual timeline showing coordination handoffs and execution flows
+
+4. **Coordination Analytics:**
+   * **Pattern Effectiveness Analysis:** Identify which cognitive patterns work best for specific Claude Code task types
+   * **MCP Tool Optimization:** Discover underutilized or ineffective MCP tool combinations
+   * **Coordination Bottleneck Detection:** Automatically identify coordination delays and optimization opportunities
 
 **Impact:**
 
-* **Critical Security Hardening:** Mitigates the single greatest security risk in the current platform, preventing agents from causing unintended or malicious damage to the host system.  
-* **Enables Safe Collaboration:** Makes it possible for teams to use claude-code-flow on shared development servers without exposing the entire system to risk from a single user's agents.  
-* **Builds User Trust:** Demonstrates a commitment to security best practices, making the platform more attractive for enterprise and professional use.  
-* **Aligns with Agentic Security Principles:** Implements the kind of scoped, permissioned fixes and interactions that are considered best practice for agentic coding tools.28
+* **Dramatically Improved Coordination Development:** Provides developers with tools to understand and optimize complex MCP coordination workflows.
+* **Coordination Intelligence Insights:** Enables deep understanding of how neural networks make coordination decisions and how to improve them.
+* **Enhanced Coordination Reliability:** Makes it easy to identify and fix coordination issues before they impact Claude Code workflows.
+* **Foundation for Coordination Optimization:** Structured coordination telemetry enables automated coordination pattern optimization.
 
-### **3.3. Issue Proposal (U-3): A Pluggable, High-Robustness State Reconciliation and Fault Tolerance Protocol for ruv-swarm**
+### **3.2. Issue Proposal (U-2): Granular, Role-Based Security Sandboxing for MCP Coordination**
 
-**Title:** feat(ruv-swarm): Implement a pluggable fault tolerance protocol for state reconciliation
+**Title:** feat(ruv-swarm): Implement granular security sandboxing for MCP coordination workflows
 
-**Labels:** improvement, robustness, user-experience, ruv-swarm, claude-code-flow
+**Labels:** security, improvement, user-experience, ruv-swarm-mcp
 
 **Background:**
 
-The claude-code-flow system includes features for session persistence and a shared memory bank, which are foundational for robustness.7 However, the current architecture lacks a clear, comprehensive strategy for handling in-flight failures. Critical questions remain unanswered: What happens if the central orchestrator process crashes mid-workflow? How are tasks that were being processed by a failed agent recovered? How is inconsistent state (e.g., a file written to disk before a crash, but the corresponding memory bank update was lost) reconciled? To be suitable for long-running, mission-critical tasks, the ecosystem needs to move beyond simple session persistence to a robust, enterprise-grade fault tolerance model.
+The ruv-swarm MCP coordination system provides powerful coordination capabilities that can influence Claude Code's behavior and system access patterns. MCP tools have the ability to coordinate complex workflows, manage persistent memory, and influence task prioritization and resource allocation.
+
+Currently, MCP coordination operates with broad permissions, creating potential security risks. A compromised coordination pattern or malicious MCP tool configuration could potentially influence Claude Code to perform unintended actions or access unauthorized resources.
 
 **Proposed Solution:**
 
-This proposal suggests designing and implementing a pluggable fault tolerance protocol, primarily at the ruv-swarm level, to provide these capabilities to any application built on it, including claude-code-flow.
+This proposal outlines comprehensive security sandboxing specifically designed for MCP coordination workflows.
 
-1. **Pluggable ResilienceManager Trait:**  
-   * In ruv-swarm-core, define a new ResilienceManager trait. This trait will abstract the mechanisms for achieving fault tolerance.  
-   * The trait would define methods like:  
-     Rust  
-     \#\[async\_trait\]  
-     pub trait ResilienceManager: Send \+ Sync {  
-         // Attempts to acquire a leadership lease for a given swarm ID.  
-         async fn acquire\_leadership(&self, swarm\_id: &str, node\_id: &str) \-\> Result\<bool, Error\>;
+1. **MCP Coordination Permission Framework:**
+   * Extend MCP tool configurations to include granular coordination permissions
+   * Define coordination-specific permission categories:
+     * **Task Coordination Permissions:** Which types of Claude Code tasks can be coordinated
+     * **Memory Access Permissions:** What coordination memory and context can be accessed
+     * **Pattern Selection Permissions:** Which cognitive patterns can be activated
+     * **Resource Allocation Permissions:** Limits on coordination resource usage
 
-         // Begins a transactional task for an agent.  
-         async fn begin\_task(&self, task\_id: &str, agent\_id: &str) \-\> Result\<(), Error\>;
+2. **Coordination Sandbox Implementation:**
+   * **Coordination Scope Isolation:** Limit MCP coordination to specific task categories or resource boundaries
+   * **Neural Decision Auditing:** Log and validate all neural coordination decisions before execution
+   * **MCP Tool Permission Validation:** Verify MCP tool permissions before coordination actions
+   * **Coordination Resource Limits:** Enforce limits on coordination memory usage, pattern switching frequency, and neural computation resources
 
-         // Marks a task as complete.  
-         async fn complete\_task(&self, task\_id: &str) \-\> Result\<(), Error\>;
+3. **Role-Based Coordination Security:**
+   ```yaml
+   coordination_roles:
+     basic_coordinator:
+       task_types: ["simple_coding", "documentation"]
+       memory_access: "read_only"
+       patterns: ["convergent", "concrete"]
+       resources: { max_memory: "100MB", max_patterns: 2 }
+     
+     advanced_coordinator:
+       task_types: ["complex_development", "architecture"]
+       memory_access: "read_write"
+       patterns: ["all"]
+       resources: { max_memory: "1GB", max_patterns: 7 }
+   ```
 
-         // Retrieves a list of orphaned tasks (tasks whose agent has timed out).  
-         async fn get\_orphaned\_tasks(&self) \-\> Result\<Vec\<String\>, Error\>;  
-     }
-
-2. **Leader Election for Orchestrators:**  
-   * For hierarchical topologies, the claude-code-flow orchestrator can use the acquire\_leadership method. Multiple orchestrator instances can be run, but only the one that successfully acquires the lease becomes the active leader. If the leader crashes, its lease will expire, and another instance can take over.  
-3. **Transactional Task Management:**  
-   * The orchestrator must use the begin\_task and complete\_task methods to wrap agent task assignments. The ResilienceManager implementation would record the task as "in-progress."  
-   * The orchestrator will periodically call get\_orphaned\_tasks to find tasks that were started but never completed (because the agent or its node crashed). These tasks can then be safely re-queued and assigned to a different, healthy agent.  
-4. **State Reconciliation Logic:**  
-   * Upon startup, a new leader orchestrator must perform a reconciliation process. It would query the ResilienceManager for the state of all tasks and compare it against the state in the persistent memory bank and the environment (e.g., filesystem). This allows it to recover from partial failures and resume the workflow gracefully.  
-5. **Provide Multiple Implementations:**  
-   * To maintain flexibility, provide at least two implementations of the ResilienceManager:  
-     * InMemoryResilience: A simple, single-node implementation for local development that provides no real fault tolerance but satisfies the trait.  
-     * RedisResilience or EtcdResilience: A production-grade implementation that uses a distributed store like Redis or etcd to manage distributed locks for leadership and transactional state for tasks.
+4. **Coordination Security Enforcement:**
+   * All MCP coordination actions must pass through security validation
+   * Coordination patterns are validated against allowed permissions before activation
+   * Neural coordination decisions are audited for compliance with security policies
 
 **Impact:**
 
-* **Massively Improved Reliability:** Transforms the ecosystem into a platform capable of running long-duration, business-critical workflows where automated recovery from failure is essential.  
-* **High Availability:** The leader election mechanism enables high-availability deployments of the claude-code-flow orchestrator, eliminating it as a single point of failure.  
-* **Guaranteed Task Execution:** The transactional task protocol ensures that no task is lost due to an agent or node crash, a key requirement for enterprise-grade systems.  
-* **Architectural Maturity:** Addresses a major gap in the system's overall robustness identified in the initial analysis 7, making the platform far more mature and suitable for production use.
+* **Critical Coordination Security:** Mitigates risks from uncontrolled MCP coordination by implementing comprehensive permission systems.
+* **Safe Coordination Deployment:** Enables teams to deploy MCP coordination in production environments with confidence in security boundaries.
+* **Coordination Trust Building:** Demonstrates commitment to secure coordination practices, making the platform suitable for enterprise and sensitive environments.
+* **Coordinated Security Best Practices:** Implements leading security practices specifically designed for neural coordination systems.
 
-### **3.4. Issue Proposal (U-4): A Comprehensive ruv-bench Suite for Performance, Compatibility, and Swarm Heuristic Benchmarking**
+### **3.3. Issue Proposal (U-3): Pluggable State Reconciliation and Fault Tolerance for MCP Coordination**
 
-**Title:** feat(ecosystem): Create a comprehensive 'ruv-bench' suite for ecosystem-wide validation
+**Title:** feat(ruv-swarm): Implement fault tolerance protocol for MCP coordination workflows
 
-**Labels:** improvement, testing, performance, user-experience, ecosystem
+**Labels:** improvement, robustness, user-experience, ruv-swarm-mcp, coordination
 
 **Background:**
 
-While the ruv-FANN project has testing guidelines and mentions benchmarks, it lacks a unified, public, and easily runnable benchmark suite.1 This makes it difficult for contributors to validate that their changes do not introduce performance regressions or break FANN compatibility. It also prevents users from easily comparing the performance of different configurations. The original
+MCP coordination workflows involve complex interactions between Claude Code, neural coordination networks, and persistent coordination state. The current architecture lacks comprehensive fault tolerance mechanisms for coordination failures, network interruptions, or coordination state inconsistencies.
 
-libfann repository has a history of issues related to build failures and correctness on different platforms, underscoring the need for a rigorous, continuous, and automated validation process.29 A dedicated benchmark suite is a hallmark of a mature open-source project, fostering trust and enabling data-driven development.
+For mission-critical Claude Code workflows, coordination system failures can result in lost work, inconsistent state, or coordination deadlocks that require manual intervention. A production-ready MCP coordination system needs enterprise-grade fault tolerance.
 
 **Proposed Solution:**
 
-This proposal calls for the creation of a new, top-level ruv-bench repository or directory within the ruvnet organization. This suite would be integrated into the CI/CD pipeline and would serve as the gold standard for correctness, performance, and compatibility.
+This proposal implements comprehensive fault tolerance specifically designed for MCP coordination workflows.
 
-1. **ruv-fann-bench Module:**  
-   * **Correctness and Compatibility:**  
-     * Implement a test harness that runs standard machine learning datasets (e.g., Iris, MNIST, XOR) through both ruv-FANN and a compiled version of the original C FANN library.  
-     * The harness will compare the final trained network outputs and Mean Squared Error (MSE) to ensure they are within a reasonable tolerance, thus verifying the "FANN Compatible" claim.1  
-   * **Performance:**  
-     * Use a benchmarking framework like criterion.rs to measure training and inference speed.  
-     * Benchmarks should cover various network sizes, float precisions (f32 vs. f64), and feature flags (std vs. parallel using rayon). The results should be tracked over time to detect regressions.  
-2. **ruv-swarm-bench Module:**  
-   * **Topology Overhead:**  
-     * Measure the communication latency and task distribution overhead for each of the defined topologies (Mesh, Hierarchical, Ring, Star) 4 under different agent counts and message loads. This will provide users with clear data on the performance trade-offs of each topology.  
-   * **Cognitive Pattern Heuristics:**  
-     * Design a set of abstract, representative problems (e.g., an optimization problem like the Traveling Salesperson Problem, an exploration problem like finding all solutions to a maze).  
-     * Benchmark the performance (e.g., time to solution, quality of solution) of a swarm using each of the seven cognitive patterns on these problems. This provides empirical data on which patterns are best suited for which task types.  
-3. **claude-code-flow-bench Module:**  
-   * **Software Engineering Tasks:**  
-     * Develop a set of standardized, end-to-end software development tasks inspired by real-world scenarios and academic benchmarks like SWE-Bench.23  
-     * Tasks could include: "Fix a specific bug in this small Rust project," "Add a new API endpoint to this web server," or "Refactor this module to improve performance."  
-     * Measure key metrics: task completion rate (Pass@k), time to completion, and token cost for different swarm configurations and strategies (e.g., static SPARC modes vs. the proposed Evolving Swarm).  
-4. **CI Integration and Public Dashboard:**  
-   * Integrate the entire ruv-bench suite into the project's CI/CD pipeline.  
-   * Benchmark results should be automatically published to a public location (e.g., GitHub Pages) after every main branch commit, creating a living dashboard of the ecosystem's performance and correctness over time.
+1. **Coordination Resilience Architecture:**
+   * Define a `CoordinationResilienceManager` trait for pluggable fault tolerance implementations
+   * Provide methods for coordination state backup, recovery, and consistency validation
+   ```rust
+   #[async_trait]
+   pub trait CoordinationResilienceManager: Send + Sync {
+       async fn backup_coordination_state(&self, coordination_id: &str) -> Result<(), Error>;
+       async fn restore_coordination_state(&self, coordination_id: &str) -> Result<CoordinationState, Error>;
+       async fn validate_coordination_consistency(&self) -> Result<ConsistencyReport, Error>;
+       async fn reconcile_coordination_conflicts(&self, conflicts: Vec<Conflict>) -> Result<(), Error>;
+   }
+   ```
+
+2. **MCP Coordination Checkpointing:**
+   * Implement automatic coordination state checkpointing at key coordination milestones
+   * Checkpoint coordination state before major neural decisions, pattern switches, and MCP tool invocations
+   * Enable rollback to consistent coordination states when failures occur
+
+3. **Coordination Conflict Resolution:**
+   * Detect coordination state conflicts when multiple coordination instances interact
+   * Implement coordination-aware conflict resolution that preserves neural learning and pattern effectiveness
+   * Automatic reconciliation of coordination memory and pattern state
+
+4. **Coordination Recovery Workflows:**
+   * **Graceful Coordination Degradation:** Continue basic coordination when advanced features fail
+   * **Coordination State Reconstruction:** Rebuild coordination context from Claude Code task history and neural network state
+   * **Cross-Session Coordination Recovery:** Restore coordination context when Claude Code sessions restart
+
+5. **Multiple Resilience Implementations:**
+   * **InMemoryCoordinationResilience:** Development and testing implementation
+   * **DistributedCoordinationResilience:** Production implementation using Redis or etcd for coordination state management
+   * **HybridCoordinationResilience:** Combines local caching with distributed backup for optimal performance and reliability
 
 **Impact:**
 
-* **Prevents Regressions:** Provides a critical safety net that ensures changes do not degrade performance or break correctness, building confidence for both developers and users.  
-* **Drives Data-Driven Development:** Enables the team to make informed decisions about architectural changes and optimizations based on hard data rather than intuition.  
-* **Builds Community Trust:** A transparent, public benchmark suite is a powerful signal of project maturity and quality, attracting serious contributors and adopters.  
-* **Acts as Living Documentation:** The benchmark code itself serves as a set of complex, real-world examples of how to use the ecosystem's features effectively.
+* **Enterprise-Grade Coordination Reliability:** Transforms ruv-swarm into a platform capable of handling mission-critical Claude Code workflows with guaranteed coordination continuity.
+* **Coordination High Availability:** Enables fault-tolerant coordination deployments that can survive individual component failures without losing coordination context.
+* **Guaranteed Coordination Consistency:** Ensures coordination state remains consistent even in the face of network failures, system crashes, or coordination conflicts.
+* **Production Coordination Readiness:** Addresses fundamental reliability requirements for deploying MCP coordination in business-critical environments.
 
-### **3.5. Issue Proposal (U-5): Ergonomic Refactoring of NetworkBuilder for Custom Layers and Sparse Topologies**
+### **3.4. Issue Proposal (U-4): Comprehensive ruv-bench Suite for MCP Coordination Validation**
 
-**Title:** refactor(ruv-fann): Refactor NetworkBuilder for ergonomic definition of custom topologies
+**Title:** feat(ecosystem): Create comprehensive 'ruv-bench' suite for MCP coordination validation
 
-**Labels:** improvement, refactor, user-experience, ruv-fann
+**Labels:** improvement, testing, performance, user-experience, coordination
 
 **Background:**
 
-The current NetworkBuilder in ruv-FANN provides a simple, fluent API for creating standard feed-forward networks by stacking layers sequentially (e.g., .input\_layer(), .hidden\_layer(), .output\_layer()).2 This design is excellent for beginners and for replicating basic FANN architectures. However, it is architecturally rigid and does not easily accommodate the project's own roadmap goals of supporting "Shortcut connections for residual-style networks" and "Sparse connection patterns".1 Forcing these non-sequential patterns into a linear builder would require awkward, special-cased methods that would make the API confusing and difficult to extend. A more flexible, graph-based approach is needed to unlock the builder's full potential for advanced users and researchers.
+The ruv-FANN ecosystem lacks a unified, comprehensive benchmarking suite specifically designed for MCP coordination workflows. This makes it difficult to validate coordination effectiveness, measure coordination performance improvements, and ensure coordination regression prevention during development.
+
+A mature MCP coordination platform requires rigorous benchmarking that covers coordination intelligence, MCP tool effectiveness, neural coordination optimization, and integration quality with Claude Code workflows.
 
 **Proposed Solution:**
 
-This proposal suggests refactoring the NetworkBuilder to move from an implicit linear chain to an explicit graph definition model.
+This proposal creates a dedicated benchmarking suite for the entire MCP coordination ecosystem.
 
-1. **Shift from Layer Stacking to Node and Edge Definition:**  
-   * The builder's internal representation should change from a Vec\<Layer\> to a graph structure (e.g., using petgraph or a custom adjacency list).  
-   * The public API would change from methods that add and implicitly connect layers to methods that add layers as "nodes" and then explicitly define the "edges" (connections) between them.  
-2. **New Ergonomic API Design:**  
-   * The new API would allow users to define layers and then wire them together in any arbitrary topology.
+1. **ruv-coordination-bench Module:**
+   * **Coordination Intelligence Benchmarks:**
+     * Measure neural coordination decision quality across different task types
+     * Benchmark cognitive pattern selection effectiveness
+     * Evaluate coordination adaptation speed and accuracy
+   * **MCP Integration Performance:**
+     * Measure MCP tool invocation latency and success rates
+     * Benchmark coordination context propagation efficiency
+     * Evaluate Claude Code integration overhead
 
-Rust  
-use ruv\_fann::prelude::\*;  
-use ruv\_fann::layers::{InputLayer, DenseLayer};
+2. **Neural Coordination Benchmarks:**
+   * **Coordination Network Performance:**
+     * Benchmark neural coordination inference speed across different network architectures
+     * Measure coordination pattern switching latency
+     * Evaluate coordination memory usage and optimization effectiveness
+   * **Coordination Learning Benchmarks:**
+     * Measure coordination improvement rates during training
+     * Benchmark coordination transfer learning between different task domains
+     * Evaluate coordination pattern generalization capability
 
-let mut builder \= NetworkBuilder::new();
+3. **MCP Coordination Workflow Benchmarks:**
+   * **Real-World Coordination Scenarios:**
+     * Develop standardized coordination tasks inspired by actual Claude Code workflows
+     * Tasks include: "Coordinate complex multi-file refactoring," "Orchestrate parallel testing workflow," "Manage distributed debugging session"
+     * Measure coordination effectiveness, resource efficiency, and workflow completion rates
+   * **Coordination Stress Testing:**
+     * High-load coordination scenarios with multiple concurrent Claude Code instances
+     * Coordination failover and recovery testing
+     * Coordination scalability testing across different topology configurations
 
-// 1\. Define layers as nodes in the graph, getting back a handle (NodeId).  
-let input\_node \= builder.add\_layer(InputLayer::new(784));  
-let hidden1\_node \= builder.add\_layer(  
-    DenseLayer::new(128, ActivationFunction::ReLU)  
-);  
-let hidden2\_node \= builder.add\_layer(  
-    DenseLayer::new(128, ActivationFunction::ReLU)  
-);  
-// A layer that will combine two inputs for the residual connection.  
-let merge\_node \= builder.add\_layer(MergeLayer::new(MergeOp::Add));  
-let output\_node \= builder.add\_layer(  
-    DenseLayer::new(10, ActivationFunction::Sigmoid)  
-);
-
-// 2\. Define the connections (edges) between nodes.  
-builder.connect(input\_node, hidden1\_node)?;  
-builder.connect(hidden1\_node, hidden2\_node)?;
-
-// 3\. Implement a shortcut/residual connection.  
-// The original input and the output of hidden2 are both fed into the merge layer.  
-builder.connect(input\_node, merge\_node)?;  
-builder.connect(hidden2\_node, merge\_node)?;
-
-// The output of the merge layer is fed to the final layer.  
-builder.connect(merge\_node, output\_node)?;
-
-// 4\. Build the network. The builder will perform a topological sort  
-// to determine the correct execution order.  
-let network \= builder.build()?;
-
-3. **Builder Intelligence:**  
-   * The build() method would be responsible for validating the graph (e.g., checking for cycles, ensuring all nodes are connected) and performing a topological sort to create a flat execution plan for the forward and backward passes.  
-   * This design cleanly separates the *definition* of the network topology from its *execution*.
+4. **Continuous Coordination Benchmarking:**
+   * Integrate coordination benchmarks into CI/CD pipeline
+   * Track coordination performance trends over time
+   * Automatically detect coordination performance regressions
+   * Generate public coordination performance dashboards
 
 **Impact:**
 
-* **Enables Roadmap Features:** Directly unblocks the implementation of shortcut connections, sparse networks, and other custom architectures planned for the library.1 This refactoring is a prerequisite for that work.  
-* **Future-Proofs the Library:** Provides a highly extensible foundation that can easily accommodate new, complex layer types and topologies (such as the proposed Transformer primitives in N-4) without requiring further breaking changes to the builder API.  
-* **Empowers Advanced Users:** Gives researchers and advanced practitioners a powerful and intuitive tool for experimenting with novel neural network architectures, making ruv-FANN a more capable research library.  
-* **Improved Clarity:** For complex architectures, an explicit graph definition is far clearer and less error-prone than a series of special-cased methods on a linear builder. It makes the network's structure self-documenting in the code.
+* **Coordination Quality Assurance:** Provides systematic validation that coordination improvements actually enhance Claude Code workflow effectiveness.
+* **Data-Driven Coordination Development:** Enables optimization decisions based on empirical coordination performance data rather than theoretical improvements.
+* **Coordination Community Trust:** Public coordination benchmarks demonstrate platform maturity and performance transparency.
+* **Coordination Regression Prevention:** Automated benchmarking prevents coordination performance degradation during development.
 
+### **3.5. Issue Proposal (U-5): Ergonomic Refactoring of NetworkBuilder for Coordination Topologies**
 
-**Testing for AGI-Like**
-See these standard tests that we can start with as we progress through the roadmap. 
-[AGI-tests] (https://github.com/Hulupeep/roadmap/blob/main/agitests.md)
+**Title:** refactor(ruv-fann): Refactor NetworkBuilder for coordination-optimized neural architectures
 
-**Hardware -go faster machine**
+**Labels:** improvement, refactor, user-experience, ruv-fann, coordination
 
-THe right hardware will make this roadmap highly achievablel in a short time. See the [hardware acceration roadmap ](https://github.com/Hulupeep/roadmap/blob/main/blackwell.md)
+**Background:**
 
+The current NetworkBuilder in ruv-FANN provides a sequential layer-stacking API that works well for traditional neural networks but becomes limiting when building coordination-optimized neural architectures. Coordination networks often require complex topologies with attention mechanisms, multi-path processing, and dynamic connectivity patterns that don't fit the linear builder paradigm.
+
+As ruv-FANN evolves to support Transformer-based coordination and advanced neural coordination patterns, the NetworkBuilder needs to support flexible graph-based architectures while maintaining ease of use for coordination developers.
+
+**Proposed Solution:**
+
+This proposal refactors NetworkBuilder specifically for coordination neural network architectures.
+
+1. **Coordination-Optimized Graph Architecture:**
+   * Shift from layer stacking to coordination graph definition
+   * Support complex coordination patterns: attention flows, multi-agent coordination paths, dynamic pattern switching
+   * Enable coordination-specific optimizations: pattern caching, coordination path pruning, dynamic topology adjustment
+
+2. **Coordination Network Builder API:**
+   ```rust
+   use ruv_fann::coordination::builder::CoordinationNetworkBuilder;
+   use ruv_fann::coordination::layers::*;
+   
+   let coordination_net = CoordinationNetworkBuilder::new()
+       // Define coordination input processing
+       .task_input_processor(TaskEmbeddingLayer::new(512))
+       .context_processor(ContextAttentionLayer::new(8, 64))
+       
+       // Define coordination intelligence layers
+       .add_coordination_module("pattern_selection", 
+           PatternSelectionModule::new()
+               .patterns(7)
+               .selection_strategy(SelectionStrategy::Neural)
+       )
+       .add_coordination_module("task_decomposition",
+           TaskDecompositionModule::new()
+               .max_subtasks(10)
+               .dependency_modeling(DependencyAttention::new(4))
+       )
+       
+       // Define coordination output and MCP integration
+       .mcp_tool_output(MCPToolSelectionLayer::new(100))
+       .coordination_decision_output(CoordinationDecisionLayer::new())
+       
+       // Connect coordination modules with attention flows
+       .connect_with_attention("task_input", "pattern_selection", AttentionType::CrossModal)
+       .connect_with_attention("pattern_selection", "task_decomposition", AttentionType::Sequential)
+       .connect_with_residual("context_processor", "coordination_decision", ResidualType::Gated)
+       
+       .build()?;
+   ```
+
+3. **Coordination-Specific Optimizations:**
+   * **Pattern Caching:** Automatically cache frequently used coordination patterns
+   * **Dynamic Topology:** Adjust network topology based on coordination task complexity
+   * **Coordination Path Optimization:** Optimize neural pathways for common coordination decisions
+
+4. **Coordination Validation and Optimization:**
+   * Validate coordination network topology for common coordination requirements
+   * Automatic optimization suggestions for coordination effectiveness
+   * Integration testing with MCP coordination workflows
+
+**Impact:**
+
+* **Coordination Development Acceleration:** Dramatically simplifies building sophisticated coordination neural networks for ruv-swarm integration.
+* **Advanced Coordination Architectures:** Enables development of state-of-the-art coordination neural networks that can handle complex Claude Code workflow coordination.
+* **Coordination Innovation Platform:** Provides researchers and advanced users with powerful tools for exploring novel coordination neural architectures.
+* **Ecosystem Coordination Integration:** Creates seamless integration between ruv-FANN coordination networks and ruv-swarm MCP coordination workflows.
+
+---
+
+## **Part IV: Strategic Roadmap and AGI Potential**
+
+### **4.1. Implementation Priority and Dependencies**
+
+The ten proposed initiatives form a coherent development strategy for evolving the ruv-FANN ecosystem into a self-improving, neural-coordinated platform. The following implementation roadmap balances ambitious innovation with practical delivery milestones:
+
+#### **Phase 1: Foundation (Months 1-6)**
+**Priority Order:**
+1. **U-5: NetworkBuilder Refactoring** - Essential foundation for all neural coordination work
+2. **U-4: Coordination Benchmarking Suite** - Critical for measuring progress and preventing regressions
+3. **U-1: MCP Coordination Debugging** - Essential developer experience for complex coordination development
+
+**Justification:** These foundational improvements enable effective development and validation of advanced coordination features while providing immediate value to current users.
+
+#### **Phase 2: Core Coordination Intelligence (Months 4-12)**
+**Priority Order:**
+1. **N-3: Dynamic Cognitive Pattern Switching** - Immediate coordination effectiveness improvements
+2. **N-4: Transformer Coordination Primitives** - Foundation for advanced coordination intelligence
+3. **U-2: Coordination Security Sandboxing** - Critical for production deployment readiness
+
+**Justification:** This phase establishes intelligent, adaptive coordination while ensuring security and production readiness.
+
+#### **Phase 3: Advanced Self-Improving Systems (Months 8-18)**
+**Priority Order:**
+1. **N-1: Self-Evolving MCP Coordination** - Revolutionary adaptive coordination capabilities
+2. **N-2: Model Swarms for Coordination** - Advanced optimization for coordination neural networks
+3. **U-3: Coordination Fault Tolerance** - Enterprise-grade reliability for advanced coordination
+
+**Justification:** This phase implements self-improving coordination systems that learn and adapt autonomously.
+
+#### **Phase 4: Production Optimization (Months 12-24)**
+**Priority Order:**
+1. **N-5: End-to-End Coordination Optimization** - Production deployment and performance optimization
+2. **Integration and Performance Tuning** - Ecosystem-wide optimization and polish
+3. **Advanced Coordination Research** - Exploration of next-generation coordination paradigms
+
+### **4.2. Resource Requirements and Team Structure**
+
+#### **Core Development Team (6-8 Engineers)**
+- **2 Neural Network Engineers:** ruv-FANN neural coordination architecture and training systems
+- **2 Coordination Systems Engineers:** ruv-swarm MCP coordination and cognitive patterns
+- **2 Integration Engineers:** MCP protocol, Claude Code integration, and ecosystem coordination
+- **1 Performance Engineer:** Optimization, benchmarking, and production deployment
+- **1 Security Engineer:** Coordination security, sandboxing, and enterprise deployment
+
+#### **Research Collaboration (2-3 Researchers)**
+- **Academic partnerships** for self-evolving coordination and neural coordination optimization
+- **Industry collaboration** for MCP coordination best practices and enterprise requirements
+- **Open source community** for coordination pattern development and validation
+
+#### **Hardware and Infrastructure**
+- **Development Infrastructure:** Modern GPUs for neural coordination training and optimization
+- **Testing Infrastructure:** Distributed coordination testing and MCP integration validation
+- **Production Infrastructure:** Scalable coordination deployment and monitoring systems
+
+### **4.3. Success Metrics and Validation**
+
+#### **Technical Excellence Metrics**
+- **Coordination Effectiveness:** >90% task success rate for coordinated Claude Code workflows
+- **Coordination Efficiency:** <100ms average MCP coordination decision latency
+- **Coordination Adaptability:** >80% success rate on novel coordination scenarios
+- **System Reliability:** >99.9% coordination system uptime for production deployments
+
+#### **Ecosystem Impact Metrics**
+- **Developer Adoption:** >1000 active coordination developers within 12 months
+- **Coordination Pattern Library:** >100 validated coordination patterns for different domains
+- **Integration Success:** >95% successful MCP coordination integration rate
+- **Performance Improvement:** >50% improvement in complex Claude Code workflow completion rates
+
+#### **Research and Innovation Metrics**
+- **Academic Impact:** >5 peer-reviewed publications on neural coordination systems
+- **Industry Recognition:** Recognition as leading MCP coordination platform
+- **Open Source Growth:** >10,000 GitHub stars and >100 contributors
+- **Technology Transfer:** Coordination techniques adopted by other AI coordination platforms
+
+### **4.4. AGI Trajectory and Long-Term Vision**
+
+#### **Near-Term AGI Capabilities (12-24 months)**
+The completed roadmap positions the ruv-FANN ecosystem as an **early-stage AGI coordination platform** with several key capabilities:
+
+1. **Self-Improving Coordination:** Neural networks that learn and optimize coordination strategies autonomously
+2. **Adaptive Intelligence:** Coordination systems that adapt to new task types and coordination challenges without human intervention
+3. **Emergent Coordination Behavior:** Complex coordination patterns that emerge from neural optimization rather than explicit programming
+4. **Cross-Domain Coordination Transfer:** Coordination intelligence that transfers learning across different problem domains
+
+#### **Medium-Term AGI Evolution (2-5 years)**
+Building on the foundation established by this roadmap:
+
+1. **Autonomous Coordination Architecture:** Self-designing coordination systems that optimize their own neural architectures
+2. **Meta-Coordination Learning:** Systems that learn how to learn coordination patterns more effectively
+3. **Coordination Ecosystem Evolution:** Entire coordination ecosystems that evolve and improve autonomously
+4. **Human-AI Coordination Synthesis:** Seamless integration of human creativity with AI coordination intelligence
+
+#### **Long-Term AGI Potential (5+ years)**
+The ecosystem roadmap provides a pathway toward:
+
+1. **General Coordination Intelligence:** Coordination systems that can handle any coordination challenge as effectively as domain experts
+2. **Self-Evolving AI Ecosystems:** Complete AI development platforms that improve themselves autonomously
+3. **Coordination Singularity:** Coordination systems that exceed human coordination capabilities across all domains
+4. **AGI Coordination Foundation:** Core technologies that enable the coordination aspects of artificial general intelligence
+
+### **4.5. Risk Assessment and Mitigation**
+
+#### **Technical Risks**
+- **Coordination Complexity Risk:** Complex neural coordination systems may become difficult to understand or debug
+  - *Mitigation:* Comprehensive coordination observability and interpretability tools (U-1)
+- **Performance Risk:** Advanced coordination features may introduce unacceptable latency
+  - *Mitigation:* Continuous performance benchmarking and optimization focus (U-4, N-5)
+
+#### **Adoption Risks**
+- **Learning Curve Risk:** Advanced coordination features may be too complex for average developers
+  - *Mitigation:* Excellent developer experience and comprehensive documentation
+- **Integration Risk:** MCP coordination complexity may hinder Claude Code integration
+  - *Mitigation:* Seamless MCP integration design and extensive integration testing
+
+#### **Security and Safety Risks**
+- **Coordination Safety Risk:** Self-improving coordination systems may develop unsafe behaviors
+  - *Mitigation:* Comprehensive security sandboxing and coordination behavior monitoring (U-2)
+- **Emergent Behavior Risk:** Complex coordination systems may exhibit unexpected emergent behaviors
+  - *Mitigation:* Extensive testing, monitoring, and coordination behavior analysis
+
+### **4.6. Conclusion: A Roadmap to Coordination AGI**
+
+This roadmap transforms the ruv-FANN ecosystem from a neural network library with coordination features into a **foundational platform for AGI-level coordination intelligence**. By implementing neural-powered, self-improving MCP coordination systems, the ecosystem becomes a testbed for some of the most advanced concepts in artificial intelligence coordination research.
+
+The key insight driving this roadmap is that **coordination intelligence may be one of the most direct paths to AGI capabilities**. While traditional AI systems excel at specific tasks, AGI requires the ability to coordinate complex, multi-step activities across diverse domains—precisely the capability that this roadmap develops.
+
+The proposed features create a system where:
+- **Neural networks provide the cognitive foundation** for coordination decision-making
+- **MCP coordination enables seamless integration** with powerful AI systems like Claude Code
+- **Self-improving mechanisms ensure continuous evolution** toward more effective coordination
+- **Comprehensive tooling enables safe development** of advanced coordination capabilities
+
+By following this roadmap, the ruv-FANN ecosystem evolves into more than just a neural network library—it becomes a **platform for developing and deploying AGI-level coordination intelligence**, providing a concrete pathway from current AI capabilities toward the coordination aspects of artificial general intelligence.
+
+The timeline is ambitious but achievable, the research foundation is solid, and the potential impact is transformative. This roadmap provides a clear vision for turning the current ecosystem into a pioneering platform for the future of AI coordination and a significant step toward AGI.
+
+---
+
+### **Testing for AGI-Like Capabilities**
+See these standard tests that we can start with as we progress through the roadmap: 
+[AGI-tests](https://github.com/Hulupeep/roadmap/blob/main/agitests.md)
+
+### **Hardware Acceleration**
+The right hardware will make this roadmap highly achievable in a short time. See the [hardware acceleration roadmap](https://github.com/Hulupeep/roadmap/blob/main/blackwell.md)
 
 #### **Works cited**
 
-1. ruvnet/ruv-FANN: A blazing-fast, memory-safe neural network library for Rust that brings the power of FANN to the modern world. \- GitHub, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN](https://github.com/ruvnet/ruv-FANN)  
-2. ruv-FANN \- Lib.rs, accessed July 2, 2025, [https://lib.rs/crates/ruv-fann](https://lib.rs/crates/ruv-fann)  
-3. rUv-FANN: A pure Rust implementation of the Fast Artificial Neural Network (FANN) library, accessed July 2, 2025, [https://www.reddit.com/r/rust/comments/1llbj5k/ruvfann\_a\_pure\_rust\_implementation\_of\_the\_fast/](https://www.reddit.com/r/rust/comments/1llbj5k/ruvfann_a_pure_rust_implementation_of_the_fast/)  
-4. ruv-swarm-core — Rust implementation // Lib.rs, accessed July 2, 2025, [https://lib.rs/crates/ruv-swarm-core](https://lib.rs/crates/ruv-swarm-core)  
-5. Research on Swarm Control Based on Complementary Collaboration of Unmanned Aerial Vehicle Swarms Under Complex Conditions \- ResearchGate, accessed July 2, 2025, [https://www.researchgate.net/publication/388786749\_Research\_on\_Swarm\_Control\_Based\_on\_Complementary\_Collaboration\_of\_Unmanned\_Aerial\_Vehicle\_Swarms\_Under\_Complex\_Conditions](https://www.researchgate.net/publication/388786749_Research_on_Swarm_Control_Based_on_Complementary_Collaboration_of_Unmanned_Aerial_Vehicle_Swarms_Under_Complex_Conditions)  
-6. How Does Intelligent Swarming Work? \- Consortium for Service Innovation, accessed July 2, 2025, [https://library.serviceinnovation.org/Intelligent\_Swarming/Practices\_Guide/30\_How\_Does\_It\_Work](https://library.serviceinnovation.org/Intelligent_Swarming/Practices_Guide/30_How_Does_It_Work)  
-7. ruvnet/claude-code-flow: This mode serves as a code-first ... \- GitHub, accessed July 2, 2025, [https://github.com/ruvnet/claude-code-flow](https://github.com/ruvnet/claude-code-flow)  
-8. Major Claude-Flow Update v1.0.50: Swarm Mode Activated 20x performance increase vs traditional sequential Claude Code automation. : r/ClaudeAI \- Reddit, accessed July 2, 2025, [https://www.reddit.com/r/ClaudeAI/comments/1ld7a0d/major\_claudeflow\_update\_v1050\_swarm\_mode/](https://www.reddit.com/r/ClaudeAI/comments/1ld7a0d/major_claudeflow_update_v1050_swarm_mode/)  
-9. Remote MCP Support in Claude Code \- Hacker News, accessed July 2, 2025, [https://news.ycombinator.com/item?id=44312363](https://news.ycombinator.com/item?id=44312363)  
-10. Frustrated with Claude Code: Impressive Start, but Struggles to Refine : r/ClaudeAI \- Reddit, accessed July 2, 2025, [https://www.reddit.com/r/ClaudeAI/comments/1l6kkhw/frustrated\_with\_claude\_code\_impressive\_start\_but/](https://www.reddit.com/r/ClaudeAI/comments/1l6kkhw/frustrated_with_claude_code_impressive_start_but/)  
-11. Issues · ruvnet/claude-code-flow · GitHub, accessed July 2, 2025, [https://github.com/ruvnet/claude-code-flow/issues](https://github.com/ruvnet/claude-code-flow/issues)  
-12. Search and rescue | Swarm Intelligence and Robotics Class Notes \- Fiveable, accessed July 2, 2025, [https://library.fiveable.me/swarm-intelligence-and-robotics/unit-9/search-rescue/study-guide/UDVccuW9ygzmOcg9](https://library.fiveable.me/swarm-intelligence-and-robotics/unit-9/search-rescue/study-guide/UDVccuW9ygzmOcg9)  
-13. Multi-Agent Orchestration Platform for Claude-Code (npx claude-flow) : r/ClaudeAI \- Reddit, accessed July 2, 2025, [https://www.reddit.com/r/ClaudeAI/comments/1l87dj7/claudeflow\_multiagent\_orchestration\_platform\_for/](https://www.reddit.com/r/ClaudeAI/comments/1l87dj7/claudeflow_multiagent_orchestration_platform_for/)  
-14. \[2410.16946\] Self-Evolving Multi-Agent Collaboration Networks for Software Development, accessed July 2, 2025, [https://arxiv.org/abs/2410.16946](https://arxiv.org/abs/2410.16946)  
-15. Self-Evolving Multi-Agent Collaboration Networks for Software Development \- Powerdrill, accessed July 2, 2025, [https://powerdrill.ai/discover/discover-Self-Evolving-Multi-Agent-Collaboration-cm2nsklg2v02101c4c1j4rg5n](https://powerdrill.ai/discover/discover-Self-Evolving-Multi-Agent-Collaboration-cm2nsklg2v02101c4c1j4rg5n)  
-16. Self-Evolving Multi-Agent Collaboration Networks for Software Development \- PromptLayer, accessed July 2, 2025, [https://www.promptlayer.com/research-papers/ai-teamwork-building-software-with-evolving-agents](https://www.promptlayer.com/research-papers/ai-teamwork-building-software-with-evolving-agents)  
-17. Self-Evolving Multi-Agent Collaboration Networks for Software Development \- OpenReview, accessed July 2, 2025, [https://openreview.net/forum?id=4R71pdPBZp](https://openreview.net/forum?id=4R71pdPBZp)  
-18. Self-Evolving Multi-Agent Collaboration Networks for Software Development \- arXiv, accessed July 2, 2025, [https://arxiv.org/html/2410.16946v1](https://arxiv.org/html/2410.16946v1)  
-19. Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence \- arXiv, accessed July 2, 2025, [https://arxiv.org/html/2410.11163v1](https://arxiv.org/html/2410.11163v1)  
-20. Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence, accessed July 2, 2025, [https://openreview.net/forum?id=AUtO02LArY\&referrer=%5Bthe%20profile%20of%20Shangbin%20Feng%5D(%2Fprofile%3Fid%3D\~Shangbin\_Feng1)](https://openreview.net/forum?id=AUtO02LArY&referrer=%5Bthe+profile+of+Shangbin+Feng%5D\(/profile?id%3D~Shangbin_Feng1\))  
-21. \[Literature Review\] Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence \- Moonlight | AI Colleague for Research Papers, accessed July 2, 2025, [https://www.themoonlight.io/en/review/model-swarms-collaborative-search-to-adapt-llm-experts-via-swarm-intelligence](https://www.themoonlight.io/en/review/model-swarms-collaborative-search-to-adapt-llm-experts-via-swarm-intelligence)  
-22. LLM-Based Multi-Agent Systems for Software Engineering: Literature Review, Vision and the Road Ahead \- arXiv, accessed July 2, 2025, [https://arxiv.org/html/2404.04834v3](https://arxiv.org/html/2404.04834v3)  
-23. LLM-Based Multi-Agent Systems for Software Engineering: Literature Review, Vision and the Road Ahead | Request PDF \- ResearchGate, accessed July 2, 2025, [https://www.researchgate.net/publication/387988076\_LLM-Based\_Multi-Agent\_Systems\_for\_Software\_Engineering\_Literature\_Review\_Vision\_and\_the\_Road\_Ahead](https://www.researchgate.net/publication/387988076_LLM-Based_Multi-Agent_Systems_for_Software_Engineering_Literature_Review_Vision_and_the_Road_Ahead)  
-24. Introducing Strands Agents, an Open Source AI Agents SDK \- AWS, accessed July 2, 2025, [https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/](https://aws.amazon.com/blogs/opensource/introducing-strands-agents-an-open-source-ai-agents-sdk/)  
-25. Neuro-Divergent \- Lib.rs, accessed July 2, 2025, [https://lib.rs/crates/neuro-divergent](https://lib.rs/crates/neuro-divergent)  
-26. The Comprehensive Guide to Swarms-rs: Building Powerful Multi-Agent Systems in Rust, accessed July 2, 2025, [https://medium.com/@kyeg/the-comprehensive-guide-to-swarms-rs-building-powerful-multi-agent-systems-in-rust-a3f3a5d974fe](https://medium.com/@kyeg/the-comprehensive-guide-to-swarms-rs-building-powerful-multi-agent-systems-in-rust-a3f3a5d974fe)  
-27. parruda/claude-swarm: Easily launch a Claude Code session that is connected to a swarm of Claude Code Agents \- GitHub, accessed July 2, 2025, [https://github.com/parruda/claude-swarm](https://github.com/parruda/claude-swarm)  
-28. Identify security vulnerabilities with Claude | Claude Explains \\ Anthropic, accessed July 2, 2025, [https://www.anthropic.com/claude-explains/identify-security-vulnerabilities-with-claude](https://www.anthropic.com/claude-explains/identify-security-vulnerabilities-with-claude)  
-29. Issues · libfann/fann \- GitHub, accessed July 2, 2025, [https://github.com/libfann/fann/issues](https://github.com/libfann/fann/issues)  
-30. SWE-Dev: Evaluating and Training Autonomous Feature-Driven Software Development, accessed July 2, 2025, [https://www.researchgate.net/publication/391991479\_SWE-Dev\_Evaluating\_and\_Training\_Autonomous\_Feature-Driven\_Software\_Development](https://www.researchgate.net/publication/391991479_SWE-Dev_Evaluating_and_Training_Autonomous_Feature-Driven_Software_Development)
+1. ruvnet/ruv-FANN: A blazing-fast, memory-safe neural network library for Rust that brings the power of FANN to the modern world. - GitHub, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN](https://github.com/ruvnet/ruv-FANN)
+2. ruv-FANN - Lib.rs, accessed July 2, 2025, [https://lib.rs/crates/ruv-fann](https://lib.rs/crates/ruv-fann)
+3. rUv-FANN: A pure Rust implementation of the Fast Artificial Neural Network (FANN) library, accessed July 2, 2025, [https://www.reddit.com/r/rust/comments/1llbj5k/ruvfann_a_pure_rust_implementation_of_the_fast/](https://www.reddit.com/r/rust/comments/1llbj5k/ruvfann_a_pure_rust_implementation_of_the_fast/)
+4. ruv-swarm-core — Rust implementation // Lib.rs, accessed July 2, 2025, [https://lib.rs/crates/ruv-swarm-core](https://lib.rs/crates/ruv-swarm-core)
+5. Research on Swarm Control Based on Complementary Collaboration of Unmanned Aerial Vehicle Swarms Under Complex Conditions - ResearchGate, accessed July 2, 2025, [https://www.researchgate.net/publication/388786749_Research_on_Swarm_Control_Based_on_Complementary_Collaboration_of_Unmanned_Aerial_Vehicle_Swarms_Under_Complex_Conditions](https://www.researchgate.net/publication/388786749_Research_on_Swarm_Control_Based_on_Complementary_Collaboration_of_Unmanned_Aerial_Vehicle_Swarms_Under_Complex_Conditions)
+6. How Does Intelligent Swarming Work? - Consortium for Service Innovation, accessed July 2, 2025, [https://library.serviceinnovation.org/Intelligent_Swarming/Practices_Guide/30_How_Does_It_Work](https://library.serviceinnovation.org/Intelligent_Swarming/Practices_Guide/30_How_Does_It_Work)
+7. ruvnet/ruv-FANN: ruv-swarm MCP coordination documentation, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm](https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm)
+8. Major ruv-swarm Update v1.0.10: Neural-Powered MCP Coordination, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm/npm](https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm/npm)
+9. MCP Integration Best Practices for Neural Coordination, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN/blob/main/ruv-swarm/CLAUDE.md](https://github.com/ruvnet/ruv-FANN/blob/main/ruv-swarm/CLAUDE.md)
+10. Claude Code MCP Coordination User Feedback, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN/issues](https://github.com/ruvnet/ruv-FANN/issues)
+11. ruv-swarm MCP Tools Documentation, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm/docs](https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm/docs)
+12. Search and rescue | Swarm Intelligence and Robotics Class Notes - Fiveable, accessed July 2, 2025, [https://library.fiveable.me/swarm-intelligence-and-robotics/unit-9/search-rescue/study-guide/UDVccuW9ygzmOcg9](https://library.fiveable.me/swarm-intelligence-and-robotics/unit-9/search-rescue/study-guide/UDVccuW9ygzmOcg9)
+13. Neural-Powered MCP Coordination Platform for Claude Code Integration, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm/npm](https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm/npm)
+14. [2410.16946] Self-Evolving Multi-Agent Collaboration Networks for Software Development, accessed July 2, 2025, [https://arxiv.org/abs/2410.16946](https://arxiv.org/abs/2410.16946)
+15. Self-Evolving Multi-Agent Collaboration Networks for Software Development - Powerdrill, accessed July 2, 2025, [https://powerdrill.ai/discover/discover-Self-Evolving-Multi-Agent-Collaboration-cm2nsklg2v02101c4c1j4rg5n](https://powerdrill.ai/discover/discover-Self-Evolving-Multi-Agent-Collaboration-cm2nsklg2v02101c4c1j4rg5n)
+16. Self-Evolving Multi-Agent Collaboration Networks for Software Development - PromptLayer, accessed July 2, 2025, [https://www.promptlayer.com/research-papers/ai-teamwork-building-software-with-evolving-agents](https://www.promptlayer.com/research-papers/ai-teamwork-building-software-with-evolving-agents)
+17. Self-Evolving Multi-Agent Collaboration Networks for Software Development - OpenReview, accessed July 2, 2025, [https://openreview.net/forum?id=4R71pdPBZp](https://openreview.net/forum?id=4R71pdPBZp)
+18. Self-Evolving Multi-Agent Collaboration Networks for Software Development - arXiv, accessed July 2, 2025, [https://arxiv.org/html/2410.16946v1](https://arxiv.org/html/2410.16946v1)
+19. Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence - arXiv, accessed July 2, 2025, [https://arxiv.org/html/2410.11163v1](https://arxiv.org/html/2410.11163v1)
+20. Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence, accessed July 2, 2025, [https://openreview.net/forum?id=AUtO02LArY&referrer=%5Bthe%20profile%20of%20Shangbin%20Feng%5D(%2Fprofile%3Fid%3D~Shangbin_Feng1)](https://openreview.net/forum?id=AUtO02LArY&referrer=%5Bthe+profile+of+Shangbin+Feng%5D\(/profile?id%3D~Shangbin_Feng1\))
+21. [Literature Review] Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence - Moonlight | AI Colleague for Research Papers, accessed July 2, 2025, [https://www.themoonlight.io/en/review/model-swarms-collaborative-search-to-adapt-llm-experts-via-swarm-intelligence](https://www.themoonlight.io/en/review/model-swarms-collaborative-search-to-adapt-llm-experts-via-swarm-intelligence)
+22. LLM-Based Multi-Agent Systems for Software Engineering: Literature Review, Vision and the Road Ahead - arXiv, accessed July 2, 2025, [https://arxiv.org/html/2404.04834v3](https://arxiv.org/html/2404.04834v3)
+23. LLM-Based Multi-Agent Systems for Software Engineering: Literature Review, Vision and the Road Ahead | Request PDF - ResearchGate, accessed July 2, 2025, [https://www.researchgate.net/publication/387988076_LLM-Based_Multi-Agent_Systems_for_Software_Engineering_Literature_Review_Vision_and_the_Road_Ahead](https://www.researchgate.net/publication/387988076_LLM-Based_Multi-Agent_Systems_for_Software_Engineering_Literature_Review_Vision_and_the_Road_Ahead)
+24. Neural Coordination Systems for Distributed AI Agents, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm/docs/NEURAL_INTEGRATION.md](https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm/docs/NEURAL_INTEGRATION.md)
+25. Neuro-Divergent - Lib.rs, accessed July 2, 2025, [https://lib.rs/crates/neuro-divergent](https://lib.rs/crates/neuro-divergent)
+26. MCP Protocol Specification for Neural Coordination, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm/crates/ruv-swarm-mcp](https://github.com/ruvnet/ruv-FANN/tree/main/ruv-swarm/crates/ruv-swarm-mcp)
+27. Neural-Powered Swarm Coordination: The Complete Guide, accessed July 2, 2025, [https://github.com/ruvnet/ruv-FANN/blob/main/ruv-swarm/docs/README.md](https://github.com/ruvnet/ruv-FANN/blob/main/ruv-swarm/docs/README.md)
+28. Claude Code Security Best Practices for MCP Coordination, accessed July 2, 2025, [https://docs.anthropic.com/en/docs/claude-code/security](https://docs.anthropic.com/en/docs/claude-code/security)
+29. Issues · libfann/fann - GitHub, accessed July 2, 2025, [https://github.com/libfann/fann/issues](https://github.com/libfann/fann/issues)
+30. SWE-Dev: Evaluating and Training Autonomous Feature-Driven Software Development, accessed July 2, 2025, [https://www.researchgate.net/publication/391991479_SWE-Dev_Evaluating_and_Training_Autonomous_Feature-Driven_Software_Development](https://www.researchgate.net/publication/391991479_SWE-Dev_Evaluating_and_Training_Autonomous_Feature-Driven_Software_Development)
